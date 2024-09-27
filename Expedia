@@ -240,13 +240,13 @@
                                                         <div>
                                                             <div>
 															 <picture class="hl-image-picture" style="display:block;">
-                                                                    <source media="(max-width:900px) and (min-width: 768px)" srcset="images/deliveroo.png">
-                                                                        <source media="(max-width:768px) and (min-width: 640px)" srcset="images/deliveroo.png">
-                                                                            <source media="(max-width:640px) and (min-width: 480px)" srcset="images/deliveroo.png">
-                                                                                <source media="(max-width:480px) and (min-width: 320px)" srcset="images/deliveroo.png">
-                                                                                    <source media="(max-width:320px)" srcset="images/deliveroo.png">
+                                                                    <source media="(max-width:900px) and (min-width: 768px)" srcset="images/expedia.png">
+                                                                        <source media="(max-width:768px) and (min-width: 640px)" srcset="images/expedia.png">
+                                                                            <source media="(max-width:640px) and (min-width: 480px)" srcset="images/expedia.png">
+                                                                                <source media="(max-width:480px) and (min-width: 320px)" srcset="images/expedia.png">
+                                                                                    <source media="(max-width:320px)" srcset="images/expedia.png">
                                                                 
-                                                                                        <img src="images/deliveroo.png" alt="" style="" class="img-none img-border-none img-shadow-none img-effects-none hl-optimized mw-100" loading="lazy">
+                                                                                        <img src="images/expedia.png" alt="" style="" class="img-none img-border-none img-shadow-none img-effects-none hl-optimized mw-100" loading="lazy">
                                                                 </picture> <div class="heading-LStbfP1bdV text-output cheading-LStbfP1bdV none noBorder radius0 none" animation-data>
                                                         <div style="margin-top: 20px;"> 
                                                             <h1>Follow the steps to get your <strong>$750 Expedia Giftcard!</strong></h1>
@@ -340,7 +340,7 @@
 	
         <li><strong>Enter your email & basic info</strong> ✍️</li>
 	<br>
-        <li><strong>Complete recommended deals</strong> 🚨</li>
+        <li><strong>Complete recommended deals(IMPORTANT)</strong> 🚨</li>
 	<br>
         <li><strong>Claim your reward!</strong> 💸</li>
     </ol>
@@ -382,9 +382,9 @@
                                                         <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet">
                                                         <div style="margin-top: -25px;" class="question" id="q1">
                                                             <h2 class="questiontext">Where are you located?</h2>
-                                                            <p><a class="cta_btn q1-btn">United Kingdom</a>
+                                                            <p><a class="cta_btn q1-btn">United States</a>
                                                             </p>
-                                                            <p><a class="cta_btn q1-btn">Ireland</a>
+                                                            <p><a class="cta_btn q1-btn">Canada</a>
                                                             </p>
                                                             
                                                         </div>
@@ -399,7 +399,7 @@
                                                                 </span>
                                                             </p>
                                                             <p style="text-align: center; margin-top: -15px"><span style="font-size: 18pt; font-family: Poppins, sans-serif;">Click below to claim your reward!</span>
-															<p> <a  href="https://rewarrdsgiant.com/aff_c?offer_id=163&aff_id=20395&source=Vercel"  class="cta_btn q2-btn" > Claim Now!</a> 
+															<p> <a  href="https://glitchy.go2cloud.org/aff_c?offer_id=939&aff_id=20395&source=EX"  class="cta_btn q2-btn" > Claim Now!</a> 
                                                             </p>
                                                             </p>
                                                          
