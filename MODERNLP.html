@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RewardGiants - Win Big!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0A0F1C] text-white">
+    <!-- Hero Section -->
+    <div class="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1589666564459-93cdd3ab856a?auto=format&fit=crop&q=80&w=2000"
+                alt="Money Rain"
+                class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0A0F1C]/80 to-[#0A0F1C]"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-4 text-center">
+            <div class="animate-fade-in-up max-w-5xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent leading-tight">
+                    Your Chance to Win Big!
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">
+                    Join thousands of winners who changed their lives with RewardGiants
+                </p>
+                
+                <!-- Timer -->
+                <div class="inline-flex items-center gap-4 sm:gap-8 bg-white/5 backdrop-blur-lg rounded-2xl p-4 sm:p-6 mb-8 border border-white/10">
+                    <svg class="w-8 h-8 sm:w-12 sm:h-12 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <div class="flex gap-2 sm:gap-4" id="timer">
+                        <div class="text-center">
+                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="hours">17</span>
+                            <p class="text-xs sm:text-sm text-gray-400">Hours</p>
+                        </div>
+                        <span class="text-2xl sm:text-3xl md:text-4xl font-bold">:</span>
+                        <div class="text-center">
+                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="minutes">20</span>
+                            <p class="text-xs sm:text-sm text-gray-400">Minutes</p>
+                        </div>
+                        <span class="text-2xl sm:text-3xl md:text-4xl font-bold">:</span>
+                        <div class="text-center">
+                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="seconds">00</span>
+                            <p class="text-xs sm:text-sm text-gray-400">Seconds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 max-w-md mx-auto">
+                    <select id="country" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-white/5 backdrop-blur-lg border border-white/10 text-white focus:outline-none focus:border-yellow-400">
+                        <option value="">Select Your Country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                    </select>
+                    
+                    <button onclick="handleRedirect()" class="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-lg sm:text-xl flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-700 transition-all shadow-lg shadow-yellow-600/20">
+                        Claim Your Prize Now 
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                    
+                    <p class="text-red-500 font-semibold text-sm sm:text-base">Only 47 Spots Remaining!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Steps Section -->
+    <div class="bg-white/5 py-16 sm:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-yellow-400/10 p-4 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <polyline points="16 11 18 13 22 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Register</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Fill in your basic information</p>
+                </div>
+
+                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-yellow-400/10 p-4 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Select Location</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Choose your country</p>
+                </div>
+
+                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-yellow-400/10 p-4 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Verify Email</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Confirm your email address</p>
+                </div>
+
+                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-yellow-400/10 p-4 rounded-full">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Claim Prize</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Get your reward instantly</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="py-16 sm:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">Recent Winners</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white/5 rounded-xl p-6 sm:p-8 relative border border-white/10">
+                    <button onclick="previousTestimonial()" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/5 p-2 rounded-full hover:bg-white/10 transition-all">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button onclick="nextTestimonial()" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/5 p-2 rounded-full hover:bg-white/10 transition-all">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                    
+                    <div id="testimonial" class="text-center max-w-2xl mx-auto">
+                        <div class="mb-6 relative">
+                            <img id="testimonialImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150" 
+                                alt="Testimonial"
+                                class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover border-4 border-yellow-400">
+                            <div class="absolute top-0 right-1/2 translate-x-16 -translate-y-2 bg-yellow-400 text-black font-bold px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
+                                Won <span id="testimonialAmount">$5,000</span>
+                            </div>
+                        </div>
+                        <p id="testimonialQuote" class="text-xl sm:text-2xl mb-6 italic">"I couldn't believe it when I won! The process was so simple, and the reward changed my life."</p>
+                        <p id="testimonialName" class="font-bold text-lg sm:text-xl">Sarah Johnson</p>
+                        <p id="testimonialLocation" class="text-sm sm:text-base text-gray-400">New York</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-4 sm:py-6">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-400 text-sm">
+                <p>*2024 RewardGiants - Terms & Conditions Apply</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Timer functionality
+        function updateTimer() {
+            const timerEl = {
+                hours: document.getElementById('hours'),
+                minutes: document.getElementById('minutes'),
+                seconds: document.getElementById('seconds')
+            };
+
+            let timeLeft = {
+                hours: parseInt(timerEl.hours.textContent),
+                minutes: parseInt(timerEl.minutes.textContent),
+                seconds: parseInt(timerEl.seconds.textContent)
+            };
+
+            setInterval(() => {
+                if (timeLeft.seconds > 0) {
+                    timeLeft.seconds--;
+                } else if (timeLeft.minutes > 0) {
+                    timeLeft.minutes--;
+                    timeLeft.seconds = 59;
+                } else if (timeLeft.hours > 0) {
+                    timeLeft.hours--;
+                    timeLeft.minutes = 59;
+                    timeLeft.seconds = 59;
+                }
+
+                timerEl.hours.textContent = String(timeLeft.hours).padStart(2, '0');
+                timerEl.minutes.textContent = String(timeLeft.minutes).padStart(2, '0');
+                timerEl.seconds.textContent = String(timeLeft.seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Testimonials functionality
+        const testimonials = [
+            {
+                name: "Sarah Johnson",
+                location: "New York",
+                amount: "$5,000",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "I couldn't believe it when I won! The process was so simple, and the reward changed my life."
+            },
+            {
+                name: "Michael Chen",
+                location: "California",
+                amount: "$2,500",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "At first I was skeptical, but RewardGiants delivered exactly what they promised!"
+            },
+            {
+                name: "Emma Wilson",
+                location: "Texas",
+                amount: "$7,500",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "The easiest money I've ever won. Thank you RewardGiants!"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            document.getElementById('testimonialImage').src = testimonial.image;
+            document.getElementById('testimonialImage').alt = testimonial.name;
+            document.getElementById('testimonialAmount').textContent = testimonial.amount;
+            document.getElementById('testimonialQuote').textContent = `"${testimonial.quote}"`;
+            document.getElementById('testimonialName').textContent = testimonial.name;
+            document.getElementById('testimonialLocation').textContent = testimonial.location;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial();
+        }
+
+        function previousTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial();
+        }
+
+        // Auto-rotate testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Redirect functionality
+        function handleRedirect() {
+            const country = document.getElementById('country').value;
+            if (!country) {
+                alert('Please select your country first!');
+                return;
+            }
+            window.location.href = 'https://your-redirect-url.com';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTimer();
+            updateTestimonial();
+        });
+    </script>
+</body>
+</html>
