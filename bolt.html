@@ -16,9 +16,6 @@
                 transform: translateY(0);
             }
         }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
 
         @keyframes slideInDown {
             from {
@@ -42,38 +39,21 @@
             }
         }
 
-        @keyframes moneyRain {
-            0% {
-                transform: translateY(-100%) rotate(0deg);
-                opacity: 0;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
             }
-            10% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
+            50% {
+                transform: translateY(-10px);
             }
         }
 
-        .money-rain {
-            position: fixed;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 1;
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .money {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: url('https://images.unsplash.com/photo-1580519542036-c47de6d5f72a?auto=format&fit=crop&q=80&w=30') no-repeat center/cover;
-            animation: moneyRain 3s linear infinite;
-            opacity: 0.3;
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
         }
 
         .notification {
@@ -83,27 +63,37 @@
             z-index: 50;
             animation: slideInDown 0.5s ease forwards, slideOutUp 0.5s ease forwards 3.5s;
         }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .success-gradient {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
     </style>
 </head>
-<body class="min-h-screen bg-[#0A0F1C] text-white">
-    <!-- Money Rain Container -->
-    <div class="money-rain" id="money-rain"></div>
-
+<body class="min-h-screen bg-gradient-to-br from-[#0A1A2F] via-[#0F2A3F] to-[#1B4D3E] text-white">
     <!-- Notification Container -->
     <div id="notification-container"></div>
 
     <!-- Hero Section -->
     <div class="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1589666564459-93cdd3ab856a?auto=format&fit=crop&q=80&w=2000"
-                alt="Money Rain"
-                class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#0A0F1C]/80 to-[#0A0F1C]"></div>
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621981386829-2b616e45f89c?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0A1A2F]/80 via-[#0F2A3F]/90 to-[#1B4D3E]/80"></div>
         </div>
         
         <div class="relative z-10 container mx-auto px-4 text-center">
             <div class="animate-fade-in-up max-w-5xl mx-auto">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent leading-tight">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-8">
+                    <span class="animate-pulse w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="text-sm text-green-400">Live Rewards Available</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 via-emerald-300 to-green-400 bg-clip-text text-transparent leading-tight">
                     Your Chance to Win Big!
                 </h1>
                 <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">
@@ -111,12 +101,14 @@
                 </p>
                 
                 <!-- Timer -->
-                <div class="inline-flex items-center gap-4 sm:gap-8 bg-white/5 backdrop-blur-lg rounded-2xl p-4 sm:p-6 mb-8 border border-white/10">
-                    <svg class="w-8 h-8 sm:w-12 sm:h-12 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    <div class="flex gap-2 sm:gap-4" id="timer">
+                <div class="inline-flex items-center gap-4 sm:gap-8 glass-effect rounded-2xl p-4 sm:p-6 mb-8">
+                    <div class="bg-green-500/20 p-3 rounded-full">
+                        <svg class="w-8 h-8 sm:w-12 sm:h-12 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="flex gap-2 sm:gap-4">
                         <div class="text-center">
                             <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="hours">17</span>
                             <p class="text-xs sm:text-sm text-gray-400">Hours</p>
@@ -135,7 +127,7 @@
                 </div>
 
                 <div class="flex flex-col items-center gap-4 max-w-md mx-auto">
-                    <select id="country" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-white/5 backdrop-blur-lg border border-white/10 text-white focus:outline-none focus:border-yellow-400">
+                    <select id="country" class="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl glass-effect text-white focus:outline-none focus:ring-2 focus:ring-green-500/50">
                         <option value="">Select Your Country</option>
                         <option value="US">United States</option>
                         <option value="CA">Canada</option>
@@ -143,29 +135,32 @@
                         <option value="AU">Australia</option>
                     </select>
                     
-                    <button onclick="handleRedirect()" class="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-lg sm:text-xl flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-700 transition-all shadow-lg shadow-yellow-600/20">
+                    <button onclick="handleRedirect()" class="w-full success-gradient text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-lg sm:text-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-green-500/20">
                         Claim Your Prize Now 
-                        <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 animate-float" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </button>
                     
-                    <p class="text-red-500 font-semibold text-sm sm:text-base">Only 47 Spots Remaining!</p>
+                    <div class="flex items-center gap-2">
+                        <span class="animate-pulse w-2 h-2 rounded-full bg-red-500"></span>
+                        <p class="text-red-400 font-semibold text-sm sm:text-base">Only 47 Spots Remaining!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Steps Section -->
-    <div class="bg-white/5 py-16 sm:py-20">
+    <div class="glass-effect py-16 sm:py-20">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
             <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
-                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
                     <div class="flex justify-center mb-6">
-                        <div class="bg-yellow-400/10 p-4 rounded-full">
-                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="bg-green-500/20 p-4 rounded-full">
+                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <polyline points="16 11 18 13 22 9"></polyline>
@@ -176,10 +171,10 @@
                     <p class="text-sm sm:text-base text-gray-400">Fill in your basic information</p>
                 </div>
 
-                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
                     <div class="flex justify-center mb-6">
-                        <div class="bg-yellow-400/10 p-4 rounded-full">
-                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="bg-green-500/20 p-4 rounded-full">
+                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
@@ -189,10 +184,10 @@
                     <p class="text-sm sm:text-base text-gray-400">Choose your country</p>
                 </div>
 
-                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
                     <div class="flex justify-center mb-6">
-                        <div class="bg-yellow-400/10 p-4 rounded-full">
-                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="bg-green-500/20 p-4 rounded-full">
+                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
@@ -202,10 +197,10 @@
                     <p class="text-sm sm:text-base text-gray-400">Confirm your email address</p>
                 </div>
 
-                <div class="bg-white/5 rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all border border-white/10">
+                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
                     <div class="flex justify-center mb-6">
-                        <div class="bg-yellow-400/10 p-4 rounded-full">
-                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="bg-green-500/20 p-4 rounded-full">
+                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                             </svg>
                         </div>
@@ -222,7 +217,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">Recent Winners</h2>
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white/5 rounded-xl p-6 sm:p-8 relative border border-white/10">
+                <div class="glass-effect rounded-xl p-6 sm:p-8 relative">
                     <button onclick="previousTestimonial()" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/5 p-2 rounded-full hover:bg-white/10 transition-all">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6"></polyline>
@@ -238,8 +233,8 @@
                         <div class="mb-6 relative">
                             <img id="testimonialImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150" 
                                 alt="Testimonial"
-                                class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover border-4 border-yellow-400">
-                            <div class="absolute top-0 right-1/2 translate-x-16 -translate-y-2 bg-yellow-400 text-black font-bold px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
+                                class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover ring-4 ring-green-400/30">
+                            <div class="absolute top-0 right-1/2 translate-x-16 -translate-y-2 success-gradient text-white font-bold px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
                                 Won <span id="testimonialAmount">$5,000</span>
                             </div>
                         </div>
@@ -262,23 +257,6 @@
     </footer>
 
     <script>
-        // Money Rain Animation
-        function createMoneyRain() {
-            const container = document.getElementById('money-rain');
-            const money = document.createElement('div');
-            money.className = 'money';
-            money.style.left = Math.random() * 100 + 'vw';
-            money.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            container.appendChild(money);
-            
-            setTimeout(() => {
-                money.remove();
-            }, 5000);
-        }
-
-        // Create money rain effect
-        setInterval(createMoneyRain, 200);
-
         // Notification System
         const notifications = [
             { name: "John D.", location: "Texas", amount: "$750" },
@@ -295,31 +273,26 @@
 
         function createNotification(notification) {
             const element = document.createElement('div');
-            element.className = 'notification bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-4 shadow-lg max-w-sm w-full';
+            element.className = 'notification glass-effect rounded-lg p-4 shadow-lg max-w-sm w-full';
             element.innerHTML = `
                 <div class="flex items-center gap-3">
                     <div class="bg-green-500/20 rounded-full p-2">
-                        <svg class="w-6 h-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="8"/>
-                            <path d="M12 6v6l4 2"/>
-                            <path d="M12 7h4"/>
-                            <path d="M12 16v1"/>
-                            <path d="M12 13h4"/>
+                        <svg class="w-4 h-4 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </div>
                     <div>
                         <p class="text-sm font-semibold text-white">${notification.name} from ${notification.location}</p>
-                        <p class="text-sm text-gray-300">Just claimed ${notification.amount}!</p>
+                        <p class="text-sm text-green-400">Just claimed ${notification.amount}!</p>
                     </div>
                 </div>
             `;
 
             document.getElementById('notification-container').appendChild(element);
 
-            // Remove notification after animation
             setTimeout(() => {
                 element.remove();
-            }, 4000); // Changed to 4 seconds
+            }, 4000);
         }
 
         function showRandomNotification() {
@@ -327,10 +300,9 @@
             createNotification(notifications[randomIndex]);
         }
 
-        // Show first notification after 3 seconds
+        // Show notifications every 3 seconds
         setTimeout(() => {
             showRandomNotification();
-            // Then show notifications every 3 seconds
             setInterval(showRandomNotification, 3000);
         }, 3000);
 
