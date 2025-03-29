@@ -128,8 +128,31 @@
             transform: translateZ(20px);
         }
 
-        .testimonial-transition {
-            transition: all 0.5s ease-in-out;
+        .testimonial-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            font-family: serif;
+            color: rgba(34, 197, 94, 0.1);
+            line-height: 1;
+        }
+
+        .winner-badge {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover .winner-badge {
+            transform: rotate(0deg) scale(1.05);
         }
     </style>
 </head>
@@ -155,7 +178,7 @@
                     Your Chance to Win Big!
                 </h1>
                 <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">
-                    Join thousands of winners who changed their lives, Only Limited Time!
+                    Join thousands of winners who changed their lives with RewardGiants
                 </p>
                 
                 <!-- Timer -->
@@ -168,7 +191,7 @@
                     </div>
                     <div class="flex gap-2 sm:gap-4">
                         <div class="text-center">
-                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="hours">02</span>
+                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="hours">17</span>
                             <p class="text-xs sm:text-sm text-gray-400">Hours</p>
                         </div>
                         <span class="text-2xl sm:text-3xl md:text-4xl font-bold">:</span>
@@ -178,7 +201,7 @@
                         </div>
                         <span class="text-2xl sm:text-3xl md:text-4xl font-bold">:</span>
                         <div class="text-center">
-                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="seconds">17</span>
+                            <span class="text-2xl sm:text-3xl md:text-4xl font-bold font-mono" id="seconds">00</span>
                             <p class="text-xs sm:text-sm text-gray-400">Seconds</p>
                         </div>
                     </div>
@@ -203,7 +226,7 @@
                     
                     <div class="flex items-center gap-2">
                         <span class="animate-pulse w-2 h-2 rounded-full bg-red-500"></span>
-                        <p class="text-red-400 font-semibold text-sm sm:text-base">Only 213 Spots Remaining!</p>
+                        <p class="text-red-400 font-semibold text-sm sm:text-base">Only 47 Spots Remaining!</p>
                     </div>
                 </div>
             </div>
@@ -265,7 +288,7 @@
                     <div class="flex justify-center mb-10">
                         <div class="bg-green-500/20 p-8 rounded-2xl step-icon">
                             <svg class="w-16 h-16 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </div>
                     </div>
@@ -293,18 +316,18 @@
                         </svg>
                     </button>
                     
-                    <div id="testimonial" class="text-center max-w-2xl mx-auto">
-                        <div class="mb-6 relative">
-                            <img id="testimonialImage" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" 
-                                alt="Testimonial"
-                                class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover ring-4 ring-green-400/30">
-                            <div class="absolute top-0 right-1/2 translate-x-16 -translate-y-2 success-gradient text-white font-bold px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
+                    <div id="testimonial" class="text-center max-w-2xl mx-auto testimonial-card">
+                        <div class="mb-8">
+                            <div class="winner-badge inline-block px-4 py-2 rounded-full text-white font-bold text-sm sm:text-base">
                                 Won <span id="testimonialAmount">$5,000</span>
                             </div>
                         </div>
                         <p id="testimonialQuote" class="text-xl sm:text-2xl mb-6 italic">"I couldn't believe it when I won! The process was so simple, and the reward changed my life."</p>
-                        <p id="testimonialName" class="font-bold text-lg sm:text-xl">Sarah Johnson</p>
-                        <p id="testimonialLocation" class="text-sm sm:text-base text-gray-400">New York</p>
+                        <div class="flex items-center justify-center gap-2">
+                            <p id="testimonialName" class="font-bold text-lg sm:text-xl">Sarah Johnson</p>
+                            <span class="text-gray-400">•</span>
+                            <p id="testimonialLocation" class="text-sm sm:text-base text-gray-400">New York</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -315,7 +338,7 @@
     <footer class="border-t border-white/10 py-4 sm:py-6">
         <div class="container mx-auto px-4">
             <div class="text-center text-gray-400 text-sm">
-                <p>2024 RewardGiants - Terms & Conditions Apply</p>
+                <p>*2024 RewardGiants - Terms & Conditions Apply</p>
             </div>
         </div>
     </footer>
@@ -353,80 +376,6 @@
             { name: "Ruth Martinez", location: "Iowa", amount: "$840" },
             { name: "Steven Wright", location: "Arkansas", amount: "$930" },
             { name: "Betty Nelson", location: "Kansas", amount: "$1,150" }
-        ];
-
-        // Testimonials
-        const testimonials = [
-            {
-                name: "Sarah Johnson",
-                location: "New York",
-                amount: "$25,000",
-                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "I couldn't believe it when I won! The process was so simple, and the reward changed my life."
-            },
-            {
-                name: "Michael Chen",
-                location: "California",
-                amount: "$2,500",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "At first I was skeptical, but RewardGiants delivered exactly what they promised!"
-            },
-            {
-                name: "Emma Wilson",
-                location: "Texas",
-                amount: "$17,500",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "The easiest money I've ever won. Thank you RewardGiants!"
-            },
-            {
-                name: "David Martinez",
-                location: "Florida",
-                amount: "$13,750",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "This platform is amazing! I received my reward within hours of winning."
-            },
-            {
-                name: "Jennifer Lee",
-                location: "Illinois",
-                amount: "$4,200",
-                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "I'm still in shock! The money came right when I needed it most."
-            },
-            {
-                name: "Robert Taylor",
-                location: "Ohio",
-                amount: "$6,000",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "The most legitimate reward platform I've ever used. Highly recommended!"
-            },
-            {
-                name: "Maria Garcia",
-                location: "Arizona",
-                amount: "$3,900",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "RewardGiants made the entire process so easy and straightforward."
-            },
-            {
-                name: "James Wilson",
-                location: "Georgia",
-                amount: "$5,500",
-                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "I was able to pay off my car loan with my winnings. Thank you!"
-            },
-            {
-                name: "Patricia Brown",
-                location: "Michigan",
-                amount: "$17,800",
-                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "The best decision I made was joining RewardGiants. Life-changing!"
-            },
-            {
-                name: "Thomas Anderson",
-                location: "Washington",
-                amount: "$21,200",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "I never thought I'd win, but here I am! Dreams do come true."
-            }
         ];
 
         function createNotification(notification) {
@@ -496,10 +445,71 @@
 
         let currentTestimonial = 0;
 
+        const testimonials = [
+            {
+                name: "Sarah Johnson",
+                location: "New York",
+                amount: "$5,000",
+                quote: "I couldn't believe it when I won! The process was so simple, and the reward changed my life."
+            },
+            {
+                name: "Michael Chen",
+                location: "California",
+                amount: "$2,500",
+                quote: "At first I was skeptical, but RewardGiants delivered exactly what they promised!"
+            },
+            {
+                name: "Emma Wilson",
+                location: "Texas",
+                amount: "$7,500",
+                quote: "The easiest money I've ever won. Thank you RewardGiants!"
+            },
+            {
+                name: "David Martinez",
+                location: "Florida",
+                amount: "$3,750",
+                quote: "This platform is amazing! I received my reward within hours of winning."
+            },
+            {
+                name: "Jennifer Lee",
+                location: "Illinois",
+                amount: "$4,200",
+                quote: "I'm still in shock! The money came right when I needed it most."
+            },
+            {
+                name: "Robert Taylor",
+                location: "Ohio",
+                amount: "$6,000",
+                quote: "The most legitimate reward platform I've ever used. Highly recommended!"
+            },
+            {
+                name: "Maria Garcia",
+                location: "Arizona",
+                amount: "$3,900",
+                quote: "RewardGiants made the entire process so easy and straightforward."
+            },
+            {
+                name: "James Wilson",
+                location: "Georgia",
+                amount: "$5,500",
+                quote: "I was able to pay off my car loan with my winnings. Thank you!"
+            },
+            {
+                name: "Patricia Brown",
+                location: "Michigan",
+                amount: "$4,800",
+                quote: "The best decision I made was joining RewardGiants. Life-changing!"
+            },
+            {
+                name: "Thomas Anderson",
+                location: "Washington",
+                amount: "$6,200",
+                quote: "I never thought I'd win, but here I am! Dreams do come true."
+            }
+        ];
+
         function updateTestimonial() {
             const testimonial = testimonials[currentTestimonial];
-            document.getElementById('testimonialImage').src = testimonial.image;
-            document.getElementById('testimonialImage').alt = testimonial.name;
             document.getElementById('testimonialAmount').textContent = testimonial.amount;
             document.getElementById('testimonialQuote').textContent = `"${testimonial.quote}"`;
             document.getElementById('testimonialName').textContent = testimonial.name;
@@ -524,7 +534,7 @@
                 alert('Please select your country first!');
                 return;
             }
-            window.location.href = 'https://glstrck.com/aff_c?offer_id=74&aff_id=28197';
+            window.location.href = 'https://your-redirect-url.com';
         }
 
         document.addEventListener('DOMContentLoaded', () => {
