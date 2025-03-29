@@ -61,7 +61,7 @@
             top: 20px;
             right: 20px;
             z-index: 50;
-            animation: slideInDown 0.5s ease forwards, slideOutUp 0.5s ease forwards 3.5s;
+            animation: slideInDown 0.8s ease forwards, slideOutUp 0.8s ease forwards 4.5s;
         }
 
         .glass-effect {
@@ -72,6 +72,64 @@
 
         .success-gradient {
             background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+
+        .step-card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 4rem;
+            font-weight: 900;
+            opacity: 0.15;
+            color: #22c55e;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform: translateZ(20px);
+        }
+
+        .step-icon {
+            transform: translateZ(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover .step-icon {
+            transform: translateZ(40px) scale(1.1);
+        }
+
+        .step-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform: translateZ(20px);
+        }
+
+        .testimonial-transition {
+            transition: all 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -145,7 +203,7 @@
                     
                     <div class="flex items-center gap-2">
                         <span class="animate-pulse w-2 h-2 rounded-full bg-red-500"></span>
-                        <p class="text-red-400 font-semibold text-sm sm:text-base">Only 122 Spots Remaining!</p>
+                        <p class="text-red-400 font-semibold text-sm sm:text-base">Only 47 Spots Remaining!</p>
                     </div>
                 </div>
             </div>
@@ -153,60 +211,66 @@
     </div>
 
     <!-- Steps Section -->
-    <div class="glass-effect py-16 sm:py-20">
+    <div class="glass-effect py-24 sm:py-32">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
-            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
-                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
-                    <div class="flex justify-center mb-6">
-                        <div class="bg-green-500/20 p-4 rounded-full">
-                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-center mb-20">
+                <span class="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">How It Works</span>
+            </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 max-w-7xl mx-auto">
+                <div class="step-card glass-effect rounded-2xl p-10 sm:p-12 text-center transform hover:scale-105 transition-all duration-500 shadow-xl shadow-green-500/10">
+                    <span class="step-number">1</span>
+                    <div class="flex justify-center mb-10">
+                        <div class="bg-green-500/20 p-8 rounded-2xl step-icon">
+                            <svg class="w-16 h-16 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <polyline points="16 11 18 13 22 9"></polyline>
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Register</h3>
-                    <p class="text-sm sm:text-base text-gray-400">Fill in your basic information</p>
+                    <h3 class="step-title mb-6">Register</h3>
+                    <p class="text-lg text-gray-300 font-medium">Fill in your basic information to get started</p>
                 </div>
 
-                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
-                    <div class="flex justify-center mb-6">
-                        <div class="bg-green-500/20 p-4 rounded-full">
-                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="step-card glass-effect rounded-2xl p-10 sm:p-12 text-center transform hover:scale-105 transition-all duration-500 shadow-xl shadow-green-500/10">
+                    <span class="step-number">2</span>
+                    <div class="flex justify-center mb-10">
+                        <div class="bg-green-500/20 p-8 rounded-2xl step-icon">
+                            <svg class="w-16 h-16 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Select Location</h3>
-                    <p class="text-sm sm:text-base text-gray-400">Choose your country</p>
+                    <h3 class="step-title mb-6">Location</h3>
+                    <p class="text-lg text-gray-300 font-medium">Choose your country from the list</p>
                 </div>
 
-                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
-                    <div class="flex justify-center mb-6">
-                        <div class="bg-green-500/20 p-4 rounded-full">
-                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="step-card glass-effect rounded-2xl p-10 sm:p-12 text-center transform hover:scale-105 transition-all duration-500 shadow-xl shadow-green-500/10">
+                    <span class="step-number">3</span>
+                    <div class="flex justify-center mb-10">
+                        <div class="bg-green-500/20 p-8 rounded-2xl step-icon">
+                            <svg class="w-16 h-16 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Verify Email</h3>
-                    <p class="text-sm sm:text-base text-gray-400">Confirm your email address</p>
+                    <h3 class="step-title mb-6">Verify</h3>
+                    <p class="text-lg text-gray-300 font-medium">Confirm your email address quickly</p>
                 </div>
 
-                <div class="glass-effect rounded-xl p-6 sm:p-8 text-center transform hover:scale-105 transition-all">
-                    <div class="flex justify-center mb-6">
-                        <div class="bg-green-500/20 p-4 rounded-full">
-                            <svg class="w-8 h-8 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="step-card glass-effect rounded-2xl p-10 sm:p-12 text-center transform hover:scale-105 transition-all duration-500 shadow-xl shadow-green-500/10">
+                    <span class="step-number">4</span>
+                    <div class="flex justify-center mb-10">
+                        <div class="bg-green-500/20 p-8 rounded-2xl step-icon">
+                            <svg class="w-16 h-16 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Claim Prize</h3>
-                    <p class="text-sm sm:text-base text-gray-400">Get your reward instantly</p>
+                    <h3 class="step-title mb-6">Claim</h3>
+                    <p class="text-lg text-gray-300 font-medium">Get your reward instantly</p>
                 </div>
             </div>
         </div>
@@ -231,11 +295,11 @@
                     
                     <div id="testimonial" class="text-center max-w-2xl mx-auto">
                         <div class="mb-6 relative">
-                            <img id="testimonialImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150" 
+                            <img id="testimonialImage" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" 
                                 alt="Testimonial"
                                 class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover ring-4 ring-green-400/30">
                             <div class="absolute top-0 right-1/2 translate-x-16 -translate-y-2 success-gradient text-white font-bold px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
-                                Won <span id="testimonialAmount">$1,000</span>
+                                Won <span id="testimonialAmount">$5,000</span>
                             </div>
                         </div>
                         <p id="testimonialQuote" class="text-xl sm:text-2xl mb-6 italic">"I couldn't believe it when I won! The process was so simple, and the reward changed my life."</p>
@@ -259,16 +323,110 @@
     <script>
         // Notification System
         const notifications = [
-            { name: "John D.", location: "Texas", amount: "$750" },
-            { name: "Sarah M.", location: "Florida", amount: "$1,000" },
-            { name: "Mike R.", location: "California", amount: "$850" },
-            { name: "Emma L.", location: "New York", amount: "$950" },
-            { name: "James K.", location: "Ohio", amount: "$1,200" },
-            { name: "Lisa P.", location: "Arizona", amount: "$800" },
-            { name: "Robert T.", location: "Nevada", amount: "$1,100" },
-            { name: "Maria G.", location: "Illinois", amount: "$950" },
-            { name: "David H.", location: "Washington", amount: "$750" },
-            { name: "Anna W.", location: "Oregon", amount: "$1,000" }
+            { name: "James Wilson", location: "Texas", amount: "$750" },
+            { name: "Sarah Miller", location: "Florida", amount: "$1,000" },
+            { name: "Michael Rodriguez", location: "California", amount: "$850" },
+            { name: "Emma Lewis", location: "New York", amount: "$950" },
+            { name: "James Kennedy", location: "Ohio", amount: "$1,200" },
+            { name: "Lisa Parker", location: "Arizona", amount: "$800" },
+            { name: "Robert Thompson", location: "Nevada", amount: "$1,100" },
+            { name: "Maria Garcia", location: "Illinois", amount: "$950" },
+            { name: "David Harris", location: "Washington", amount: "$750" },
+            { name: "Anna Williams", location: "Oregon", amount: "$1,000" },
+            { name: "Christopher Lee", location: "Massachusetts", amount: "$1,250" },
+            { name: "Jennifer Taylor", location: "Michigan", amount: "$900" },
+            { name: "William Brown", location: "Georgia", amount: "$1,150" },
+            { name: "Elizabeth Davis", location: "Colorado", amount: "$875" },
+            { name: "Thomas Anderson", location: "Virginia", amount: "$925" },
+            { name: "Patricia Martinez", location: "New Jersey", amount: "$1,300" },
+            { name: "Richard White", location: "Minnesota", amount: "$975" },
+            { name: "Margaret Clark", location: "Wisconsin", amount: "$825" },
+            { name: "Joseph Moore", location: "Indiana", amount: "$1,175" },
+            { name: "Susan Jackson", location: "Tennessee", amount: "$890" },
+            { name: "Kevin Martin", location: "South Carolina", amount: "$780" },
+            { name: "Nancy Thompson", location: "Kentucky", amount: "$1,050" },
+            { name: "Daniel Rodriguez", location: "Alabama", amount: "$920" },
+            { name: "Helen Phillips", location: "Missouri", amount: "$1,225" },
+            { name: "Edward Mitchell", location: "Louisiana", amount: "$870" },
+            { name: "Carol Anderson", location: "Oklahoma", amount: "$990" },
+            { name: "George Turner", location: "Connecticut", amount: "$1,080" },
+            { name: "Ruth Martinez", location: "Iowa", amount: "$840" },
+            { name: "Steven Wright", location: "Arkansas", amount: "$930" },
+            { name: "Betty Nelson", location: "Kansas", amount: "$1,150" }
+        ];
+
+        // Testimonials
+        const testimonials = [
+            {
+                name: "Sarah Johnson",
+                location: "New York",
+                amount: "$5,000",
+                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "I couldn't believe it when I won! The process was so simple, and the reward changed my life."
+            },
+            {
+                name: "Michael Chen",
+                location: "California",
+                amount: "$2,500",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "At first I was skeptical, but RewardGiants delivered exactly what they promised!"
+            },
+            {
+                name: "Emma Wilson",
+                location: "Texas",
+                amount: "$7,500",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "The easiest money I've ever won. Thank you RewardGiants!"
+            },
+            {
+                name: "David Martinez",
+                location: "Florida",
+                amount: "$3,750",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "This platform is amazing! I received my reward within hours of winning."
+            },
+            {
+                name: "Jennifer Lee",
+                location: "Illinois",
+                amount: "$4,200",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "I'm still in shock! The money came right when I needed it most."
+            },
+            {
+                name: "Robert Taylor",
+                location: "Ohio",
+                amount: "$6,000",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "The most legitimate reward platform I've ever used. Highly recommended!"
+            },
+            {
+                name: "Maria Garcia",
+                location: "Arizona",
+                amount: "$3,900",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "RewardGiants made the entire process so easy and straightforward."
+            },
+            {
+                name: "James Wilson",
+                location: "Georgia",
+                amount: "$5,500",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "I was able to pay off my car loan with my winnings. Thank you!"
+            },
+            {
+                name: "Patricia Brown",
+                location: "Michigan",
+                amount: "$4,800",
+                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "The best decision I made was joining RewardGiants. Life-changing!"
+            },
+            {
+                name: "Thomas Anderson",
+                location: "Washington",
+                amount: "$6,200",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+                quote: "I never thought I'd win, but here I am! Dreams do come true."
+            }
         ];
 
         function createNotification(notification) {
@@ -292,7 +450,7 @@
 
             setTimeout(() => {
                 element.remove();
-            }, 4000);
+            }, 5000);
         }
 
         function showRandomNotification() {
@@ -300,13 +458,11 @@
             createNotification(notifications[randomIndex]);
         }
 
-        // Show notifications every 3 seconds
         setTimeout(() => {
             showRandomNotification();
-            setInterval(showRandomNotification, 3000);
-        }, 3000);
+            setInterval(showRandomNotification, 4000);
+        }, 2000);
 
-        // Timer functionality
         function updateTimer() {
             const timerEl = {
                 hours: document.getElementById('hours'),
@@ -338,31 +494,6 @@
             }, 1000);
         }
 
-        // Testimonials functionality
-        const testimonials = [
-            {
-                name: "Sarah Johnson",
-                location: "New York",
-                amount: "$1,000",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "I couldn't believe it when I won! The process was so simple, and the reward changed my life."
-            },
-            {
-                name: "Michael Chen",
-                location: "California",
-                amount: "$850",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "At first I was skeptical, but RewardGiants delivered exactly what they promised!"
-            },
-            {
-                name: "Emma Wilson",
-                location: "Texas",
-                amount: "$1,500",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-                quote: "The easiest money I've ever won. Thank you RewardGiants!"
-            }
-        ];
-
         let currentTestimonial = 0;
 
         function updateTestimonial() {
@@ -385,10 +516,8 @@
             updateTestimonial();
         }
 
-        // Auto-rotate testimonials
         setInterval(nextTestimonial, 5000);
 
-        // Redirect functionality
         function handleRedirect() {
             const country = document.getElementById('country').value;
             if (!country) {
@@ -398,7 +527,6 @@
             window.location.href = 'https://your-redirect-url.com';
         }
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             updateTimer();
             updateTestimonial();
