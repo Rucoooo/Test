@@ -42,16 +42,53 @@
             }
         }
 
+        @keyframes moneyRain {
+            0% {
+                transform: translateY(-100%) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .money-rain {
+            position: fixed;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .money {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://images.unsplash.com/photo-1580519542036-c47de6d5f72a?auto=format&fit=crop&q=80&w=30') no-repeat center/cover;
+            animation: moneyRain 3s linear infinite;
+            opacity: 0.3;
+        }
+
         .notification {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 50;
-            animation: slideInDown 0.5s ease forwards, slideOutUp 0.5s ease forwards 4.5s;
+            animation: slideInDown 0.5s ease forwards, slideOutUp 0.5s ease forwards 3.5s;
         }
     </style>
 </head>
 <body class="min-h-screen bg-[#0A0F1C] text-white">
+    <!-- Money Rain Container -->
+    <div class="money-rain" id="money-rain"></div>
+
     <!-- Notification Container -->
     <div id="notification-container"></div>
 
@@ -225,6 +262,23 @@
     </footer>
 
     <script>
+        // Money Rain Animation
+        function createMoneyRain() {
+            const container = document.getElementById('money-rain');
+            const money = document.createElement('div');
+            money.className = 'money';
+            money.style.left = Math.random() * 100 + 'vw';
+            money.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            container.appendChild(money);
+            
+            setTimeout(() => {
+                money.remove();
+            }, 5000);
+        }
+
+        // Create money rain effect
+        setInterval(createMoneyRain, 200);
+
         // Notification System
         const notifications = [
             { name: "John D.", location: "Texas", amount: "$750" },
@@ -245,8 +299,12 @@
             element.innerHTML = `
                 <div class="flex items-center gap-3">
                     <div class="bg-green-500/20 rounded-full p-2">
-                        <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
+                        <svg class="w-6 h-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="8"/>
+                            <path d="M12 6v6l4 2"/>
+                            <path d="M12 7h4"/>
+                            <path d="M12 16v1"/>
+                            <path d="M12 13h4"/>
                         </svg>
                     </div>
                     <div>
@@ -261,7 +319,7 @@
             // Remove notification after animation
             setTimeout(() => {
                 element.remove();
-            }, 5000);
+            }, 4000); // Changed to 4 seconds
         }
 
         function showRandomNotification() {
@@ -269,12 +327,12 @@
             createNotification(notifications[randomIndex]);
         }
 
-        // Show first notification after 2 seconds
+        // Show first notification after 3 seconds
         setTimeout(() => {
             showRandomNotification();
-            // Then show notifications every 2 seconds
-            setInterval(showRandomNotification, 2000);
-        }, 2000);
+            // Then show notifications every 3 seconds
+            setInterval(showRandomNotification, 3000);
+        }, 3000);
 
         // Timer functionality
         function updateTimer() {
