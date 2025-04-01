@@ -205,51 +205,108 @@
             { name: "Isabella Moreno", amount: "$750", time: "8 minutes ago" }
         ];
 
-        // Handle form submission
-        document.getElementById('locationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const country = document.getElementById('country').value;
-            window.location.href = 'https://glstrck.com/aff_c?offer_id=76&aff_id=28197' + encodeURIComponent(country);
-        });
-
-        // Show carousel notifications
-        const carousel = document.getElementById('carousel');
-        let currentWinnerIndex = 0;
-
-        function showNextCarouselItem() {
-            // Remove any existing items
-            carousel.innerHTML = '';
-            
-            const winner = recentWinners[currentWinnerIndex];
-            const carouselItem = document.createElement('div');
-            carouselItem.className = 'carousel-item';
-            carouselItem.innerHTML = `
-                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span class="text-white text-sm">
-                    <span class="font-medium">${winner.name}</span> just claimed <span class="text-green-400 font-bold">${winner.amount}</span>
-                </span>
-            `;
-            
-            carousel.appendChild(carouselItem);
-            carouselItem.style.display = 'flex';
-            
-            currentWinnerIndex = (currentWinnerIndex + 1) % recentWinners.length;
-        }
-
-        // Start carousel
-        setInterval(showNextCarouselItem, 4000);
-        showNextCarouselItem(); // Show first notification immediately
-
-        // Add spots countdown
-        let spotsLeft = 37;
-        setInterval(() => {
-            if (spotsLeft > 3) {
-                spotsLeft--;
-                document.getElementById('spotsLeft').textContent = spotsLeft;
+        // TikTok Ad Level Tracking Code
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to get URL parameter
+            function getUrlParameter(name) {
+                name = name.replace(/[\[\]]/g, '\\$&');
+                const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+                const results = regex.exec(window.location.href);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
-        }, 30000); // Decrease every 15 seconds
-    </script><script>document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("a").forEach((e=>{e.getAttribute("href")?.includes("#")||(e.getAttribute("href")?.includes("?")?e.setAttribute("href",e.getAttribute("href")+window.location.search.replace("?","&")):e.getAttribute("href")?e.setAttribute("href",e.getAttribute("href")+window.location.search):"")}))}));</script>
+
+            // Get ad level from URL parameter (passed from cloaker)
+            const adLevel = getUrlParameter('ad_level') || 'organic';
+            
+            // Store in localStorage for dashboard tracking
+            localStorage.setItem('tiktok_ad_level', adLevel);
+            
+            // Track initial landing page view
+            if (adLevel && adLevel !== 'organic') {
+                fetch('https://your-tracking-server.com/track', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        event: 'lander_view',
+                        ad_level: adLevel,
+                        timestamp: new Date().toISOString(),
+                        url: window.location.href
+                    })
+                }).catch(error => console.log('Tracking error:', error));
+            }
+
+            // Modify form submission to include ad level tracking
+            document.getElementById('locationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const country = document.getElementById('country').value;
+                
+                // Track the click before redirecting
+                const adLevel = localStorage.getItem('tiktok_ad_level') || 'organic';
+                fetch('https://your-tracking-server.com/track', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        event: 'dashboard_click',
+                        ad_level: adLevel,
+                        country: country,
+                        timestamp: new Date().toISOString()
+                    })
+                }).then(() => {
+                    // Redirect after tracking
+                    window.location.href = 'https://glstrck.com/aff_c?offer_id=76&aff_id=28197&country=' + 
+                                        encodeURIComponent(country) + '&ad_level=' + encodeURIComponent(adLevel);
+                }).catch(error => {
+                    console.log('Tracking error:', error);
+                    window.location.href = 'https://glstrck.com/aff_c?offer_id=76&aff_id=28197&country=' + 
+                                        encodeURIComponent(country);
+                });
+            });
+
+            // Show carousel notifications
+            const carousel = document.getElementById('carousel');
+            let currentWinnerIndex = 0;
+
+            function showNextCarouselItem() {
+                // Remove any existing items
+                carousel.innerHTML = '';
+                
+                const winner = recentWinners[currentWinnerIndex];
+                const carouselItem = document.createElement('div');
+                carouselItem.className = 'carousel-item';
+                carouselItem.innerHTML = `
+                    <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-white text-sm">
+                        <span class="font-medium">${winner.name}</span> just claimed <span class="text-green-400 font-bold">${winner.amount}</span>
+                    </span>
+                `;
+                
+                carousel.appendChild(carouselItem);
+                carouselItem.style.display = 'flex';
+                
+                currentWinnerIndex = (currentWinnerIndex + 1) % recentWinners.length;
+            }
+
+            // Start carousel
+            setInterval(showNextCarouselItem, 4000);
+            showNextCarouselItem(); // Show first notification immediately
+
+            // Add spots countdown
+            let spotsLeft = 37;
+            setInterval(() => {
+                if (spotsLeft > 3) {
+                    spotsLeft--;
+                    document.getElementById('spotsLeft').textContent = spotsLeft;
+                }
+            }, 30000); // Decrease every 15 seconds
+        });
+    </script>
 </body>
 </html>
