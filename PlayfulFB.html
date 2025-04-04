@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stellar - Elevate Your Daily Workflow</title>
+    <meta name="description" content="Transform your productivity with Stellar, the #1 rated productivity app of 2025. Experience AI-powered task management and seamless workflow optimization.">
+    <meta property="og:title" content="Stellar - Elevate Your Daily Workflow">
+    <meta property="og:description" content="Transform your productivity with Stellar, the #1 rated productivity app of 2025.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stellar-app.com">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="theme-color" content="#1e1b4b">
     <style>
         * {
             margin: 0;
@@ -17,6 +24,8 @@
             background: linear-gradient(to bottom, #1e1b4b, #1e1b4b);
             color: white;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         header {
@@ -24,6 +33,7 @@
             width: 100%;
             background: rgba(30, 27, 75, 0.5);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 50;
         }
@@ -59,3 +69,33 @@
             position: absolute;
             inset: 0;
             background: radial-gradient(circle at top right,
+                rgba(79, 70, 229, 0.15) 0%,
+                transparent 50%);
+            pointer-events: none;
+        }
+
+        .gradient-2 {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at bottom left,
+                rgba(147, 51, 234, 0.15) 0%,
+                transparent 50%);
+            pointer-events: none;
+        }
+
+        #root {
+            position: relative;
+            z-index: 1;
+        }
+
+        ::selection {
+            background: rgba(79, 70, 229, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
