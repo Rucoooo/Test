@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Meta Pixel Code -->
+    <!-- Optimized Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,12 +24,32 @@
     fbq('init', '1664457917492479');
     fbq('track', 'PageView');
     
-    // Function to handle download button click
+    // Function to handle download button click - tracking Purchase event
     function trackDownload() {
+        fbq('track', 'Purchase', {
+            value: 0.00,
+            currency: 'USD',
+            content_name: 'Playful Rewards App Download',
+            content_category: 'App Download'
+        });
+        
+        // Optional: Track Lead event as well if needed
         fbq('track', 'Lead');
+        
         // Redirect to the API link after tracking
         window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid';
     }
+    
+    // Add event listeners to all download buttons
+    document.addEventListener('DOMContentLoaded', function() {
+        const downloadButtons = document.querySelectorAll('[onclick="trackDownload()"]');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                trackDownload();
+            });
+        });
+    });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1"
