@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Insurance Landing Page</title>
     
-    <!-- Meta Pixel Code (Optimized) -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,16 +18,14 @@
     fbq('init', '1880927549309410');
     fbq('track', 'PageView');
     </script>
-    <noscript>
-    <img height="1" width="1" style="display:none" 
-         src="https://www.facebook.com/tr?id=1880927549309410&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Meta Pixel Code -->
+    <noscript><img height="1" width="1" style="display:none" 
+    src="https://www.facebook.com/tr?id=1880927549309410&ev=PageView&noscript=1"/></noscript>
     
-    <!-- Preload important resources -->
+    <!-- Preload resources -->
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://auto.redirected4you.com">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -87,7 +85,7 @@
                     How many vehicles do you need to insure?
                 </h2>
                 <div class="grid grid-cols-2 gap-4">
-                    <button onclick="handleButtonClick('1 Car')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
+                    <button onclick="handleConversion('1 Car', 'single_vehicle')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
                         <div class="text-left">
                             <span class="text-lg font-medium text-blue-900 block">1 Car</span>
                             <p class="text-xs text-gray-600">Single Vehicle</p>
@@ -95,7 +93,7 @@
                         <i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 group-hover:translate-x-1 transition-transform"></i>
                     </button>
 
-                    <button onclick="handleButtonClick('2 Cars')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
+                    <button onclick="handleConversion('2 Cars', 'multi_car')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
                         <div class="text-left">
                             <span class="text-lg font-medium text-blue-900 block">2 Cars</span>
                             <p class="text-xs text-gray-600">Multi-Car</p>
@@ -103,7 +101,7 @@
                         <i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 group-hover:translate-x-1 transition-transform"></i>
                     </button>
 
-                    <button onclick="handleButtonClick('3 Cars')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
+                    <button onclick="handleConversion('3 Cars', 'family_fleet')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
                         <div class="text-left">
                             <span class="text-lg font-medium text-blue-900 block">3 Cars</span>
                             <p class="text-xs text-gray-600">Family Fleet</p>
@@ -111,7 +109,7 @@
                         <i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 group-hover:translate-x-1 transition-transform"></i>
                     </button>
 
-                    <button onclick="handleButtonClick('4+ Cars')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
+                    <button onclick="handleConversion('4+ Cars', 'max_fleet')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex items-center justify-between group">
                         <div class="text-left">
                             <span class="text-lg font-medium text-blue-900 block">4+ Cars</span>
                             <p class="text-xs text-gray-600">Max Fleet</p>
@@ -333,7 +331,7 @@
 
             <div class="text-center mb-8 md:mb-16">
                 <button
-                    onclick="handleButtonClick('Get Quote')"
+                    onclick="handleConversion('Get Quote', 'main_cta')"
                     class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold px-8 md:px-12 py-4 rounded-full shadow-lg transform transition duration-300 hover:scale-105"
                 >
                     Get Your Free Quote Now
@@ -343,30 +341,135 @@
     </div>
 
     <script>
-        // Initialize Lucide icons
+        // Parse URL parameters from the tracking link
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                sub1: params.get('sub1') || '', // ad.id
+                sub2: params.get('sub2') || '', // adset.id
+                sub3: params.get('sub3') || '', // campaign.id
+                sub4: params.get('sub4') || '', // ad.name
+                sub5: params.get('sub5') || '', // adset.name
+                sub6: params.get('sub6') || '', // campaign.name
+                sub7: params.get('sub7') || '', // placement
+                sub8: params.get('sub8') || ''  // site_source_name
+            };
+        }
+
+        // Initialize Lucide icons and tracking
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
             
-            // Verify Facebook Pixel is loaded
-            if(typeof fbq !== 'undefined') {
-                console.log('Facebook Pixel loaded successfully');
-            } else {
-                console.warn('Facebook Pixel not loaded, retrying...');
-                loadFacebookPixel();
-            }
+            // Initialize Facebook Pixel with fallback
+            initFacebookPixel();
+            
+            // Track initial page view with parameters
+            trackViewContent();
         });
 
-        // Fallback for Facebook Pixel
-        function loadFacebookPixel() {
-            var script = document.createElement('script');
-            script.src = 'https://connect.facebook.net/en_US/fbevents.js';
-            script.async = true;
-            script.onload = function() {
-                fbq('init', '1880927549309410');
-                fbq('track', 'PageView');
-                console.log('Facebook Pixel loaded via fallback');
-            };
-            document.head.appendChild(script);
+        // Facebook Pixel initialization with fallback
+        function initFacebookPixel() {
+            if(typeof fbq === 'undefined') {
+                console.warn('Facebook Pixel not loaded, loading fallback...');
+                var script = document.createElement('script');
+                script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+                script.async = true;
+                script.onload = function() {
+                    fbq('init', '1880927549309410');
+                    fbq('track', 'PageView');
+                    console.log('Facebook Pixel loaded via fallback');
+                };
+                document.head.appendChild(script);
+            } else {
+                console.log('Facebook Pixel already loaded');
+            }
+        }
+
+        // Track view content with all parameters
+        function trackViewContent() {
+            if(typeof fbq !== 'undefined') {
+                const urlParams = getUrlParams();
+                fbq('track', 'ViewContent', {
+                    content_name: 'Auto Insurance Landing Page',
+                    content_category: 'Insurance',
+                    content_ids: [urlParams.sub1],
+                    content_type: 'product',
+                    campaign_id: urlParams.sub3,
+                    adset_id: urlParams.sub2,
+                    ad_name: urlParams.sub4,
+                    adset_name: urlParams.sub5,
+                    campaign_name: urlParams.sub6,
+                    placement: urlParams.sub7,
+                    site_source: urlParams.sub8,
+                    value: 0.00, // Default value, can be updated
+                    currency: 'USD'
+                });
+                console.log('Tracked ViewContent event');
+            } else {
+                console.warn('Facebook Pixel not available for ViewContent tracking');
+            }
+        }
+
+        // Handle conversion with revenue tracking
+        function handleConversion(option, conversionType) {
+            // Get all URL parameters
+            const urlParams = getUrlParams();
+            
+            // Track the conversion event with Facebook Pixel
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    value: calculateRevenue(option), // Dynamic revenue calculation
+                    currency: 'USD',
+                    content_name: option,
+                    content_category: 'Conversion',
+                    content_ids: [urlParams.sub1],
+                    content_type: 'product',
+                    campaign_id: urlParams.sub3,
+                    adset_id: urlParams.sub2,
+                    ad_name: urlParams.sub4,
+                    adset_name: urlParams.sub5,
+                    campaign_name: urlParams.sub6,
+                    placement: urlParams.sub7,
+                    site_source: urlParams.sub8,
+                    conversion_type: conversionType,
+                    event_source_url: window.location.href
+                });
+                console.log('Tracked Purchase event for:', option);
+            }
+            
+            // Build the redirect URL with all parameters
+            const baseUrl = 'https://auto.redirected4you.com/67d75cd1b0424d1ff784d126';
+            const redirectUrl = new URL(baseUrl);
+            
+            // Add all original URL parameters
+            for (const [key, value] of Object.entries(urlParams)) {
+                if (value) redirectUrl.searchParams.set(key, value);
+            }
+            
+            // Add additional tracking parameters
+            redirectUrl.searchParams.set('utm_source', 'facebook');
+            redirectUrl.searchParams.set('utm_medium', 'paid');
+            redirectUrl.searchParams.set('conversion_type', conversionType);
+            redirectUrl.searchParams.set('option_selected', option.toLowerCase().replace(' ', '_'));
+            redirectUrl.searchParams.set('revenue', calculateRevenue(option));
+            
+            // Add slight delay to ensure pixel fires before redirect
+            setTimeout(function() {
+                window.location.href = redirectUrl.toString();
+            }, 200);
+        }
+
+        // Calculate revenue based on option selected
+        function calculateRevenue(option) {
+            // Replace with your actual revenue logic
+            switch(option) {
+                case '1 Car': return 49.99;
+                case '2 Cars': return 89.99;
+                case '3 Cars': return 119.99;
+                case '4+ Cars': return 149.99;
+                case 'Get Quote': return 29.99;
+                default: return 39.99;
+            }
         }
 
         // Carousel functionality
@@ -400,47 +503,6 @@
         setInterval(() => {
             moveSlide(1);
         }, 5000);
-
-        // Enhanced button click handler with Facebook Pixel tracking
-        function handleButtonClick(option) {
-            // Track the button click event
-            if(typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: option,
-                    content_category: 'Button Click'
-                });
-            }
-            
-            // Track in console for debugging
-            console.log('Button clicked:', option);
-            
-            // Redirect logic (replace with your actual URLs)
-            let redirectUrl;
-            switch(option) {
-                case '1 Car':
-                    redirectUrl = 'https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB';
-                    break;
-                case '2 Cars':
-                    redirectUrl = 'https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB';
-                    break;
-                case '3 Cars':
-                    redirectUrl = 'https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB';
-                    break;
-                case '4+ Cars':
-                    redirectUrl = 'https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB';
-                    break;
-                case 'Get Quote':
-                    redirectUrl = 'https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB';
-                    break;
-                default:
-                    redirectUrl = 'https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB';
-            }
-            
-            // Add slight delay to ensure pixel fires before redirect
-            setTimeout(function() {
-                window.location.href = redirectUrl;
-            }, 200);
-        }
     </script>
 </body>
 </html>
