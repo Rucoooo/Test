@@ -24,20 +24,26 @@
     fbq('init', '1664457917492479');
     fbq('track', 'PageView');
     
+    // Track ViewContent on page load
+    fbq('track', 'ViewContent', {
+        content_name: 'Playful Rewards Landing Page',
+        content_category: 'App Discovery',
+        content_ids: ['playful_rewards_landing'],
+        content_type: 'product_group'
+    });
+
     function trackConversion() {
-        // Track both Purchase and Lead events
-        fbq('track', 'Purchase', {
+        // Track button click conversion
+        fbq('track', 'InitiateCheckout', {
+            content_name: 'Playful Rewards iOS Download',
+            content_category: 'App Store Redirect',
+            content_ids: ['playful_rewards_ios'],
+            content_type: 'product_group',
             value: 0.00,
-            currency: 'USD',
-            content_name: 'Playful Rewards App Download',
-            content_category: 'App Download',
-            content_ids: ['playful_rewards_app'],
-            content_type: 'product'
+            currency: 'USD'
         });
-        
-        fbq('track', 'Lead');
-        
-        // Ensure pixel has time to fire before redirect
+
+        // Redirect after tracking
         setTimeout(function() {
             window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&fbclid={{fbclid}}&_ga={{ga_client_id}}&conversion_tracked=true&ts=' + Date.now();
         }, 200);
