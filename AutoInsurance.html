@@ -72,19 +72,19 @@
                     What type of coverage are you looking for?
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <button onclick="redirectToLander('https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
+                    <button onclick="trackAndRedirect('NewPolicy', 'YOUR_NEW_POLICY_URL_HERE')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
                         <span class="text-lg font-medium text-blue-900">New Policy</span>
                         <i data-lucide="chevron-right" class="text-blue-500"></i>
                     </button>
-                    <button onclick="redirectToLander('https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
+                    <button onclick="trackAndRedirect('SwitchSave', 'YOUR_SWITCH_SAVE_URL_HERE')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
                         <span class="text-lg font-medium text-blue-900">Switch & Save</span>
                         <i data-lucide="chevron-right" class="text-blue-500"></i>
                     </button>
-                    <button onclick="redirectToLander('https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
+                    <button onclick="trackAndRedirect('CompareRates', 'YOUR_COMPARE_URL_HERE')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
                         <span class="text-lg font-medium text-blue-900">Compare Rates</span>
                         <i data-lucide="chevron-right" class="text-blue-500"></i>
                     </button>
-                    <button onclick="redirectToLander('https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
+                    <button onclick="trackAndRedirect('QuickQuote', 'YOUR_QUOTE_URL_HERE')" class="bg-white hover:bg-blue-50 border-2 border-blue-200 rounded-lg p-4 transition duration-300 flex flex-col items-center gap-2">
                         <span class="text-lg font-medium text-blue-900">Quick Quote</span>
                         <i data-lucide="chevron-right" class="text-blue-500"></i>
                     </button>
@@ -330,7 +330,7 @@
             <!-- Bottom CTA Button -->
             <div class="text-center mb-16">
                 <button
-                    onclick="redirectToLander('https://glstrck.com/aff_c?offer_id=2070&aff_id=28197&source=FB')"
+                    onclick="trackAndRedirect('MainCTA', 'YOUR_REDIRECT_URL_HERE')"
                     class="bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold px-12 py-4 rounded-full shadow-lg transform transition duration-300 hover:scale-105"
                 >
                     Get Your Free Quote Now
@@ -375,12 +375,43 @@
             moveSlide(1);
         }, 5000);
 
-        // Redirect function
-        function redirectToLander(url) {
-            // Track the click event with Facebook Pixel
-            fbq('track', 'Lead');
-            window.location.href = url;
+        // Enhanced tracking function
+        function trackAndRedirect(eventName, url) {
+            // Track the custom event with Facebook Pixel
+            fbq('trackCustom', eventName);
+            
+            // Track a standard Lead event
+            fbq('track', 'Lead', {
+                content_name: eventName,
+                content_category: 'Auto Insurance'
+            });
+            
+            // Add a small delay to ensure the event is sent before redirect
+            setTimeout(function() {
+                window.location.href = url;
+            }, 200);
         }
+
+        // Track when the page is fully loaded
+        window.addEventListener('load', function() {
+            fbq('track', 'ViewContent', {
+                content_name: 'Auto Insurance Landing Page',
+                content_category: 'Insurance'
+            });
+        });
+
+        // Track time spent on page before leaving
+        let timeSpent = 0;
+        const timeInterval = setInterval(function() {
+            timeSpent += 1;
+        }, 1000);
+
+        window.addEventListener('beforeunload', function() {
+            fbq('trackCustom', 'TimeSpent', {
+                duration: timeSpent
+            });
+            clearInterval(timeInterval);
+        });
     </script>
 </body>
 </html>
