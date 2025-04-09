@@ -22,7 +22,7 @@
       n=f.fbq=function(){
         n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)
       };
-      if(!f._fbq) f._fbq=n;
+      if(!f._fbq)f._fbq=n;
       n.push=n;
       n.loaded=!0;
       n.version='2.0';
@@ -182,7 +182,7 @@
       <div class="text-center mt-24 mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Life?</h2>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of happy winners today!</p>
-        <!-- Another download button triggers conversion tracking -->
+        <!-- Download button triggers conversion tracking -->
         <button class="download-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
           <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
           Download Now - It's Free!
@@ -191,17 +191,10 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Conversion Tracking & Additional Scripts -->
   <script>
-    /***** GLOBAL: Parse and Store URL Query Parameters *****/
-    const storedParams = Object.fromEntries(new URLSearchParams(window.location.search));
-    function getQueryParam(param){ return storedParams[param] || ''; }
-
-    /***** BUILD THE REDIRECT URL WITH TRACKING PARAMETERS (One-Liner) *****/
-    function buildRedirectUrl(){ return "https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1=" + getQueryParam('ad.id') + "&sub2=" + getQueryParam('adset.id') + "&sub3=" + getQueryParam('campaign.id') + "&sub4=" + getQueryParam('ad.name') + "&sub5=" + getQueryParam('adset.name') + "&sub6=" + getQueryParam('campaign.name') + "&sub7=" + getQueryParam('placement') + "&sub8=" + getQueryParam('site_source_name') + "&utm_source=facebook&utm_medium=paid&fbclid=" + getQueryParam('fbclid') + "&_ga=" + getQueryParam('_ga') + "&conversion_tracked=true&ts=" + Date.now(); }
-
-    /***** TRACK CONVERSION, THEN REDIRECT *****/
+    /***** SIMPLIFIED TRACK CONVERSION & REDIRECT FUNCTION *****/
     function trackConversion() {
       try {
         fbq('track', 'InitiateCheckout', {
@@ -215,29 +208,9 @@
       } catch (error) {
         console.error('Error tracking Meta conversion:', error);
       }
-      const redirectUrl = buildRedirectUrl();
-      if (navigator.sendBeacon) {
-        const url = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804';
-        const formData = new URLSearchParams({
-          sub1: getQueryParam('ad.id'),
-          sub2: getQueryParam('adset.id'),
-          sub3: getQueryParam('campaign.id'),
-          sub4: getQueryParam('ad.name'),
-          sub5: getQueryParam('adset.name'),
-          sub6: getQueryParam('campaign.name'),
-          sub7: getQueryParam('placement'),
-          sub8: getQueryParam('site_source_name'),
-          utm_source: 'facebook',
-          utm_medium: 'paid',
-          fbclid: getQueryParam('fbclid'),
-          _ga: getQueryParam('_ga'),
-          conversion_tracked: 'true',
-          ts: Date.now()
-        });
-        navigator.sendBeacon(url, formData);
-      }
+      // Wait 500ms then redirect simply to the static URL
       setTimeout(function() {
-        window.location.href = redirectUrl;
+        window.location.href = "https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804";
       }, 500);
     }
 
@@ -267,7 +240,9 @@
     function updateTestimonials() {
       testimonials.forEach((testimonial, index) => {
         testimonial.classList.remove('active');
-        if (index === currentTestimonial) { testimonial.classList.add('active'); }
+        if (index === currentTestimonial) {
+          testimonial.classList.add('active');
+        }
       });
       const dots = dotsContainer.children;
       Array.from(dots).forEach((dot, index) => {
