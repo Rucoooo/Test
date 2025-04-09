@@ -44,10 +44,40 @@
       content_ids: ['playful_rewards_landing'],
       content_type: 'product_group'
     });
+    
+    /***** SIMPLIFIED TRACK CONVERSION & REDIRECT FUNCTION *****/
+    function trackConversion() {
+      try {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Playful Rewards iOS Download',
+          content_category: 'App Store Redirect',
+          content_ids: ['playful_rewards_ios'],
+          content_type: 'product_group',
+          value: 0.00,
+          currency: 'USD'
+        });
+      } catch (error) {
+        console.error('Error tracking Meta conversion:', error);
+      }
+      // Wait 500ms to let pixels fire, then redirect
+      setTimeout(function() {
+        window.location.href = "https://auto.redirected4you.com/click";
+      }, 500);
+    }
+    
+    // Attach event listeners to download buttons for conversion tracking and redirect
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.download-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          trackConversion();
+        });
+      });
+    });
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none" 
-         src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" />
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" />
   </noscript>
   
   <!-- Custom Styles -->
@@ -99,7 +129,7 @@
         </button>
         <p class="text-gray-500 mt-4">1,000,000+ Downloads Worldwide</p>
       </div>
-
+      
       <!-- Features -->
       <div class="grid md:grid-cols-3 gap-8 mb-24 px-4">
         <div class="feature-card backdrop-blur-lg bg-white/30 p-8 rounded-2xl hover:bg-white/40 transition-all duration-300 border border-white/20">
@@ -118,15 +148,14 @@
           <p class="text-gray-600 text-lg">Designed specifically for Apple devices</p>
         </div>
       </div>
-
+      
       <!-- Testimonials Section -->
       <div class="max-w-4xl mx-auto">
         <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
           What Our Winners Say
         </h2>
         <div class="backdrop-blur-lg bg-white/30 rounded-3xl p-8 md:p-12 relative border border-white/20">
-          <button onclick="prevTestimonial()"
-                  class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-3 rounded-full hover:bg-white/70 transition-all">
+          <button onclick="prevTestimonial()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-3 rounded-full hover:bg-white/70 transition-all">
             <i data-lucide="chevron-left" class="w-6 h-6 text-purple-600"></i>
           </button>
           <div id="testimonials-container" class="text-center px-8 md:px-16">
@@ -170,19 +199,17 @@
               </div>
             </div>
           </div>
-          <button onclick="nextTestimonial()"
-                  class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 p-3 rounded-full hover:bg-white/70 transition-all">
+          <button onclick="nextTestimonial()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 p-3 rounded-full hover:bg-white/70 transition-all">
             <i data-lucide="chevron-right" class="w-6 h-6 text-purple-600"></i>
           </button>
         </div>
         <div id="dots-container" class="flex justify-center mt-6 gap-3"></div>
       </div>
-
+      
       <!-- Final Call-to-Action Section -->
       <div class="text-center mt-24 mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Life?</h2>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of happy winners today!</p>
-        <!-- Another download button triggers conversion tracking -->
         <button class="download-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
           <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
           Download Now - It's Free!
@@ -191,46 +218,23 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Conversion Tracking & Additional Scripts -->
   <script>
-    /***** GLOBAL: Parse and Store URL Query Parameters *****/
-    const storedParams = Object.fromEntries(new URLSearchParams(window.location.search));
-
-    function getQueryParam(param) {
-      return storedParams[param] || '';
-    }
-
-    /***** BUILD THE REDIRECT URL WITH TRACKING PARAMETERS *****/
-    function buildRedirectUrl() {
-      const params = {
-        sub1: getQueryParam('ad.id'),
-        sub2: getQueryParam('adset.id'),
-        sub3: getQueryParam('campaign.id'),
-        sub4: getQueryParam('ad.name'),
-        sub5: getQueryParam('adset.name'),
-        sub6: getQueryParam('campaign.name'),
-        sub7: getQueryParam('placement'),
-        sub8: getQueryParam('site_source_name'),
-        utm_source: 'facebook',
-        utm_medium: 'paid',
-        fbclid: getQueryParam('fbclid'),
-        _ga: getQueryParam('_ga'),
-        conversion_tracked: 'true',
-        ts: Date.now()
-      };
-
-      const queryString = Object.keys(params)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-        .join('&');
-
-      return `https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?${queryString}`;
-    }
-
-    /***** TRACK CONVERSION, THEN REDIRECT *****/
+    /***** ADD CLICK EVENT LISTENERS TO ALL DOWNLOAD BUTTONS *****/
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.download-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          trackConversion();
+        });
+      });
+    });
+    
+    /***** SIMPLIFIED TRACK CONVERSION & REDIRECT FUNCTION *****/
     function trackConversion() {
       try {
-        // Track conversion with Meta Pixel.
         fbq('track', 'InitiateCheckout', {
           content_name: 'Playful Rewards iOS Download',
           content_category: 'App Store Redirect',
@@ -242,68 +246,27 @@
       } catch (error) {
         console.error('Error tracking Meta conversion:', error);
       }
-
-      const redirectUrl = buildRedirectUrl();
-
-      // Use navigator.sendBeacon for an additional reliable hit if available.
-      if (navigator.sendBeacon) {
-        const url = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804';
-        const formData = new URLSearchParams({
-          sub1: getQueryParam('ad.id'),
-          sub2: getQueryParam('adset.id'),
-          sub3: getQueryParam('campaign.id'),
-          sub4: getQueryParam('ad.name'),
-          sub5: getQueryParam('adset.name'),
-          sub6: getQueryParam('campaign.name'),
-          sub7: getQueryParam('placement'),
-          sub8: getQueryParam('site_source_name'),
-          utm_source: 'facebook',
-          utm_medium: 'paid',
-          fbclid: getQueryParam('fbclid'),
-          _ga: getQueryParam('_ga'),
-          conversion_tracked: 'true',
-          ts: Date.now()
-        });
-        navigator.sendBeacon(url, formData);
-      }
-
-      // Delay the redirect to allow tracking calls to complete.
+      // Wait 500ms and then redirect simply to the static URL
       setTimeout(function() {
-        window.location.href = redirectUrl;
+        window.location.href = "https://auto.redirected4you.com/click";
       }, 500);
     }
-
-    /***** ADD CLICK EVENT LISTENERS TO ALL DOWNLOAD BUTTONS *****/
-    document.addEventListener('DOMContentLoaded', function() {
-      // All elements with the class "download-btn" trigger the conversion.
-      const buttons = document.querySelectorAll('.download-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
-          trackConversion();
-        });
-      });
-    });
-
+    
     /***** INITIALIZE LUCIDE ICONS *****/
     lucide.createIcons();
-
+    
     /***** TESTIMONIALS CAROUSEL *****/
     let currentTestimonial = 0;
     const testimonials = document.querySelectorAll('.testimonial');
     const dotsContainer = document.getElementById('dots-container');
-
-    // Create navigation dots for testimonials
+    
+    // Create navigation dots
     testimonials.forEach((_, index) => {
       const dot = document.createElement('div');
-      dot.className = `h-2 w-2 rounded-full transition-all ${
-        index === currentTestimonial 
-          ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-6' 
-          : 'bg-purple-200'
-      }`;
+      dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-6' : 'bg-purple-200'}`;
       dotsContainer.appendChild(dot);
     });
-
+    
     function updateTestimonials() {
       testimonials.forEach((testimonial, index) => {
         testimonial.classList.remove('active');
@@ -311,29 +274,23 @@
           testimonial.classList.add('active');
         }
       });
-
-      // Update dots
       const dots = dotsContainer.children;
       Array.from(dots).forEach((dot, index) => {
-        dot.className = `h-2 w-2 rounded-full transition-all ${
-          index === currentTestimonial 
-            ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-6' 
-            : 'bg-purple-200'
-        }`;
+        dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-6' : 'bg-purple-200'}`;
       });
     }
-
+    
     function nextTestimonial() {
       currentTestimonial = (currentTestimonial + 1) % testimonials.length;
       updateTestimonials();
     }
-
+    
     function prevTestimonial() {
       currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
       updateTestimonials();
     }
-
-    // Auto-advance testimonials every 5 seconds.
+    
+    // Auto-advance testimonials every 5 seconds
     setInterval(nextTestimonial, 5000);
   </script>
 </body>
