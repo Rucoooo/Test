@@ -3,267 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Shop - Cursos de Capacitación</title>
+    <title>Curso TikTok Shop - Videos de Capacitación</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
         }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+        .video-container {
+            display: none;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .video-container.active {
+            display: block;
         }
     </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4">
-        <div class="container mx-auto px-4 md:px-6">
+<body class="min-h-screen bg-gray-50">
+    <nav class="bg-white shadow-md py-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-                    </svg>
-                    <span class="ml-2 text-xl font-bold">TikTok Shop</span>
+                <div class="flex items-center space-x-2">
+                    <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="Logo" 
+                         class="w-10 h-10 rounded-full object-cover">
+                    <span class="text-xl font-bold text-gray-800">TikTok Shop Academy</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#products" class="text-gray-800 hover:text-red-600 transition-colors">Cursos</a>
-                    <a href="#benefits" class="text-gray-800 hover:text-red-600 transition-colors">Beneficios</a>
-                    <a href="#testimonials" class="text-gray-800 hover:text-red-600 transition-colors">Testimonios</a>
-                    <a href="#faq" class="text-gray-800 hover:text-red-600 transition-colors">FAQ</a>
-                    <button class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-full transition-colors duration-300">
-                        Comprar Ahora
-                    </button>
-                </div>
+                <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors duration-300">
+                    Inscríbete Ahora
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-red-600 to-red-500 text-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 animate-fade-in">
-                        Domina TikTok Shop y Haz Crecer tu Negocio
-                    </h1>
-                    <p class="text-lg md:text-xl mb-8 opacity-90">
-                        Aprende a vender exitosamente en TikTok Shop con nuestros programas de capacitación dirigidos por expertos. Perfecto para principiantes y vendedores experimentados.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#products" class="bg-white text-red-600 px-8 py-3 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors duration-300">
-                            <span>Ver Cursos</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                        <a href="#benefits" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-medium flex items-center justify-center hover:bg-white/10 transition-colors duration-300">
-                            Saber Más
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute -top-6 -left-6 bg-yellow-400 text-black rounded-full py-2 px-4 font-bold transform rotate-6 z-10">
-                            ¡30% de Descuento!
-                        </div>
-                        <div class="bg-white p-2 rounded-xl shadow-2xl transform rotate-3">
-                            <img src="https://images.pexels.com/photos/8867482/pexels-photo-8867482.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                                alt="Entrenamiento TikTok Shop" 
-                                class="rounded-lg w-full max-w-md h-auto object-cover">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section id="products" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Programas de Capacitación</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Elige el programa de capacitación perfecto para comenzar y hacer crecer tu negocio en TikTok Shop. Cursos dirigidos por expertos diseñados para tu éxito.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Course 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-transform duration-300 hover:-translate-y-2">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                            alt="Fundamentos de TikTok Shop"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 right-4 bg-red-600 text-white py-1 px-3 rounded-full text-sm font-medium flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                                <line x1="7" y1="7" x2="7.01" y2="7"/>
-                            </svg>
-                            Para Principiantes
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">Fundamentos de TikTok Shop</h3>
-                        <p class="text-gray-600 mb-4">Domina los fundamentos de venta en TikTok Shop</p>
-                        <div class="mb-6">
-                            <h4 class="font-semibold text-gray-800 mb-2">Lo que aprenderás:</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-center text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
-                                    <span>Guía completa de configuración</span>
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
-                                    <span>Optimización de listados de productos</span>
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
-                                    <span>4 semanas de soporte</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-100">
-                            <div class="flex items-center">
-                                <span class="text-red-600 font-bold text-2xl">$199.99</span>
-                                <span class="ml-2 text-gray-500 line-through">$299.99</span>
+    <main class="container mx-auto px-4 pt-24 pb-12">
+        <div class="flex flex-col md:flex-row gap-8 mt-8">
+            <!-- Video Display Section -->
+            <div class="md:w-3/4">
+                <!-- Video 1 -->
+                <div class="video-container active" id="video1">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+                            <div class="w-full h-[500px] bg-gray-800 flex items-center justify-center text-white">
+                                Video 1: Introducción al Curso
                             </div>
-                            <button class="bg-red-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 transition-colors duration-300 flex items-center">
-                                <span>Inscríbete Ahora</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </button>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-2">Módulo 1: Introducción</h2>
+                            <p class="text-gray-600">Aprende los fundamentos básicos de TikTok Shop y cómo comenzar tu viaje como vendedor.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Course 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-transform duration-300 hover:-translate-y-2">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                            alt="Masterclass Avanzado"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 right-4 bg-red-600 text-white py-1 px-3 rounded-full text-sm font-medium flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                                <line x1="7" y1="7" x2="7.01" y2="7"/>
-                            </svg>
-                            Más Popular
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">Masterclass Avanzado</h3>
-                        <p class="text-gray-600 mb-4">Lleva tu negocio de TikTok Shop al siguiente nivel</p>
-                        <div class="mb-6">
-                            <h4 class="font-semibold text-gray-800 mb-2">Lo que aprenderás:</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-center text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
-                                    <span>Estrategias avanzadas de marketing</span>
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
-                                    <span>12 semanas de soporte</span>
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
-                                    <span>Sesiones privadas de coaching</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-100">
-                            <div class="flex items-center">
-                                <span class="text-red-600 font-bold text-2xl">$399.99</span>
-                                <span class="ml-2 text-gray-500 line-through">$499.99</span>
+                <!-- Video 2 -->
+                <div class="video-container" id="video2">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+                            <div class="w-full h-[500px] bg-gray-800 flex items-center justify-center text-white">
+                                Video 2: Configuración de tu Tienda
                             </div>
-                            <button class="bg-red-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 transition-colors duration-300 flex items-center">
-                                <span>Inscríbete Ahora</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </button>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-2">Módulo 2: Configuración</h2>
+                            <p class="text-gray-600">Guía paso a paso para configurar tu tienda en TikTok Shop correctamente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-container" id="video3">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+                            <div class="w-full h-[500px] bg-gray-800 flex items-center justify-center text-white">
+                                Video 3: Estrategias de Marketing
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-2">Módulo 3: Marketing</h2>
+                            <p class="text-gray-600">Estrategias efectivas para promocionar tus productos y aumentar las ventas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-container" id="video4">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+                            <div class="w-full h-[500px] bg-gray-800 flex items-center justify-center text-white">
+                                Video 4: Optimización y Escalamiento
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-2">Módulo 4: Crecimiento</h2>
+                            <p class="text-gray-600">Aprende a escalar tu negocio y optimizar tus operaciones.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-16 bg-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Por Qué Aprender con Nosotros?</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Obtén las habilidades y conocimientos necesarios para triunfar en TikTok Shop con nuestros programas de capacitación integral.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Benefit items -->
-                <div class="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:bg-gray-100">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Capacitación por Expertos</h3>
-                    <p class="text-gray-600">Aprende de vendedores y expertos en marketing de TikTok Shop</p>
-                </div>
-                
-                <!-- Add more benefit items here -->
-            </div>
-            
-            <div class="mt-16 bg-red-600 text-white rounded-xl overflow-hidden">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/2 p-8 md:p-12">
-                        <h3 class="text-2xl md:text-3xl font-bold mb-4">
-                            Oferta por Tiempo Limitado: 30% de Descuento
-                        </h3>
-                        <p class="mb-6 opacity-90">
-                            Usa el código <span class="bg-white text-red-600 px-2 py-1 rounded font-bold">APRENDE30</span> al pagar para reclamar tu descuento. ¡Válido solo por las próximas 48 horas!
-                        </p>
-                        <button class="bg-white text-red-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300">
-                            Reclamar Descuento
+            <!-- Navigation Section -->
+            <div class="md:w-1/4">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Módulos del Curso</h3>
+                    <div class="space-y-3">
+                        <button onclick="showVideo(1)" class="w-full text-left p-4 rounded-lg bg-red-50 hover:bg-red-100 transition-colors duration-300">
+                            <div class="font-semibold text-red-600">Módulo 1</div>
+                            <div class="text-sm text-gray-600">Introducción al Curso</div>
+                        </button>
+                        <button onclick="showVideo(2)" class="w-full text-left p-4 rounded-lg hover:bg-red-50 transition-colors duration-300">
+                            <div class="font-semibold">Módulo 2</div>
+                            <div class="text-sm text-gray-600">Crear Tu Audiencia Con Yaneth</div>
+                        </button>
+                        <button onclick="showVideo(3)" class="w-full text-left p-4 rounded-lg hover:bg-red-50 transition-colors duration-300">
+                            <div class="font-semibold">Módulo 3</div>
+                            <div class="text-sm text-gray-600">Estrategias Para Crecer Tu Marca</div>
+                        </button>
+                        <button onclick="showVideo(4)" class="w-full text-left p-4 rounded-lg hover:bg-red-50 transition-colors duration-300">
+                            <div class="font-semibold">Módulo 4</div>
+                            <div class="text-sm text-gray-600">Consistencia y Estrategias</div>
                         </button>
                     </div>
-                    <div class="md:w-1/2 overflow-hidden">
-                        <img src="https://images.pexels.com/photos/7688454/pexels-photo-7688454.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                            alt="Capacitación TikTok Shop" 
-                            class="w-full h-full object-cover">
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
+
+    <script>
+        function showVideo(videoNumber) {
+            // Hide all videos
+            document.querySelectorAll('.video-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Show selected video
+            document.getElementById(`video${videoNumber}`).classList.add('active');
+            
+            // Update button styles
+            document.querySelectorAll('button').forEach((btn, index) => {
+                if (index > 0) { // Skip the first button (Inscríbete Ahora)
+                    if (index === videoNumber) {
+                        btn.classList.add('bg-red-50');
+                        btn.querySelector('.font-semibold').classList.add('text-red-600');
+                    } else {
+                        btn.classList.remove('bg-red-50');
+                        btn.querySelector('.font-semibold').classList.remove('text-red-600');
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
