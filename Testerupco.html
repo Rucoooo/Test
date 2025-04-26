@@ -171,7 +171,7 @@
       </div>
     </div>
   </div>
-  
+
   <script>
     function trackConversion() {
       try {
@@ -183,9 +183,19 @@
           value: 0.00,
           currency: 'USD'
         });
+
+        fbq('track', 'SubmitApplication', {
+          content_name: 'Tester Up iOS Download',
+          content_category: 'App Store Redirect',
+          content_ids: ['playful_rewards_ios'],
+          content_type: 'product_group',
+          value: 0.00,
+          currency: 'USD'
+        });
       } catch (error) {
         console.error('Error tracking Meta conversion:', error);
       }
+
       setTimeout(function() {
         window.location.href = "https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}";
       }, 500);
