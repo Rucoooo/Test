@@ -16,8 +16,15 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init', '1642827413055904');
     fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Stimulus Relief Landing',
+      content_category: 'Financial Aid',
+      content_ids: ['stimulus_relief_landing'],
+      content_type: 'landing_page',
+    });
   </script>
   <!-- End Meta Pixel Code -->
 
