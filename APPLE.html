@@ -1,242 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AutoShield+ | Extended Auto Warranty Protection</title>
-  <meta name="description" content="Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns for all vehicle makes and models.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns for all vehicle makes and models."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    ::-webkit-scrollbar { width:10px; }
-    ::-webkit-scrollbar-track { background:#f1f1f1; }
-    ::-webkit-scrollbar-thumb { background:#60a5fa; border-radius:9999px; }
-    ::-webkit-scrollbar-thumb:hover { background:#3b82f6; }
-    .dropdown-content { display:none; opacity:0; transform:translateY(-10px); transition:opacity .3s, transform .3s; }
-    .dropdown-content.show { display:block; opacity:1; transform:translateY(0); }
-    .section-animate { opacity:0; transform:translateY(20px); transition:opacity .5s ease-out, transform .5s ease-out; }
-    .section-animate.visible { opacity:1; transform:translateY(0); }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #60a5fa;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3b82f6;
+    }
+    .dropdown-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .dropdown-content.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .section-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
-
   <!-- Header -->
   <header class="bg-white shadow-md border-b-4 border-blue-600">
-    <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
+    <div
+      class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20"
+    >
       <div class="flex items-center">
-        <svg class="h-8 w-8 text-blue-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L4 5v6c0 5 4 9 8 11 4-2 8-6 8-11V5l-8-3z"/>
+        <svg
+          class="h-8 w-8 text-blue-600 mr-3"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2L4 5v6c0 5 4 9 8 11 4-2 8-6 8-11V5l-8-3z" />
         </svg>
-        <span class="text-2xl font-extrabold text-gray-900 tracking-tight">AutoShield+</span>
+        <span
+          class="text-2xl font-extrabold text-gray-900 tracking-tight"
+          >AutoShield+</span
+        >
       </div>
       <nav class="hidden md:flex space-x-8">
-        <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Features</a>
-        <a href="#coverage" class="text-gray-700 hover:text-blue-600 transition">Coverage</a>
-        <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition">Testimonials</a>
-        <a href="#faq" class="text-gray-700 hover:text-blue-600 transition">FAQ</a>
+        <a href="#features" class="text-gray-700 hover:text-blue-600 transition"
+          >Features</a
+        >
+        <a href="#coverage" class="text-gray-700 hover:text-blue-600 transition"
+          >Coverage</a
+        >
+        <a
+          href="#testimonials"
+          class="text-gray-700 hover:text-blue-600 transition"
+          >Testimonials</a
+        >
+        <a href="#faq" class="text-gray-700 hover:text-blue-600 transition"
+          >FAQ</a
+        >
       </nav>
-      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round"
-             stroke-linejoin="round">
-          <line x1="4" y1="6" x2="20" y2="6"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="18" x2="20" y2="18"/>
+      <button
+        id="mobile-menu-button"
+        class="md:hidden text-gray-700 hover:text-blue-600 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
         </svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-      <a href="#features" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Features</a>
-      <a href="#coverage" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Coverage</a>
-      <a href="#testimonials" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Testimonials</a>
-      <a href="#faq" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">FAQ</a>
+      <a
+        href="#features"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >Features</a
+      >
+      <a
+        href="#coverage"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >Coverage</a
+      >
+      <a
+        href="#testimonials"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >Testimonials</a
+      >
+      <a
+        href="#faq"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >FAQ</a
+      >
     </div>
   </header>
 
   <main class="pt-0">
-
-    <!-- Hero & Quote Form -->
+    <!-- Hero & Quote Form (static makes dropdown) -->
     <section class="bg-blue-900 text-white py-20">
       <div class="max-w-3xl mx-auto text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Extended Auto Warranty Protection</h1>
-        <p class="mb-8 text-lg">Get a free, no-obligation quote in seconds. Protect your vehicle today.</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Extended Auto Warranty Protection
+        </h1>
+        <p class="mb-8 text-lg">
+          Get a free, no-obligation quote in seconds. Protect your vehicle today.
+        </p>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <!-- Make -->
-          <div class="relative">
-            <label class="block mb-1 font-medium text-blue-200">Vehicle Make</label>
-            <button id="maker-dropdown"
-                    class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center">
-              <span id="maker-text">Loading makes…</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                   stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-            <div id="maker-content"
-                 class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto"></div>
+          <!-- Vehicle Make -->
+          <div>
+            <label
+              for="vehicle-make"
+              class="block mb-1 font-medium text-blue-200"
+              >Vehicle Make</label
+            >
+            <select
+              id="vehicle-make"
+              name="vehicle-make"
+              class="w-full px-4 py-2 rounded border border-gray-300 text-black"
+            >
+              <option disabled selected>Select make</option>
+              <option>Acura</option>
+              <option>Alfa Romeo</option>
+              <option>AM General</option>
+              <option>Aston Martin</option>
+              <option>Audi</option>
+              <option>Bentley</option>
+              <option>BMW</option>
+              <option>Buick</option>
+              <option>Bugatti</option>
+              <option>Cadillac</option>
+              <option>Chevrolet</option>
+              <option>Chrysler</option>
+              <option>Datsun</option>
+              <option>Delorean</option>
+              <option>Dodge</option>
+              <option>Ferrari</option>
+              <option>Fiat</option>
+              <option>Fisker</option>
+              <option>Ford</option>
+              <option>Freightliner</option>
+              <option>Genesis</option>
+              <option>GMC</option>
+              <option>Honda</option>
+              <option>Hummer</option>
+              <option>Hyundai</option>
+              <option>INEOS</option>
+              <option>Infiniti</option>
+              <option>Isuzu</option>
+              <option>Jaguar</option>
+              <option>Jeep</option>
+              <option>Karma</option>
+              <option>Kia</option>
+              <option>Lamborghini</option>
+              <option>Land Rover</option>
+              <option>Lexus</option>
+              <option>Lincoln</option>
+              <option>Lotus</option>
+              <option>Lucid</option>
+              <option>Maserati</option>
+              <option>Maybach</option>
+              <option>Mazda</option>
+              <option>McLaren</option>
+              <option>Mercedes-Benz</option>
+              <option>Mercury</option>
+              <option>Mini</option>
+              <option>Mitsubishi</option>
+              <option>Mobility Ventures</option>
+              <option>Nissan</option>
+              <option>Oldsmobile</option>
+              <option>Plymouth</option>
+              <option>Polestar</option>
+              <option>Pontiac</option>
+              <option>Porsche</option>
+              <option>Ram</option>
+              <option>Rivian</option>
+              <option>Rolls-Royce</option>
+              <option>Saab</option>
+              <option>Saturn</option>
+              <option>Scion</option>
+              <option>Smart</option>
+              <option>Subaru</option>
+              <option>Suzuki</option>
+              <option>Tesla</option>
+              <option>Toyota</option>
+              <option>Volkswagen</option>
+              <option>Volvo</option>
+            </select>
           </div>
-          <!-- Model -->
-          <div class="relative">
-            <label class="block mb-1 font-medium text-blue-200">Vehicle Model</label>
-            <button id="model-dropdown" disabled
-                    class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center opacity-50">
-              <span id="model-text">Select model</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                   stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-            <div id="model-content"
-                 class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto"></div>
+
+          <!-- Vehicle Model -->
+          <div>
+            <label
+              for="vehicle-model"
+              class="block mb-1 font-medium text-blue-200"
+              >Vehicle Model</label
+            >
+            <select
+              id="vehicle-model"
+              name="vehicle-model"
+              class="w-full px-4 py-2 rounded border border-gray-300 text-black"
+            >
+              <option disabled selected>Select model</option>
+            </select>
           </div>
-          <!-- Year -->
-          <div class="relative">
-            <label class="block mb-1 font-medium text-blue-200">Vehicle Year</label>
-            <button id="year-dropdown" disabled
-                    class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center opacity-50">
-              <span id="year-text">Select year</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                   stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-            <div id="year-content"
-                 class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto"></div>
+
+          <!-- Vehicle Year -->
+          <div>
+            <label
+              for="vehicle-year"
+              class="block mb-1 font-medium text-blue-200"
+              >Vehicle Year</label
+            >
+            <select
+              id="vehicle-year"
+              name="vehicle-year"
+              class="w-full px-4 py-2 rounded border border-gray-300 text-black"
+            >
+              <option disabled selected>Select year</option>
+            </select>
           </div>
         </div>
-        <button id="quote-button" disabled
-                class="w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed">
+
+        <button
+          id="quote-button"
+          disabled
+          class="w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed"
+        >
           Get Instant Quote
         </button>
-        <p class="text-center text-xs text-blue-200 mt-2">Free, no-obligation quote. Your information is secure.</p>
+        <p class="text-center text-xs text-blue-200 mt-2">
+          Free, no-obligation quote. Your information is secure.
+        </p>
       </div>
     </section>
 
     <!-- Features -->
     <section id="features" class="py-20 bg-gray-50 section-animate">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Our Warranty</h2>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+        >
+          Why Choose Our Warranty
+        </h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          We provide comprehensive protection for your vehicle with industry-leading coverage and exceptional service.
+          We provide comprehensive protection for your vehicle with
+          industry-leading coverage and exceptional service.
         </p>
       </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition">
-          <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition"
+        >
+          <div
+            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Comprehensive Coverage</h3>
-          <p class="text-gray-600">Protection for all major vehicle systems with customizable plans to fit your needs and budget.</p>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            Comprehensive Coverage
+          </h3>
+          <p class="text-gray-600">
+            Protection for all major vehicle systems with customizable
+            plans to fit your needs and budget.
+          </p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition">
-          <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition"
+        >
+          <div
+            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
             </svg>
           </div>
           <h3 class="text-xl font-bold text-gray-800 mb-2">24/7 Support</h3>
-          <p class="text-gray-600">Round-the-clock assistance and support whenever you need it, wherever you are.</p>
+          <p class="text-gray-600">
+            Round-the-clock assistance and support whenever you need it,
+            wherever you are.
+          </p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition">
-          <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition"
+        >
+          <div
+            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Easy Claims Process</h3>
-          <p class="text-gray-600">Simple and straightforward claims process with quick approval and payment.</p>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            Easy Claims Process
+          </h3>
+          <p class="text-gray-600">
+            Simple and straightforward claims process with quick approval
+            and payment.
+          </p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition">
-          <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition"
+        >
+          <div
+            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Nationwide Coverage</h3>
-          <p class="text-gray-600">Use any licensed repair facility nationwide with our extensive network.</p>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            Nationwide Coverage
+          </h3>
+          <p class="text-gray-600">
+            Use any licensed repair facility nationwide with our
+            extensive network.
+          </p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition">
-          <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition"
+        >
+          <div
+            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
             </svg>
           </div>
           <h3 class="text-xl font-bold text-gray-800 mb-2">Flexible Plans</h3>
-          <p class="text-gray-600">Choose from multiple coverage levels to find the perfect fit for your vehicle.</p>
+          <p class="text-gray-600">
+            Choose from multiple coverage levels to find the perfect fit
+            for your vehicle.
+          </p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition">
-          <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:-translate-y-1 transition"
+        >
+          <div
+            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 text-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Premium Service</h3>
-          <p class="text-gray-600">Exceptional customer service and support throughout your warranty period.</p>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            Premium Service
+          </h3>
+          <p class="text-gray-600">
+            Exceptional customer service and support throughout your
+            warranty period.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Coverage Plans -->
     <section id="coverage" class="py-20 bg-white section-animate">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Coverage Plans Designed for You</h2>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+        >
+          Coverage Plans Designed for You
+        </h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Choose from our flexible warranty options to find the perfect coverage for your vehicle and budget.
+          Choose from our flexible warranty options to find the perfect
+          coverage for your vehicle and budget.
         </p>
       </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8"
+      >
         <!-- Basic Plan -->
-        <div class="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+        <div
+          class="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg"
+        >
           <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic Coverage</h3>
-            <p class="text-gray-600 mb-6">Essential protection for your vehicle's most critical components.</p>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Basic Coverage
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Essential protection for your vehicle’s most critical
+              components.
+            </p>
             <ul class="space-y-3 text-gray-600">
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Engine Coverage</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Transmission Protection</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>24/7 Roadside Assistance</li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Engine Coverage
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Transmission Protection
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                24/7 Roadside Assistance
+              </li>
             </ul>
-            <button class="w-full mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Get Started</button>
+            <button
+              class="w-full mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Get Started
+            </button>
           </div>
         </div>
         <!-- Premium Plan -->
-        <div class="relative rounded-2xl overflow-hidden border-2 border-blue-600 shadow-xl">
-          <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-1">RECOMMENDED</div>
+        <div
+          class="relative rounded-2xl overflow-hidden border-2 border-blue-600 shadow-xl"
+        >
+          <div
+            class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-1"
+          >
+            RECOMMENDED
+          </div>
           <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">Premium Coverage</h3>
-            <p class="text-gray-600 mb-6">Comprehensive coverage for complete peace of mind.</p>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Premium Coverage
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Comprehensive coverage for complete peace of mind.
+            </p>
             <ul class="space-y-3 text-gray-600">
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Everything in Basic</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Electrical Systems</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Steering & Suspension</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Rental Car Coverage</li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Everything in Basic
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Electrical Systems
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Steering & Suspension
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Rental Car Coverage
+              </li>
             </ul>
-            <button class="w-full mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Get Started</button>
+            <button
+              class="w-full mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Get Started
+            </button>
           </div>
         </div>
         <!-- Ultimate Plan -->
-        <div class="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+        <div
+          class="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg"
+        >
           <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">Ultimate Coverage</h3>
-            <p class="text-gray-600 mb-6">Maximum protection with additional premium benefits.</p>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Ultimate Coverage
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Maximum protection with additional premium benefits.
+            </p>
             <ul class="space-y-3 text-gray-600">
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Everything in Premium</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>High-Tech Components</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Trip Interruption</li>
-              <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Maintenance Coverage</li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Everything in Premium
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                High-Tech Components
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Trip Interruption
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-green-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                Maintenance Coverage
+              </li>
             </ul>
-            <button class="w-full mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Get Started</button>
+            <button
+              class="w-full mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Get Started
+            </button>
           </div>
         </div>
       </div>
@@ -244,13 +692,20 @@
 
     <!-- Testimonials -->
     <section id="testimonials" class="py-20 bg-blue-900 text-white section-animate">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16"
+      >
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          What Our Customers Say
+        </h2>
         <p class="text-xl text-blue-200 max-w-3xl mx-auto">
-          Don't just take our word for it. Here's what vehicle owners have to say about their experience with AutoShield+.
+          Don't just take our word for it. Here's what vehicle owners have to
+          say about their experience with AutoShield+.
         </p>
       </div>
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8"
+      >
         <!-- Michael -->
         <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
           <div class="flex items-center mb-4">
@@ -263,7 +718,9 @@
             </div>
           </div>
           <p class="text-blue-100 mb-4">
-            "I was skeptical about extended warranties until my transmission failed last year. The warranty paid for everything, over $3,800 in repairs. The process was simple and fast."
+            "I was skeptical about extended warranties until my transmission
+            failed last year. The warranty paid for everything, over $3,800 in
+            repairs. The process was simple and fast."
           </p>
           <div class="text-yellow-400 text-lg">★★★★★</div>
         </div>
@@ -279,7 +736,9 @@
             </div>
           </div>
           <p class="text-blue-100 mb-4">
-            "The customer service is outstanding. When my car broke down, they arranged everything—from towing to repairs. I didn't have to worry about anything."
+            "The customer service is outstanding. When my car broke down, they
+            arranged everything—from towing to repairs. I didn't have to worry
+            about anything."
           </p>
           <div class="text-yellow-400 text-lg">★★★★★</div>
         </div>
@@ -295,7 +754,8 @@
             </div>
           </div>
           <p class="text-blue-100 mb-4">
-            "Best decision I made for my truck. The coverage is comprehensive and the claims process is hassle-free. Highly recommend!"
+            "Best decision I made for my truck. The coverage is comprehensive
+            and the claims process is hassle-free. Highly recommend!"
           </p>
           <div class="text-yellow-400 text-lg">★★★★★</div>
         </div>
@@ -305,93 +765,178 @@
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-gray-50 section-animate">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Frequently Asked Questions</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+          Frequently Asked Questions
+        </h2>
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button class="w-full px-6 py-4 text-left faq-question flex justify-between items-center">
-            <span class="text-lg font-semibold text-gray-900">What is covered under the warranty?</span>
-            <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <polyline points="19 9 12 16 5 9"/>
+          <button
+            class="w-full px-6 py-4 text-left faq-question flex justify-between items-center"
+          >
+            <span class="text-lg font-semibold text-gray-900"
+              >What is covered under the warranty?</span
+            >
+            <svg
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <polyline points="19 9 12 16 5 9" />
             </svg>
           </button>
           <div class="px-6 pb-4 text-gray-600 faq-answer hidden">
-            Our plans cover mechanical and electrical components; specifics depend on the plan—from powertrain to bumper-to-bumper.
+            Our plans cover mechanical and electrical components; specifics
+            depend on the plan—from powertrain to bumper-to-bumper.
           </div>
         </div>
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button class="w-full px-6 py-4 text-left faq-question flex justify-between items-center">
-            <span class="text-lg font-semibold text-gray-900">How do I file a claim?</span>
-            <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <polyline points="19 9 12 16 5 9"/>
+          <button
+            class="w-full px-6 py-4 text-left faq-question flex justify-between items-center"
+          >
+            <span class="text-lg font-semibold text-gray-900"
+              >How do I file a claim?</span
+            >
+            <svg
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <polyline points="19 9 12 16 5 9" />
             </svg>
           </button>
           <div class="px-6 pb-4 text-gray-600 faq-answer hidden">
-            Simply contact our 24/7 claims department and we'll guide you through every step.
+            Simply contact our 24/7 claims department and we'll guide you
+            through every step.
           </div>
         </div>
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button class="w-full px-6 py-4 text-left faq-question flex justify-between items-center">
-            <span class="text-lg font-semibold text-gray-900">Is there a waiting period?</span>
-            <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <polyline points="19 9 12 16 5 9"/>
+          <button
+            class="w-full px-6 py-4 text-left faq-question flex justify-between items-center"
+          >
+            <span class="text-lg font-semibold text-gray-900"
+              >Is there a waiting period?</span
+            >
+            <svg
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <polyline points="19 9 12 16 5 9" />
             </svg>
           </button>
           <div class="px-6 pb-4 text-gray-600 faq-answer hidden">
-            Yes—typically 30 days and 1,000 miles, to ensure coverage begins for future repairs, not existing issues.
+            Yes—typically 30 days and 1,000 miles, to ensure coverage begins
+            for future repairs, not existing issues.
           </div>
         </div>
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <button class="w-full px-6 py-4 text-left faq-question flex justify-between items-center">
-            <span class="text-lg font-semibold text-gray-900">Can I transfer the warranty?</span>
-            <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <polyline points="19 9 12 16 5 9"/>
+          <button
+            class="w-full px-6 py-4 text-left faq-question flex justify-between items-center"
+          >
+            <span class="text-lg font-semibold text-gray-900"
+              >Can I transfer the warranty?</span
+            >
+            <svg
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <polyline points="19 9 12 16 5 9" />
             </svg>
           </button>
           <div class="px-6 pb-4 text-gray-600 faq-answer hidden">
-            Absolutely—transfer to a new owner for increased resale value. A small fee applies.
+            Absolutely—transfer to a new owner for increased resale value. A
+            small fee applies.
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white section-animate">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Protect Your Vehicle Today</h2>
+    <section
+      class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white section-animate"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Protect Your Vehicle Today
+        </h2>
         <p class="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
-          Get peace of mind with our comprehensive warranty coverage. Start with a free, no-obligation quote.
+          Get peace of mind with our comprehensive warranty coverage.
+          Start with a free, no-obligation quote.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg">
+          <button
+            class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg"
+          >
             Get Your Free Quote
           </button>
-          <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors">
+          <button
+            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"
+          >
             Contact Sales
           </button>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8"
+    >
       <div>
         <div class="flex items-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-blue-400"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+            />
           </svg>
           <span class="ml-2 text-white font-bold text-xl">AutoShield+</span>
         </div>
-        <p class="text-gray-400">Protecting your vehicle with comprehensive warranty coverage and exceptional service.</p>
+        <p class="text-gray-400">
+          Protecting your vehicle with comprehensive warranty coverage and
+          exceptional service.
+        </p>
       </div>
       <div>
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <ul class="space-y-2">
-          <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
-          <li><a href="#coverage" class="text-gray-400 hover:text-white">Coverage</a></li>
-          <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
-          <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+          <li>
+            <a href="#features" class="text-gray-400 hover:text-white"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a href="#coverage" class="text-gray-400 hover:text-white"
+              >Coverage</a
+            >
+          </li>
+          <li>
+            <a href="#testimonials" class="text-gray-400 hover:text-white"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a href="#faq" class="text-gray-400 hover:text-white"
+              >FAQ</a
+            >
+          </li>
         </ul>
       </div>
       <div>
@@ -407,9 +952,15 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Connect</h3>
         <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Facebook</span></a>
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Twitter</span></a>
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">LinkedIn</span></a>
+          <a href="#" class="text-gray-400 hover:text-white"
+            ><span class="sr-only">Facebook</span></a
+          >
+          <a href="#" class="text-gray-400 hover:text-white"
+            ><span class="sr-only">Twitter</span></a
+          >
+          <a href="#" class="text-gray-400 hover:text-white"
+            ><span class="sr-only">LinkedIn</span></a
+          >
         </div>
       </div>
     </div>
@@ -419,120 +970,61 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mdBtn = document.getElementById('maker-dropdown'),
-            mdList = document.getElementById('maker-content'),
-            mdText = document.getElementById('maker-text'),
-            moBtn = document.getElementById('model-dropdown'),
-            moList = document.getElementById('model-content'),
-            moText = document.getElementById('model-text'),
-            yrBtn = document.getElementById('year-dropdown'),
-            yrList = document.getElementById('year-content'),
-            yrText = document.getElementById('year-text'),
-            quoteBtn = document.getElementById('quote-button');
+    document.addEventListener("DOMContentLoaded", () => {
+      // Enable quote button only when all selects have a value
+      const make = document.getElementById("vehicle-make");
+      const model = document.getElementById("vehicle-model");
+      const year = document.getElementById("vehicle-year");
+      const quote = document.getElementById("quote-button");
 
-      let selectedMake = null, selectedModel = null, selectedYear = null;
-
-      // Load all makes
-      fetch('https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes?format=json')
-        .then(r => r.json())
-        .then(data => {
-          mdText.textContent = 'Select make';
-          data.Results.forEach(mk => {
-            const div = document.createElement('div');
-            div.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
-            div.textContent = mk.Make_Name;
-            div.onclick = () => {
-              selectedMake = mk.Make_Name;
-              mdText.textContent = mk.Make_Name;
-              mdList.classList.remove('show');
-              moBtn.disabled = false; moBtn.classList.remove('opacity-50');
-              moText.textContent = 'Loading…'; moList.innerHTML = '';
-              selectedModel = selectedYear = null;
-              yrBtn.disabled = true; yrBtn.classList.add('opacity-50');
-              yrText.textContent = 'Select year';
-              updateQuoteButton();
-
-              // Fetch models for selected make
-              fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${encodeURIComponent(mk.Make_Name)}?format=json`)
-                .then(r => r.json())
-                .then(mdData => {
-                  moList.innerHTML = '';
-                  moText.textContent = 'Select model';
-                  mdData.Results.forEach(model => {
-                    const mdiv = document.createElement('div');
-                    mdiv.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
-                    mdiv.textContent = model.Model_Name;
-                    mdiv.onclick = () => selectModel(model.Model_Name);
-                    moList.appendChild(mdiv);
-                  });
-                });
-            };
-            mdList.appendChild(div);
-          });
-        });
-
-      function selectModel(modelName) {
-        selectedModel = modelName;
-        moText.textContent = modelName;
-        moList.classList.remove('show');
-        yrBtn.disabled = false; yrBtn.classList.remove('opacity-50');
-        selectedYear = null; yrText.textContent = 'Select year';
-        yrList.innerHTML = '';
-        const current = new Date().getFullYear();
-        for (let y = current; y >= 2000; y--) {
-          const ydiv = document.createElement('div');
-          ydiv.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
-          ydiv.textContent = y;
-          ydiv.onclick = () => {
-            selectedYear = y;
-            yrText.textContent = y;
-            yrList.classList.remove('show');
-            updateQuoteButton();
-          };
-          yrList.appendChild(ydiv);
+      function toggleQuote() {
+        if (make.value && model.value && year.value) {
+          quote.disabled = false;
+          quote.className =
+            "w-full px-6 py-3 rounded-lg font-semibold bg-white text-blue-900 hover:bg-blue-100 cursor-pointer";
+        } else {
+          quote.disabled = true;
+          quote.className =
+            "w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed";
         }
       }
+      [make, model, year].forEach((el) =>
+        el.addEventListener("change", toggleQuote)
+      );
 
-      function updateQuoteButton() {
-        const ready = selectedMake && selectedModel && selectedYear;
-        quoteBtn.disabled = !ready;
-        quoteBtn.className = ready
-          ? 'w-full px-6 py-3 rounded-lg font-semibold bg-white text-blue-900 hover:bg-blue-100 cursor-pointer'
-          : 'w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed';
-      }
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", () =>
+          document.getElementById("mobile-menu").classList.toggle("hidden")
+        );
 
-      mdBtn.onclick = e => { e.stopPropagation(); mdList.classList.toggle('show'); moList.classList.remove('show'); yrList.classList.remove('show'); };
-      moBtn.onclick = e => { if (moBtn.disabled) return; e.stopPropagation(); moList.classList.toggle('show'); mdList.classList.remove('show'); yrList.classList.remove('show'); };
-      yrBtn.onclick = e => { if (yrBtn.disabled) return; e.stopPropagation(); yrList.classList.toggle('show'); mdList.classList.remove('show'); moList.classList.remove('show'); };
-      document.addEventListener('click', () => { mdList.classList.remove('show'); moList.classList.remove('show'); yrList.classList.remove('show'); });
-
-      // Mobile menu
-      document.getElementById('mobile-menu-button')
-        .addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
-
-      // Header scroll
-      window.addEventListener('scroll', () => {
-        const h = document.querySelector('header');
-        if (window.scrollY > 50) h.classList.add('h-16','shadow-lg');
-        else h.classList.remove('h-16','shadow-lg');
+      // Header shrink on scroll
+      window.addEventListener("scroll", () => {
+        const h = document.querySelector("header");
+        if (window.scrollY > 50) h.classList.add("h-16", "shadow-lg");
+        else h.classList.remove("h-16", "shadow-lg");
       });
 
-      // Section reveal
-      document.querySelectorAll('.section-animate').forEach(sec => {
-        new IntersectionObserver(entries => {
-          entries.forEach(ent => ent.isIntersecting && ent.target.classList.add('visible'));
-        }, { threshold: 0.1 }).observe(sec);
+      // Section reveal on scroll
+      document.querySelectorAll(".section-animate").forEach((sec) => {
+        new IntersectionObserver(
+          (entries) => {
+            entries.forEach(
+              (ent) => ent.isIntersecting && ent.target.classList.add("visible")
+            );
+          },
+          { threshold: 0.1 }
+        ).observe(sec);
       });
 
       // FAQ accordion
-      document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => btn.nextElementSibling.classList.toggle('hidden'));
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () =>
+          btn.nextElementSibling.classList.toggle("hidden")
+        );
       });
     });
   </script>
-
-</body>
-</html>
 </body>
 </html>
