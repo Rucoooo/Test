@@ -43,22 +43,18 @@
   <!-- Header -->
   <header class="bg-white shadow-md border-b-4 border-blue-600">
     <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
-      <!-- Logo / Icon -->
       <div class="flex items-center">
-        <!-- Swap this SVG for your actual logo -->
         <svg class="h-8 w-8 text-blue-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2L4 5v6c0 5 4 9 8 11 4-2 8-6 8-11V5l-8-3z"/>
         </svg>
         <span class="text-2xl font-extrabold text-gray-900 tracking-tight">AutoShield+</span>
       </div>
-      <!-- Navigation -->
       <nav class="hidden md:flex space-x-8">
         <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Features</a>
         <a href="#coverage" class="text-gray-700 hover:text-blue-600 transition">Coverage</a>
         <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition">Testimonials</a>
         <a href="#faq" class="text-gray-700 hover:text-blue-600 transition">FAQ</a>
       </nav>
-      <!-- Mobile menu button -->
       <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
              stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -69,7 +65,6 @@
         </svg>
       </button>
     </div>
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
       <a href="#features" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Features</a>
       <a href="#coverage" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Coverage</a>
@@ -428,9 +423,9 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Connect</h3>
         <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Facebook</span><!-- icon --></a>
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Twitter</span><!-- icon --></a>
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">LinkedIn</span><!-- icon --></a>
+          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Facebook</span></a>
+          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Twitter</span></a>
+          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">LinkedIn</span></a>
         </div>
       </div>
     </div>
@@ -443,166 +438,54 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Data
       const autoMakers = [
-        {id:'toyota',name:'Toyota'},{id:'honda',name:'Honda'},{id:'ford',name:'Ford'},
-        {id:'chevrolet',name:'Chevrolet'},{id:'bmw',name:'BMW'},{id:'mercedes',name:'Mercedes-Benz'},
-        {id:'audi',name:'Audi'},{id:'nissan',name:'Nissan'},{id:'hyundai',name:'Hyundai'},
-        {id:'kia',name:'Kia'},{id:'volkswagen',name:'Volkswagen'},{id:'subaru',name:'Subaru'},
-        {id:'mazda',name:'Mazda'},{id:'lexus',name:'Lexus'},{id:'acura',name:'Acura'},
-        {id:'infiniti',name:'Infiniti'},{id:'buick',name:'Buick'},{id:'cadillac',name:'Cadillac'},
-        {id:'chrysler',name:'Chrysler'},{id:'dodge',name:'Dodge'},{id:'jeep',name:'Jeep'},
-        {id:'lincoln',name:'Lincoln'},{id:'genesis',name:'Genesis'},{id:'volvo',name:'Volvo'},
-        {id:'mini',name:'MINI'},{id:'porsche',name:'Porsche'},{id:'jaguar',name:'Jaguar'},
-        {id:'land-rover',name:'Land Rover'},{id:'maserati',name:'Maserati'},
-        {id:'tesla',name:'Tesla'},{id:'mitsubishi',name:'Mitsubishi'},{id:'ram',name:'RAM'},
-        {id:'gmc',name:'GMC'},{id:'fiat',name:'FIAT'},{id:'alfa-romeo',name:'Alfa Romeo'}
+        {id:'toyota',name:'Toyota'},
+        {id:'honda',name:'Honda'},
+        {id:'ford',name:'Ford'},
+        {id:'chevrolet',name:'Chevrolet'},
+        {id:'bmw',name:'BMW'}
       ];
       const vehicleModels = {
         toyota: [
           {id:'camry',name:'Camry'},{id:'corolla',name:'Corolla'},{id:'prius',name:'Prius'},
           {id:'rav4',name:'RAV4'},{id:'highlander',name:'Highlander'},{id:'tacoma',name:'Tacoma'},
-          {id:'tundra',name:'Tundra'},{id:'avalon',name:'Avalon'},{id:'4runner',name:'4Runner'},
+          {id:'tundra',name:'Tundra'},{id:'4runner',name:'4Runner'},{id:'sequoia',name:'Sequoia'},
           {id:'sienna',name:'Sienna'},{id:'venza',name:'Venza'},{id:'c-hr',name:'C-HR'},
-          {id:'matrix',name:'Matrix'},{id:'mr2',name:'MR2'},{id:'sequoia',name:'Sequoia'},
-          {id:'solara',name:'Solara'},{id:'supra',name:'Supra'}        ],
+          {id:'avalon',name:'Avalon'},{id:'matrix',name:'Matrix'},{id:'solara',name:'Solara'},
+          {id:'supra',name:'Supra'}
+        ],
         honda: [
           {id:'civic',name:'Civic'},{id:'accord',name:'Accord'},{id:'fit',name:'Fit'},
           {id:'cr-v',name:'CR-V'},{id:'pilot',name:'Pilot'},{id:'odyssey',name:'Odyssey'},
           {id:'hr-v',name:'HR-V'},{id:'ridgeline',name:'Ridgeline'},{id:'passport',name:'Passport'},
           {id:'insight',name:'Insight'},{id:'element',name:'Element'},{id:'s2000',name:'S2000'},
-          {id:'crosstour',name:'Crosstour'}        ],
+          {id:'crosstour',name:'Crosstour'}
+        ],
         ford: [
           {id:'f-150',name:'F-150'},{id:'f-250',name:'F-250'},{id:'mustang',name:'Mustang'},
           {id:'explorer',name:'Explorer'},{id:'escape',name:'Escape'},{id:'edge',name:'Edge'},
           {id:'expedition',name:'Expedition'},{id:'fusion',name:'Fusion'},{id:'ranger',name:'Ranger'},
-          {id:'bronco',name:'Bronco'},{id:'flex',name:'Flex'},{id:'taurus',name:'Taurus'},
-          {id:'focus',name:'Focus'},{id:'escort',name:'Escort'}        ],
+          {id:'bronco',name:'Bronco'},{id:'taurus',name:'Taurus'},{id:'focus',name:'Focus'},
+          {id:'flex',name:'Flex'}
+        ],
         chevrolet: [
           {id:'silverado',name:'Silverado'},{id:'colorado',name:'Colorado'},{id:'tahoe',name:'Tahoe'},
           {id:'suburban',name:'Suburban'},{id:'equinox',name:'Equinox'},{id:'traverse',name:'Traverse'},
-          {id:'malibu',name:'Malibu'},{id:'camaro',name:'Camaro'},{id:'sonic',name:'Sonic'},
-          {id:'trax',name:'Trax'},{id:'bolt-ev',name:'Bolt EV'},{id:'impala',name:'Impala'},
-          {id:'cruze',name:'Cruze'}        ],
+          {id:'malibu',name:'Malibu'},{id:'camaro',name:'Camaro'},{id:'corvette',name:'Corvette'},
+          {id:'sonic',name:'Sonic'},{id:'trax',name:'Trax'},{id:'bolt-ev',name:'Bolt EV'},
+          {id:'impala',name:'Impala'},{id:'cruze',name:'Cruze'}
+        ],
         bmw: [
           {id:'3-series',name:'3 Series'},{id:'5-series',name:'5 Series'},{id:'7-series',name:'7 Series'},
           {id:'1-series',name:'1 Series'},{id:'2-series',name:'2 Series'},{id:'4-series',name:'4 Series'},
           {id:'6-series',name:'6 Series'},{id:'8-series',name:'8 Series'},{id:'x1',name:'X1'},
           {id:'x2',name:'X2'},{id:'x3',name:'X3'},{id:'x4',name:'X4'},{id:'x5',name:'X5'},
           {id:'x6',name:'X6'},{id:'x7',name:'X7'},{id:'z4',name:'Z4'},{id:'i3',name:'i3'},
-          {id:'i8',name:'i8'},{id:'m3',name:'M3'},{id:'m4',name:'M4'},{id:'m5',name:'M5'},
-          {id:'m8',name:'M8'}        ],
-        mercedes: [
-          {id:'a-class',name:'A-Class'},{id:'b-class',name:'B-Class'},{id:'c-class',name:'C-Class'},
-          {id:'e-class',name:'E-Class'},{id:'s-class',name:'S-Class'},{id:'cla',name:'CLA'},
-          {id:'cls',name:'CLS'},{id:'gla',name:'GLA'},{id:'glc',name:'GLC'},{id:'gle',name:'GLE'},
-          {id:'gls',name:'GLS'},{id:'g-class',name:'G-Class'},{id:'sl',name:'SL'},{id:'slc',name:'SLC'},
-          {id:'eqc',name:'EQC'}        ],
-        audi: [
-          {id:'a3',name:'A3'},{id:'a4',name:'A4'},{id:'a5',name:'A5'},{id:'a6',name:'A6'},
-          {id:'a7',name:'A7'},{id:'a8',name:'A8'},{id:'q3',name:'Q3'},{id:'q5',name:'Q5'},
-          {id:'q7',name:'Q7'},{id:'q8',name:'Q8'},{id:'tt',name:'TT'},{id:'r8',name:'R8'},
-          {id:'e-tron',name:'e-tron'}        ],
-        nissan: [
-          {id:'altima',name:'Altima'},{id:'maxima',name:'Maxima'},{id:'sentra',name:'Sentra'},
-          {id:'versa',name:'Versa'},{id:'pathfinder',name:'Pathfinder'},{id:'murano',name:'Murano'},
-          {id:'rogue',name:'Rogue'},{id:'kicks',name:'Kicks'},{id:'leaf',name:'Leaf'},
-          {id:'armada',name:'Armada'},{id:'titan',name:'Titan'},{id:'370z',name:'370Z'},
-          {id:'juke',name:'Juke'}        ],
-        hyundai: [
-          {id:'elantra',name:'Elantra'},{id:'sonata',name:'Sonata'},{id:'accent',name:'Accent'},
-          {id:'santa-fe',name:'Santa Fe'},{id:'tucson',name:'Tucson'},{id:'veloster',name:'Veloster'},
-          {id:'kona',name:'Kona'},{id:'palisade',name:'Palisade'},{id:'ioniq',name:'Ioniq'},
-          {id:'azera',name:'Azera'}        ],
-        kia: [
-          {id:'rio',name:'Rio'},{id:'forte',name:'Forte'},{id:'k5',name:'K5 (Optima)'},
-          {id:'soul',name:'Soul'},{id:'sportage',name:'Sportage'},{id:'sorento',name:'Sorento'},
-          {id:'telluride',name:'Telluride'},{id:'seltos',name:'Seltos'},{id:'stinger',name:'Stinger'},
-          {id:'niro',name:'Niro'}        ],
-        volkswagen: [
-          {id:'golf',name:'Golf'},{id:'jetta',name:'Jetta'},{id:'passat',name:'Passat'},
-          {id:'tiguan',name:'Tiguan'},{id:'atlas',name:'Atlas'},{id:'beetle',name:'Beetle'},
-          {id:'touareg',name:'Touareg'},{id:'arteon',name:'Arteon'},{id:'gti',name:'GTI'},
-          {id:'e-golf',name:'e-Golf'}        ],
-        subaru: [
-          {id:'impreza',name:'Impreza'},{id:'wrx',name:'WRX/STI'},{id:'legacy',name:'Legacy'},
-          {id:'outback',name:'Outback'},{id:'forester',name:'Forester'},{id:'crosstrek',name:'Crosstrek'},
-          {id:'ascent',name:'Ascent'},{id:'brz',name:'BRZ'}        ],
-        mazda: [
-          {id:'mazda3',name:'Mazda3'},{id:'mazda6',name:'Mazda6'},{id:'cx-3',name:'CX-3'},
-          {id:'cx-5',name:'CX-5'},{id:'cx-9',name:'CX-9'},{id:'miata',name:'MX-5 Miata'},
-          {id:'cx-30',name:'CX-30'}        ],
-        lexus: [
-          {id:'is',name:'IS'},{id:'es',name:'ES'},{id:'gs',name:'GS'},{id:'ls',name:'LS'},
-          {id:'rx',name:'RX'},{id:'nx',name:'NX'},{id:'ux',name:'UX'},{id:'gx',name:'GX'},
-          {id:'lx',name:'LX'}        ],
-        acura: [
-          {id:'ilx',name:'ILX'},{id:'tlx',name:'TLX'},{id:'tl',name:'TL'},{id:'tsx',name:'TSX'},
-          {id:'rl',name:'RL'},{id:'rdx',name:'RDX'},{id:'mdx',name:'MDX'}        ],
-        infiniti: [
-          {id:'q50',name:'Q50'},{id:'q60',name:'Q60'},{id:'qx50',name:'QX50'},{id:'qx60',name:'QX60'},
-          {id:'qx80',name:'QX80'},{id:'g35',name:'G35'},{id:'g37',name:'G37'}        ],
-        buick: [
-          {id:'lacrosse',name:'LaCrosse'},{id:'regal',name:'Regal'},{id:'verano',name:'Verano'},
-          {id:'encore',name:'Encore'},{id:'envision',name:'Envision'},{id:'enclave',name:'Enclave'}        ],
-        cadillac: [
-          {id:'cts',name:'CTS'},{id:'ats',name:'ATS'},{id:'xt5',name:'XT5'},{id:'xt4',name:'XT4'},
-          {id:'xt6',name:'XT6'},{id:'escalade',name:'Escalade'}        ],
-        chrysler: [
-          {id:'300',name:'300'},{id:'pacifica',name:'Pacifica'},{id:'town-country',name:'Town & Country'},
-          {id:'voyager',name:'Voyager'}        ],
-        dodge: [
-          {id:'charger',name:'Charger'},{id:'challenger',name:'Challenger'},{id:'durango',name:'Durango'},
-          {id:'journey',name:'Journey'},{id:'grand-caravan',name:'Grand Caravan'}        ],
-        jeep: [
-          {id:'wrangler',name:'Wrangler'},{id:'cherokee',name:'Cherokee'},{id:'grand-cherokee',name:'Grand Cherokee'},
-          {id:'compass',name:'Compass'},{id:'patriot',name:'Patriot'},{id:'renegade',name:'Renegade'},
-          {id:'gladiator',name:'Gladiator'}        ],
-        lincoln: [
-          {id:'navigator',name:'Navigator'},{id:'aviator',name:'Aviator'},{id:'mkz',name:'MKZ'},
-          {id:'mkx',name:'MKX'},{id:'continental',name:'Continental'}        ],
-        genesis: [
-          {id:'g70',name:'G70'},{id:'g80',name:'G80'},{id:'g90',name:'G90'},{id:'gv80',name:'GV80'},
-          {id:'gv70',name:'GV70'}        ],
-        volvo: [
-          {id:'s60',name:'S60'},{id:'s90',name:'S90'},{id:'v60',name:'V60'},{id:'v90',name:'V90'},
-          {id:'xc40',name:'XC40'},{id:'xc60',name:'XC60'},{id:'xc90',name:'XC90'}        ],
-        mini: [
-          {id:'cooper-hardtop',name:'Cooper Hardtop'},{id:'countryman',name:'Countryman'},
-          {id:'clubman',name:'Clubman'}        ],
-        porsche: [
-          {id:'911',name:'911'},{id:'boxster',name:'Boxster'},{id:'cayman',name:'Cayman'},
-          {id:'cayenne',name:'Cayenne'},{id:'macan',name:'Macan'},{id:'panamera',name:'Panamera'},
-          {id:'taycan',name:'Taycan'}        ],
-        jaguar: [
-          {id:'xf',name:'XF'},{id:'xe',name:'XE'},{id:'xj',name:'XJ'},{id:'f-pace',name:'F-Pace'},
-          {id:'e-pace',name:'E-Pace'},{id:'f-type',name:'F-Type'}        ],
-        'land-rover': [
-          {id:'range-rover',name:'Range Rover'},{id:'range-sport',name:'Range Rover Sport'},
-          {id:'discovery',name:'Discovery'},{id:'discovery-sport',name:'Discovery Sport'},
-          {id:'defender',name:'Defender'},{id:'evoque',name:'Evoque'},{id:'velar',name:'Velar'}        ],
-        maserati: [
-          {id:'quattroporte',name:'Quattroporte'},{id:'ghibli',name:'Ghibli'},
-          {id:'levante',name:'Levante'},{id:'granturismo',name:'GranTurismo'}        ],
-        tesla: [
-          {id:'models',name:'Model S'},{id:'model3',name:'Model 3'},
-          {id:'modelx',name:'Model X'},{id:'modely',name:'Model Y'}        ],
-        mitsubishi: [
-          {id:'lancer',name:'Lancer'},{id:'outlander',name:'Outlander'},
-          {id:'outlander-sport',name:'Outlander Sport'},{id:'eclipse',name:'Eclipse'},
-          {id:'eclipse-cross',name:'Eclipse Cross'},{id:'mirage',name:'Mirage'}        ],
-        ram: [
-          {id:'1500',name:'1500'},{id:'2500',name:'2500'},{id:'3500',name:'3500'}        ],
-        gmc: [
-          {id:'sierra-1500',name:'Sierra 1500'},{id:'sierra-2500',name:'Sierra 2500'},
-          {id:'sierra-3500',name:'Sierra 3500'},{id:'yukon',name:'Yukon'},
-          {id:'terrain',name:'Terrain'},{id:'acadia',name:'Acadia'},{id:'canyon',name:'Canyon'}        ],
-        fiat: [
-          {id:'500',name:'500'},{id:'500x',name:'500X'},{id:'500l',name:'500L'}        ],
-        'alfa-romeo': [
-          {id:'giulia',name:'Giulia'},{id:'stelvio',name:'Stelvio'},{id:'4c',name:'4C'}        ]
+          {id:'i4',name:'i4'},{id:'iX',name:'iX'},{id:'m3',name:'M3'},{id:'m4',name:'M4'},
+          {id:'m5',name:'M5'},{id:'m8',name:'M8'}
+        }
       };
       const years = Array.from({length:30},(_,i)=>new Date().getFullYear()-i);
 
-      // State & DOM refs
       let selMaker=null, selModel=null, selYear=null;
       const md=document.getElementById('maker-dropdown'),
             mdt=document.getElementById('maker-text'),
@@ -615,7 +498,6 @@
             yc=document.getElementById('year-content'),
             qb=document.getElementById('quote-button');
 
-      // Populate Makes
       autoMakers.forEach(m=>{
         const d=document.createElement('div');
         d.className='px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
@@ -666,29 +548,24 @@
           :'w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed';
       }
 
-      // Dropdown toggles
       md.onclick=e=>{e.stopPropagation(); mc.classList.toggle('show'); oc.classList.remove('show'); yc.classList.remove('show');};
       od.onclick=e=>{if(od.disabled) return; e.stopPropagation(); oc.classList.toggle('show'); mc.classList.remove('show'); yc.classList.remove('show');};
       yd.onclick=e=>{if(yd.disabled) return; e.stopPropagation(); yc.classList.toggle('show'); mc.classList.remove('show'); oc.classList.remove('show');};
       document.addEventListener('click',()=>{ mc.classList.remove('show'); oc.classList.remove('show'); yc.classList.remove('show'); });
 
-      // Mobile menu
       document.getElementById('mobile-menu-button')
         .addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));
 
-      // Header scroll
       window.addEventListener('scroll',()=>{
         const h=document.querySelector('header');
-        if(window.scrollY>50){ h.classList.add('h-16'); h.classList.add('shadow-lg'); }
+        if(window.scrollY>50){ h.classList.add('h-16','shadow-lg'); }
         else { h.classList.remove('h-16','shadow-lg'); }
       });
 
-      // Section reveal
       document.querySelectorAll('.section-animate').forEach(sec=>{
         new IntersectionObserver(entries=>{ entries.forEach(ent=>ent.isIntersecting&&ent.target.classList.add('visible')); },{threshold:0.1}).observe(sec);
       });
 
-      // FAQ accordion
       document.querySelectorAll('.faq-question').forEach(btn=>{
         btn.addEventListener('click',()=>btn.nextElementSibling.classList.toggle('hidden'));
       });
