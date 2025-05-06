@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoShield+ | Extended Auto Warranty Protection</title>
+    <meta name="description" content="Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns for all vehicle makes and models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        blue: {
+                            50: '#F0F7FF',
+                            100: '#E0EFFF',
+                            200: '#BBD9FF',
+                            300: '#8ABBFF',
+                            400: '#5A9CFF',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                            800: '#1E40AF',
+                            900: '#1E3A8A',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { 
+            background: #60a5fa;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        /* Dropdown animations */
+        .dropdown-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .dropdown-content.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section animations */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-white">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-blue-900 py-5" id="header">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span class="ml-2 text-white font-bold text-xl">AutoShield+</span>
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#features" class="text-white hover:text-blue-300 transition-colors">Features</a>
+                        <a href="#coverage" class="text-white hover:text-blue-300 transition-colors">Coverage</a>
+                        <a href="#testimonials" class="text-white hover:text-blue-300 transition-colors">Testimonials</a>
+                        <a href="#faq" class="text-white hover:text-blue-300 transition-colors">FAQ</a>
+                    </nav>
+                    
+                    <div class="hidden md:block">
+                        <button class="bg-white text-blue-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-100 transition-colors">
+                            Call Now
+                        </button>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-white" id="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-blue-900 shadow-lg" id="mobile-menu">
+                <div class="px-4 pt-2 pb-4 space-y-4">
+                    <a href="#features" class="block text-white hover:text-blue-300 transition-colors">Features</a>
+                    <a href="#coverage" class="block text-white hover:text-blue-300 transition-colors">Coverage</a>
+                    <a href="#testimonials" class="block text-white hover:text-blue-300 transition-colors">Testimonials</a>
+                    <a href="#faq" class="block text-white hover:text-blue-300 transition-colors">FAQ</a>
+                    <button class="w-full bg-white text-blue-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-100 transition-colors">
+                        Call Now
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="relative pt-32 pb-20 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden">
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-72 h-72 bg-blue-400 rounded-full opacity-10"></div>
+                    <div class="absolute top-40 right-20 w-96 h-96 bg-blue-500 rounded-full opacity-10"></div>
+                    <div class="absolute bottom-10 left-1/3 w-64 h-64 bg-blue-300 rounded-full opacity-10"></div>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8 text-center md:text-left">
+                            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                                <span class="block">Protect Your Vehicle</span>
+                                <span class="block text-blue-300">Beyond the Factory Warranty</span>
+                            </h1>
+                            
+                            <p class="text-xl text-blue-100">
+                                Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns.
+                            </p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg">
+                                    Get a Quote
+                                </button>
+                                <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors">
+                                    Learn More
+                                </button>
+                            </div>
+                            
+                            <div class="flex flex-wrap justify-center md:justify-start gap-6">
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                    <span>100% Satisfaction Guarantee</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="7"/>
+                                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                                    </svg>
+                                    <span>Trusted by 50,000+ Drivers</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                    <span>24/7 Roadside Assistance</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-white/20">
+                            <div class="text-center mb-6">
+                                <h2 class="text-2xl font-bold mb-2">Get Your Free Quote</h2>
+                                <p class="text-blue-200">Select your vehicle to see our warranty options</p>
+                            </div>
+                            
+                            <!-- Vehicle Selector Form -->
+                            <div class="space-y-4">
+                                <div class="relative">
+                                    <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Make</label>
+                                    <button id="maker-dropdown" class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center text-white">
+                                        <span id="maker-text">Select manufacturer</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"/>
+                                        </svg>
+                                    </button>
+                                    <div id="maker-content" class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                        <!-- Makers will be populated here -->
+                                    </div>
+                                </div>
+
+                                <div class="relative">
+                                    <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Model</label>
+                                    <button id="model-dropdown" class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center text-white" disabled>
+                                        <span id="model-text">Select model</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"/>
+                                        </svg>
+                                    </button>
+                                    <div id="model-content" class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                        <!-- Models will be populated here -->
+                                    </div>
+                                </div>
+
+                                <div class="relative">
+                                    <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Year</label>
+                                    <button id="year-dropdown" class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center text-white" disabled>
+                                        <span id="year-text">Select year</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"/>
+                                        </svg>
+                                    </button>
+                                    <div id="year-content" class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                        <!-- Years will be populated here -->
+                                    </div>
+                                </div>
+
+                                <button id="quote-button" class="w-full mt-6 px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed" disabled>
+                                    Get Instant Quote
+                                </button>
+                                
+                                <p class="text-center text-xs text-blue-200 mt-2">
+                                    Free, no-obligation quote. Your information is secure.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="py-20 bg-gray-50 section-animate">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Why Choose Our Warranty
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            We provide comprehensive protection for your vehicle with industry-leading coverage and exceptional service.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Feature cards will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coverage Section -->
+            <section id="coverage" class="py-20 bg-white section-animate">
+                <!-- Coverage content -->
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="py-20 bg-blue-900 text-white relative overflow-hidden section-animate">
+                <!-- Testimonials content -->
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="py-20 bg-gray-50 section-animate">
+                <!-- FAQ content -->
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white section-animate">
+                <!-- CTA content -->
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white">
+            <!-- Footer content -->
+        </footer>
+    </div>
+
+    <script>
+        // Data
+        const autoMakers = [
+            { id: 'toyota', name: 'Toyota' },
+            { id: 'honda', name: 'Honda' },
+            { id: 'ford', name: 'Ford' },
+            // ... more makers
+        ];
+
+        const vehicleModels = {
+            toyota: [
+                { id: 'camry', name: 'Camry' },
+                { id: 'corolla', name: 'Corolla' },
+                { id: 'rav4', name: 'RAV4' },
+                // ... more Toyota models
+            ],
+            honda: [
+                { id: 'civic', name: 'Civic' },
+                { id: 'accord', name: 'Accord' },
+                { id: 'cr-v', name: 'CR-V' },
+                // ... more Honda models
+            ],
+            // ... more makers and their models
+        };
+
+        const years = Array.from({ length: 30 }, (_, i) => new Date().getFullYear() - i);
+
+        // State
+        let selectedMaker = null;
+        let selectedModel = null;
+        let selectedYear = null;
+
+        // DOM Elements
+        const makerDropdown = document.getElementById('maker-dropdown');
+        const modelDropdown = document.getElementById('model-dropdown');
+        const yearDropdown = document.getElementById('year-dropdown');
+        const makerContent = document.getElementById('maker-content');
+        const modelContent = document.getElementById('model-content');
+        const yearContent = document.getElementById('year-content');
+        const quoteButton = document.getElementById('quote-button');
+
+        // Populate makers
+        autoMakers.forEach(maker => {
+            const div = document.createElement('div');
+            div.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer transition-colors text-gray-900';
+            div.textContent = maker.name;
+            div.onclick = () => selectMaker(maker);
+            makerContent.appendChild(div);
+        });
+
+        // Event Handlers
+        function selectMaker(maker) {
+            selectedMaker = maker;
+            document.getElementById('maker-text').textContent = maker.name;
+            makerContent.classList.remove('show');
+            modelDropdown.disabled = false;
+            
+            // Reset model and year
+            selectedModel = null;
+            selectedYear = null;
+            document.getElementById('model-text').textContent = 'Select model';
+            document.getElementById('year-text').textContent = 'Select year';
+            yearDropdown.disabled = true;
+            
+            // Update models
+            modelContent.innerHTML = '';
+            vehicleModels[maker.id].forEach(model => {
+                const div = document.createElement('div');
+                div.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer transition-colors text-gray-900';
+                div.textContent = model.name;
+                div.onclick = () => selectModel(model);
+                modelContent.appendChild(div);
+            });
+            
+            updateQuoteButton();
+        }
+
+        function selectModel(model) {
+            selectedModel = model;
+            document.getElementById('model-text').textContent = model.name;
+            modelContent.classList.remove('show');
+            yearDropdown.disabled = false;
+            
+            // Reset year
+            selectedYear = null;
+            document.getElementById('year-text').textContent = 'Select year';
+            
+            // Update years
+            yearContent.innerHTML = '';
+            years.forEach(year => {
+                const div = document.createElement('div');
+                div.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer transition-colors text-gray-900';
+                div.textContent = year;
+                div.onclick = () => selectYear(year);
+                yearContent.appendChild(div);
+            });
+            
+            updateQuoteButton();
+        }
+
+        function selectYear(year) {
+            selectedYear = year;
+            document.getElementById('year-text').textContent = year;
+            yearContent.classList.remove('show');
+            updateQuoteButton();
+        }
+
+        function updateQuoteButton() {
+            const isComplete = selectedMaker && selectedModel && selectedYear;
+            quoteButton.disabled = !isComplete;
+            quoteButton.className = `w-full mt-6 px-6 py-3 rounded-lg font-semibold ${
+                isComplete 
+                    ? 'bg-white text-blue-900 hover:bg-blue-100 cursor-pointer' 
+                    : 'bg-white/30 text-white/70 cursor-not-allowed'
+            }`;
+        }
+
+        // Dropdown toggles
+        makerDropdown.onclick = (e) => {
+            e.stopPropagation();
+            makerContent.classList.toggle('show');
+            modelContent.classList.remove('show');
+            yearContent.classList.remove('show');
+        };
+
+        modelDropdown.onclick = (e) => {
+            if (modelDropdown.disabled) return;
+            e.stopPropagation();
+            modelContent.classList.toggle('show');
+            makerContent.classList.remove('show');
+            yearContent.classList.remove('show');
+        };
+
+        yearDropdown.onclick = (e) => {
+            if (yearDropdown.disabled) return;
+            e.stopPropagation();
+            yearContent.classList.toggle('show');
+            makerContent.classList.remove('show');
+            modelContent.classList.remove('show');
+        };
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            makerContent.classList.remove('show');
+            modelContent.classList.remove('show');
+            yearContent.classList.remove('show');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.onclick = () => {
+            mobileMenu.classList.toggle('hidden');
+        };
+
+        // Scroll animations
+        const sections = document.querySelectorAll('.section-animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Header scroll effect
+        window.onscroll = () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-3', 'shadow-lg');
+                header.classList.remove('py-5');
+            } else {
+                header.classList.remove('py-3', 'shadow-lg');
+                header.classList.add('py-5');
+            }
+        };
+    </script>
+</body>
+</html>
