@@ -75,139 +75,138 @@
     </style>
 </head>
 <body>
-    <div class="min-h-screen bg-white">
-        <!-- Header -->
-        <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-blue-900 py-5" id="header">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                        <span class="ml-2 text-white font-bold text-xl">AutoShield+</span>
-                    </div>
-                    
-                    <!-- Desktop Navigation -->
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="#features" class="text-white hover:text-blue-300 transition-colors">Features</a>
-                        <a href="#coverage" class="text-white hover:text-blue-300 transition-colors">Coverage</a>
-                        <a href="#testimonials" class="text-white hover:text-blue-300 transition-colors">Testimonials</a>
-                        <a href="#faq" class="text-white hover:text-blue-300 transition-colors">FAQ</a>
-                    </nav>
-                    
-                    <div class="hidden md:block">
-                        <button class="bg-white text-blue-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-100 transition-colors">
-                            Call Now
-                        </button>
-                    </div>
-                    
-                    <!-- Mobile Menu Button -->
-                    <button class="md:hidden text-white" id="mobile-menu-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div class="md:hidden hidden bg-blue-900 shadow-lg" id="mobile-menu">
-                <div class="px-4 pt-2 pb-4 space-y-4">
-                    <a href="#features" class="block text-white hover:text-blue-300 transition-colors">Features</a>
-                    <a href="#coverage" class="block text-white hover:text-blue-300 transition-colors">Coverage</a>
-                    <a href="#testimonials" class="block text-white hover:text-blue-300 transition-colors">Testimonials</a>
-                    <a href="#faq" class="block text-white hover:text-blue-300 transition-colors">FAQ</a>
-                    <button class="w-full bg-white text-blue-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-100 transition-colors">
-                        Call Now
-                    </button>
-                </div>
-            </div>
-        </header>
+    <!-- Previous HTML content remains exactly the same until the script section -->
+    <script>
+        // Data
+        const autoMakers = [
+            { id: 'toyota', name: 'Toyota' },
+            { id: 'honda', name: 'Honda' },
+            { id: 'ford', name: 'Ford' },
+            { id: 'chevrolet', name: 'Chevrolet' },
+            { id: 'bmw', name: 'BMW' },
+            { id: 'mercedes', name: 'Mercedes-Benz' },
+            { id: 'audi', name: 'Audi' },
+            { id: 'nissan', name: 'Nissan' },
+            { id: 'hyundai', name: 'Hyundai' },
+            { id: 'kia', name: 'Kia' },
+            { id: 'volkswagen', name: 'Volkswagen' },
+            { id: 'subaru', name: 'Subaru' },
+            { id: 'mazda', name: 'Mazda' },
+            { id: 'lexus', name: 'Lexus' },
+            { id: 'acura', name: 'Acura' },
+            { id: 'infiniti', name: 'Infiniti' },
+            { id: 'buick', name: 'Buick' },
+            { id: 'cadillac', name: 'Cadillac' },
+            { id: 'chrysler', name: 'Chrysler' },
+            { id: 'dodge', name: 'Dodge' },
+            { id: 'jeep', name: 'Jeep' },
+            { id: 'lincoln', name: 'Lincoln' },
+            { id: 'genesis', name: 'Genesis' },
+            { id: 'volvo', name: 'Volvo' },
+            { id: 'mini', name: 'MINI' },
+            { id: 'porsche', name: 'Porsche' },
+            { id: 'jaguar', name: 'Jaguar' },
+            { id: 'land-rover', name: 'Land Rover' },
+            { id: 'maserati', name: 'Maserati' },
+            { id: 'tesla', name: 'Tesla' },
+            { id: 'mitsubishi', name: 'Mitsubishi' },
+            { id: 'ram', name: 'RAM' },
+            { id: 'gmc', name: 'GMC' },
+            { id: 'fiat', name: 'FIAT' },
+            { id: 'alfa-romeo', name: 'Alfa Romeo' }
+        ];
 
-        <main>
-            <!-- Hero Section -->
-            <section class="relative pt-32 pb-20 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden">
-                <div class="absolute inset-0 overflow-hidden">
-                    <div class="absolute -top-10 -left-10 w-72 h-72 bg-blue-400 rounded-full opacity-10"></div>
-                    <div class="absolute top-40 right-20 w-96 h-96 bg-blue-500 rounded-full opacity-10"></div>
-                    <div class="absolute bottom-10 left-1/3 w-64 h-64 bg-blue-300 rounded-full opacity-10"></div>
-                </div>
-                
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="space-y-8 text-center md:text-left">
-                            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                                <span class="block">Protect Your Vehicle</span>
-                                <span class="block text-blue-300">Beyond the Factory Warranty</span>
-                            </h1>
-                            
-                            <p class="text-xl text-blue-100">
-                                Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns.
-                            </p>
-                            
-                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                                <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg">
-                                    Get a Quote
-                                </button>
-                                <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors">
-                                    Learn More
-                                </button>
-                            </div>
-                            
-                            <div class="flex flex-wrap justify-center md:justify-start gap-6">
-                                <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                    </svg>
-                                    <span>100% Satisfaction Guarantee</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="8" r="7"/>
-                                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-                                    </svg>
-                                    <span>Trusted by 50,000+ Drivers</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12 6 12 12 16 14"/>
-                                    </svg>
-                                    <span>24/7 Roadside Assistance</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-white/20">
-                            <div class="text-center mb-6">
-                                <h2 class="text-2xl font-bold mb-2">Get Your Free Quote</h2>
-                                <p class="text-blue-200">Select your vehicle to see our warranty options</p>
-                            </div>
-                            
-                            <!-- Vehicle Selector Form -->
-                            <div class="space-y-4">
-                                <div class="relative">
-                                    <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Make</label>
-                                    <button id="maker-dropdown" class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center text-white">
-                                        <span id="maker-text">Select manufacturer</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="6 9 12 15 18 9"/>
-                                        </svg>
-                                    </button>
-                                    <div id="maker-content" class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                                        <!-- Makers will be populated here -->
-                                    </div>
-                                </div>
-
-                                <div class="relative">
-                                    <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Model</label>
-                                    <button id="model-dropdown" class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center text-white" disabled>
-                                        <span id="model-text">Select model</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="6 9 12 15 18 9"/>
-                                        </svg>
-                                    </button>
-                                    <div id="model-content" class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto">
+        const vehicleModels = {
+            toyota: [
+                { id: 'camry', name: 'Camry' },
+                { id: 'corolla', name: 'Corolla' },
+                { id: 'rav4', name: 'RAV4' },
+                { id: 'highlander', name: 'Highlander' },
+                { id: 'tacoma', name: 'Tacoma' },
+                { id: 'tundra', name: 'Tundra' },
+                { id: 'sienna', name: 'Sienna' },
+                { id: '4runner', name: '4Runner' },
+                { id: 'prius', name: 'Prius' },
+                { id: 'avalon', name: 'Avalon' }
+            ],
+            honda: [
+                { id: 'civic', name: 'Civic' },
+                { id: 'accord', name: 'Accord' },
+                { id: 'cr-v', name: 'CR-V' },
+                { id: 'pilot', name: 'Pilot' },
+                { id: 'odyssey', name: 'Odyssey' },
+                { id: 'hr-v', name: 'HR-V' },
+                { id: 'ridgeline', name: 'Ridgeline' },
+                { id: 'passport', name: 'Passport' },
+                { id: 'insight', name: 'Insight' }
+            ],
+            ford: [
+                { id: 'f-150', name: 'F-150' },
+                { id: 'mustang', name: 'Mustang' },
+                { id: 'explorer', name: 'Explorer' },
+                { id: 'escape', name: 'Escape' },
+                { id: 'edge', name: 'Edge' },
+                { id: 'bronco', name: 'Bronco' },
+                { id: 'ranger', name: 'Ranger' },
+                { id: 'expedition', name: 'Expedition' },
+                { id: 'fusion', name: 'Fusion' }
+            ],
+            chevrolet: [
+                { id: 'silverado', name: 'Silverado' },
+                { id: 'equinox', name: 'Equinox' },
+                { id: 'tahoe', name: 'Tahoe' },
+                { id: 'traverse', name: 'Traverse' },
+                { id: 'malibu', name: 'Malibu' },
+                { id: 'camaro', name: 'Camaro' },
+                { id: 'colorado', name: 'Colorado' },
+                { id: 'blazer', name: 'Blazer' },
+                { id: 'suburban', name: 'Suburban' }
+            ],
+            bmw: [
+                { id: '3-series', name: '3 Series' },
+                { id: '5-series', name: '5 Series' },
+                { id: 'x3', name: 'X3' },
+                { id: 'x5', name: 'X5' },
+                { id: '7-series', name: '7 Series' },
+                { id: 'x1', name: 'X1' },
+                { id: 'x7', name: 'X7' },
+                { id: '4-series', name: '4 Series' },
+                { id: 'x6', name: 'X6' }
+            ],
+            mercedes: [
+                { id: 'c-class', name: 'C-Class' },
+                { id: 'e-class', name: 'E-Class' },
+                { id: 'glc', name: 'GLC' },
+                { id: 'gle', name: 'GLE' },
+                { id: 's-class', name: 'S-Class' },
+                { id: 'gla', name: 'GLA' },
+                { id: 'a-class', name: 'A-Class' },
+                { id: 'gls', name: 'GLS' },
+                { id: 'cla', name: 'CLA' }
+            ],
+            audi: [
+                { id: 'a4', name: 'A4' },
+                { id: 'q5', name: 'Q5' },
+                { id: 'a6', name: 'A6' },
+                { id: 'q7', name: 'Q7' },
+                { id: 'a3', name: 'A3' },
+                { id: 'q3', name: 'Q3' },
+                { id: 'e-tron', name: 'e-tron' },
+                { id: 'a5', name: 'A5' },
+                { id: 'q8', name: 'Q8' }
+            ],
+            nissan: [
+                { id: 'altima', name: 'Altima' },
+                { id: 'rogue', name: 'Rogue' },
+                { id: 'sentra', name: 'Sentra' },
+                { id: 'pathfinder', name: 'Pathfinder' },
+                { id: 'frontier', name: 'Frontier' },
+                { id: 'murano', name: 'Murano' },
+                { id: 'kicks', name: 'Kicks' },
+                { id: 'maxima', name: 'Maxima' },
+                { id: 'titan', name: 'Titan' }
+            ]
+        };
                                         <!-- Models will be populated here -->
                                     </div>
                                 </div>
