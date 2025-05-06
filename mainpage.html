@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config must come before the CDN script -->
   <script>
     tailwind.config = {
       theme: {
@@ -25,6 +26,8 @@
       }
     }
   </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
@@ -423,9 +426,9 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Connect</h3>
         <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Facebook</span></a>
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Twitter</span></a>
-          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">LinkedIn</span></a>
+          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Facebook</span><!-- icon --></a>
+          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">Twitter</span><!-- icon --></a>
+          <a href="#" class="text-gray-400 hover:text-white"><span class="sr-only">LinkedIn</span><!-- icon --></a>
         </div>
       </div>
     </div>
@@ -438,54 +441,40 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Data
       const autoMakers = [
-        {id:'toyota',name:'Toyota'},
-        {id:'honda',name:'Honda'},
-        {id:'ford',name:'Ford'},
-        {id:'chevrolet',name:'Chevrolet'},
-        {id:'bmw',name:'BMW'}
+        {id:'toyota',name:'Toyota'},{id:'honda',name:'Honda'},{id:'ford',name:'Ford'},
+        {id:'chevrolet',name:'Chevrolet'},{id:'bmw',name:'BMW'}
       ];
       const vehicleModels = {
         toyota: [
           {id:'camry',name:'Camry'},{id:'corolla',name:'Corolla'},{id:'prius',name:'Prius'},
           {id:'rav4',name:'RAV4'},{id:'highlander',name:'Highlander'},{id:'tacoma',name:'Tacoma'},
-          {id:'tundra',name:'Tundra'},{id:'4runner',name:'4Runner'},{id:'sequoia',name:'Sequoia'},
-          {id:'sienna',name:'Sienna'},{id:'venza',name:'Venza'},{id:'c-hr',name:'C-HR'},
-          {id:'avalon',name:'Avalon'},{id:'matrix',name:'Matrix'},{id:'solara',name:'Solara'},
-          {id:'supra',name:'Supra'}
+          {id:'tundra',name:'Tundra'},{id:'avalon',name:'Avalon'},{id:'4runner',name:'4Runner'},
+          {id:'sienna',name:'Sienna'},{id:'venza',name:'Venza'},{id:'supra',name:'Supra'}
         ],
         honda: [
           {id:'civic',name:'Civic'},{id:'accord',name:'Accord'},{id:'fit',name:'Fit'},
           {id:'cr-v',name:'CR-V'},{id:'pilot',name:'Pilot'},{id:'odyssey',name:'Odyssey'},
-          {id:'hr-v',name:'HR-V'},{id:'ridgeline',name:'Ridgeline'},{id:'passport',name:'Passport'},
-          {id:'insight',name:'Insight'},{id:'element',name:'Element'},{id:'s2000',name:'S2000'},
-          {id:'crosstour',name:'Crosstour'}
+          {id:'hr-v',name:'HR-V'},{id:'ridgeline',name:'Ridgeline'},{id:'s2000',name:'S2000'}
         ],
         ford: [
           {id:'f-150',name:'F-150'},{id:'f-250',name:'F-250'},{id:'mustang',name:'Mustang'},
           {id:'explorer',name:'Explorer'},{id:'escape',name:'Escape'},{id:'edge',name:'Edge'},
-          {id:'expedition',name:'Expedition'},{id:'fusion',name:'Fusion'},{id:'ranger',name:'Ranger'},
-          {id:'bronco',name:'Bronco'},{id:'taurus',name:'Taurus'},{id:'focus',name:'Focus'},
-          {id:'flex',name:'Flex'}
+          {id:'expedition',name:'Expedition'},{id:'fusion',name:'Fusion'},{id:'bronco',name:'Bronco'}
         ],
         chevrolet: [
           {id:'silverado',name:'Silverado'},{id:'colorado',name:'Colorado'},{id:'tahoe',name:'Tahoe'},
-          {id:'suburban',name:'Suburban'},{id:'equinox',name:'Equinox'},{id:'traverse',name:'Traverse'},
-          {id:'malibu',name:'Malibu'},{id:'camaro',name:'Camaro'},{id:'corvette',name:'Corvette'},
-          {id:'sonic',name:'Sonic'},{id:'trax',name:'Trax'},{id:'bolt-ev',name:'Bolt EV'},
-          {id:'impala',name:'Impala'},{id:'cruze',name:'Cruze'}
+          {id:'suburban',name:'Suburban'},{id:'equinox',name:'Equinox'},{id:'malibu',name:'Malibu'},
+          {id:'camaro',name:'Camaro'},{id:'bolt-ev',name:'Bolt EV'}
         ],
         bmw: [
           {id:'3-series',name:'3 Series'},{id:'5-series',name:'5 Series'},{id:'7-series',name:'7 Series'},
-          {id:'1-series',name:'1 Series'},{id:'2-series',name:'2 Series'},{id:'4-series',name:'4 Series'},
-          {id:'6-series',name:'6 Series'},{id:'8-series',name:'8 Series'},{id:'x1',name:'X1'},
-          {id:'x2',name:'X2'},{id:'x3',name:'X3'},{id:'x4',name:'X4'},{id:'x5',name:'X5'},
-          {id:'x6',name:'X6'},{id:'x7',name:'X7'},{id:'z4',name:'Z4'},{id:'i3',name:'i3'},
-          {id:'i4',name:'i4'},{id:'iX',name:'iX'},{id:'m3',name:'M3'},{id:'m4',name:'M4'},
-          {id:'m5',name:'M5'},{id:'m8',name:'M8'}
-        }
+          {id:'x3',name:'X3'},{id:'x5',name:'X5'},{id:'x7',name:'X7'},
+          {id:'z4',name:'Z4'},{id:'i3',name:'i3'},{id:'m3',name:'M3'}
+        ]
       };
       const years = Array.from({length:30},(_,i)=>new Date().getFullYear()-i);
 
+      // State & DOM refs
       let selMaker=null, selModel=null, selYear=null;
       const md=document.getElementById('maker-dropdown'),
             mdt=document.getElementById('maker-text'),
@@ -498,6 +487,7 @@
             yc=document.getElementById('year-content'),
             qb=document.getElementById('quote-button');
 
+      // Populate Makes
       autoMakers.forEach(m=>{
         const d=document.createElement('div');
         d.className='px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
@@ -548,29 +538,33 @@
           :'w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed';
       }
 
+      // Dropdown toggles
       md.onclick=e=>{e.stopPropagation(); mc.classList.toggle('show'); oc.classList.remove('show'); yc.classList.remove('show');};
       od.onclick=e=>{if(od.disabled) return; e.stopPropagation(); oc.classList.toggle('show'); mc.classList.remove('show'); yc.classList.remove('show');};
       yd.onclick=e=>{if(yd.disabled) return; e.stopPropagation(); yc.classList.toggle('show'); mc.classList.remove('show'); oc.classList.remove('show');};
       document.addEventListener('click',()=>{ mc.classList.remove('show'); oc.classList.remove('show'); yc.classList.remove('show'); });
 
+      // Mobile menu
       document.getElementById('mobile-menu-button')
         .addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));
 
+      // Header scroll
       window.addEventListener('scroll',()=>{
         const h=document.querySelector('header');
         if(window.scrollY>50){ h.classList.add('h-16','shadow-lg'); }
         else { h.classList.remove('h-16','shadow-lg'); }
       });
 
+      // Section reveal
       document.querySelectorAll('.section-animate').forEach(sec=>{
         new IntersectionObserver(entries=>{ entries.forEach(ent=>ent.isIntersecting&&ent.target.classList.add('visible')); },{threshold:0.1}).observe(sec);
       });
 
+      // FAQ accordion
       document.querySelectorAll('.faq-question').forEach(btn=>{
         btn.addEventListener('click',()=>btn.nextElementSibling.classList.toggle('hidden'));
       });
     });
   </script>
-
 </body>
 </html>
