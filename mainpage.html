@@ -928,14 +928,66 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // Data for makes & models
-      const autoMakers = [
-        { id: "toyota", name: "Toyota" },
-        { id: "honda", name: "Honda" },
-        { id: "ford", name: "Ford" },
-        { id: "chevrolet", name: "Chevrolet" },
-        { id: "bmw", name: "BMW" },
-        // …other brands…
-      ];
+const autoMakers = [
+  { id: "acura",          name: "Acura" },
+  { id: "alfa_romeo",     name: "Alfa Romeo" },
+  { id: "aston_martin",   name: "Aston Martin" },
+  { id: "audi",           name: "Audi" },
+  { id: "bentley",        name: "Bentley" },
+  { id: "bmw",            name: "BMW" },          // already present
+  { id: "bugatti",        name: "Bugatti" },
+  { id: "buick",          name: "Buick" },
+  { id: "cadillac",       name: "Cadillac" },
+  { id: "chevrolet",      name: "Chevrolet" },    // already present
+  { id: "chrysler",       name: "Chrysler" },
+  { id: "daewoo",         name: "Daewoo" },
+  { id: "dodge",          name: "Dodge" },
+  { id: "ferrari",        name: "Ferrari" },
+  { id: "fiat",           name: "Fiat" },
+  { id: "fisker",         name: "Fisker" },
+  { id: "ford",           name: "Ford" },         // already present
+  { id: "freightliner",   name: "Freightliner" },
+  { id: "genesis",        name: "Genesis" },
+  { id: "gmc",            name: "GMC" },
+  { id: "honda",          name: "Honda" },        // already present
+  { id: "hyundai",        name: "Hyundai" },
+  { id: "infiniti",       name: "Infiniti" },
+  { id: "isuzu",          name: "Isuzu" },
+  { id: "jaguar",         name: "Jaguar" },
+  { id: "jeep",           name: "Jeep" },
+  { id: "karma",          name: "Karma" },
+  { id: "kia",            name: "Kia" },
+  { id: "koenigsegg",     name: "Koenigsegg" },
+  { id: "lamborghini",    name: "Lamborghini" },
+  { id: "land_rover",     name: "Land Rover" },
+  { id: "lexus",          name: "Lexus" },
+  { id: "lincoln",        name: "Lincoln" },
+  { id: "lotus",          name: "Lotus" },
+  { id: "lucid",          name: "Lucid" },
+  { id: "maserati",       name: "Maserati" },
+  { id: "mazda",          name: "Mazda" },
+  { id: "mclaren",        name: "McLaren" },
+  { id: "mercedes_benz",  name: "Mercedes-Benz" },
+  { id: "mini",           name: "Mini" },
+  { id: "mitsubishi",     name: "Mitsubishi" },
+  { id: "nissan",         name: "Nissan" },
+  { id: "peterbilt",      name: "Peterbilt" },
+  { id: "polestar",       name: "Polestar (EV)" },
+  { id: "porsche",        name: "Porsche" },
+  { id: "ram",            name: "Ram" },
+  { id: "rivian",         name: "Rivian" },
+  { id: "rolls_royce",    name: "Rolls-Royce" },
+  { id: "saleen",         name: "Saleen" },
+  { id: "scion",          name: "Scion" },
+  { id: "smart",          name: "Smart" },
+  { id: "ssc",            name: "SSC" },
+  { id: "subaru",         name: "Subaru" },
+  { id: "suzuki",         name: "Suzuki" },
+  { id: "tesla",          name: "Tesla" },
+  { id: "toyota",         name: "Toyota" },       // already present
+  { id: "volkswagen",     name: "Volkswagen" },
+  { id: "volvo",          name: "Volvo" }
+];
 
       const vehicleModels = {
         toyota: [
