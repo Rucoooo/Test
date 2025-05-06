@@ -1,169 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Waex Auto Protection</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-toggle]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = document.getElementById(btn.dataset.toggle);
-          target.classList.toggle('hidden');
-        });
-      });
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details - Waex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse the same base styles from index.html */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #f7f8fa;
+            --accent: #fbd116;
+            --success: #34c759;
+            --error: #ff3b30;
+            --text-primary: #333333;
+            --text-secondary: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header {
+            background-color: #2563eb;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-icon {
+            background: white;
+            padding: 0.375rem;
+            border-radius: 0.375rem;
+            margin-right: 0.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .phone {
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-select, .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background-color: white;
+        }
+
+        .form-select:focus, .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            ring: 2px solid var(--primary);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 200ms;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .footer {
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 1.5rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 640px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-800">
-  <!-- Navbar -->
-  <header class="bg-[#2563eb] text-white p-4 flex justify-between items-center">
-    <div class="font-bold text-lg">Waex</div>
-    <div class="text-sm">Call: 1-800-455-0335</div>
-  </header>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Waex</span>
+            </a>
+            <a href="tel:866-555-0123" class="phone">866-555-0123</a>
+        </div>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-16 px-4">
-    <h1 class="text-3xl md:text-4xl font-bold mb-4">Unexpected auto breakdowns happen. <br />Let <span class="text-[#2563eb]">Waex</span> protect your investment.</h1>
-    <p class="text-gray-600 mb-6">Premium coverage in 30 seconds or less.</p>
-    <a href="#" class="bg-[#2563eb] text-white py-2 px-4 rounded font-semibold">Get Protected Now</a>
+    <main class="main-content">
+        <div class="form-container">
+            <div class="form-title">
+                <h1 class="text-2xl font-bold">Your Vehicle Details</h1>
+                <p class="text-gray-600">Tell us about your vehicle to get started</p>
+            </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
-      <div class="text-sm">Premium Coverage</div>
-      <div class="text-sm">Instant Coverage</div>
-      <div class="text-sm">Competitive Rates</div>
-      <div class="text-sm">Simple Process</div>
-    </div>
-  </section>
+            <form id="vehicleForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="year">Vehicle Year</label>
+                    <select class="form-select" id="year" required>
+                        <option value="">Select Year</option>
+                    </select>
+                </div>
 
-  <!-- How it Works -->
-  <section class="bg-gray-50 py-16 px-4">
-    <h2 class="text-3xl font-bold text-center mb-4">How Waex works</h2>
-    <p class="text-center text-gray-600 mb-10">We make getting coverage for unexpected auto repairs simple, affordable, and hassle-free.</p>
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="bg-white p-6 rounded shadow text-center">
-        <h3 class="font-semibold text-xl mb-2">Choose your plan</h3>
-        <p class="text-gray-600">Select the coverage that works best for your vehicle and budget.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow text-center">
-        <h3 class="font-semibold text-xl mb-2">Get covered immediately</h3>
-        <p class="text-gray-600">No waiting periods. Your coverage begins right after purchase.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow text-center">
-        <h3 class="font-semibold text-xl mb-2">Just file a claim</h3>
-        <p class="text-gray-600">When you need a repair, simply file a claim online or by phone.</p>
-      </div>
-    </div>
-    <div class="text-center mt-10">
-      <a href="#" class="bg-[#2563eb] text-white py-2 px-6 rounded font-semibold">Get Started</a>
-    </div>
-  </section>
+                <div class="form-group">
+                    <label class="form-label" for="make">Vehicle Make</label>
+                    <select class="form-select" id="make" required>
+                        <option value="">Select Make</option>
+                    </select>
+                </div>
 
-  <!-- Coverage Section -->
-  <section class="py-16 px-4">
-    <h2 class="text-3xl font-bold text-center mb-4">What's covered by Waex</h2>
-    <p class="text-center text-gray-600 mb-12">Our plans are designed to protect you from unexpected repair costs.</p>
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <div class="bg-[#f0f5ff] p-6 rounded">
-        <h3 class="font-semibold text-xl mb-3">Routine maintenance</h3>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Oil changes and filter replacements</li>
-          <li>Spark plug replacements</li>
-          <li>Brake pad replacements</li>
-          <li>Tire rotations and alignments</li>
-        </ul>
-      </div>
-      <div class="bg-[#f0f5ff] p-6 rounded">
-        <h3 class="font-semibold text-xl mb-3">Pre-existing conditions</h3>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Coverage for vehicles with existing issues</li>
-          <li>Mechanical breakdowns from wear and tear</li>
-          <li>Electrical system issues</li>
-          <li>Commercial vehicle coverage</li>
-        </ul>
-      </div>
-      <div class="bg-[#f0f5ff] p-6 rounded">
-        <h3 class="font-semibold text-xl mb-3">Powertrain coverage</h3>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Engine components and repairs</li>
-          <li>Transmission system repairs</li>
-          <li>Drive axle protection</li>
-          <li>Transfer case coverage</li>
-        </ul>
-      </div>
-      <div class="bg-[#f0f5ff] p-6 rounded">
-        <h3 class="font-semibold text-xl mb-3">Mechanical alterations</h3>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Coverage for modified vehicles</li>
-          <li>Aftermarket parts and accessories</li>
-          <li>Performance upgrades</li>
-          <li>Modified suspension systems</li>
-        </ul>
-      </div>
-    </div>
-    <div class="text-center mt-12">
-      <a href="#" class="bg-[#2563eb] text-white py-2 px-6 rounded font-semibold">Get Your Quote</a>
-    </div>
-  </section>
+                <div class="form-group">
+                    <label class="form-label" for="model">Vehicle Model</label>
+                    <select class="form-select" id="model" required>
+                        <option value="">Select Model</option>
+                    </select>
+                </div>
 
-  <!-- Testimonials -->
-  <section class="bg-gray-50 py-16 px-4 text-center">
-    <h2 class="text-2xl font-bold mb-6">The (virtually) 5-star auto repair coverage</h2>
-    <div class="flex justify-center space-x-1 text-yellow-400 mb-6">⭐⭐⭐⭐⭐</div>
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="p-6 border rounded">
-        <p class="mb-4 italic">“I was skeptical at first, but Waex really came through when my car broke down. Easy claims process and amazing customer support!”</p>
-        <strong>Diana R.<br />Colorado</strong>
-      </div>
-      <div class="p-6 border rounded">
-        <p class="mb-4 italic">“I had a great experience. Within a day, I had my repairs started without any hassle.”</p>
-        <strong>David L.<br />Nevada</strong>
-      </div>
-      <div class="p-6 border rounded">
-        <p class="mb-4 italic">“Unparalleled support and coverage. I never worry about car issues anymore.”</p>
-        <strong>Patrick K.<br />Texas</strong>
-      </div>
-    </div>
-  </section>
+                <div class="form-group">
+                    <label class="form-label" for="mileage">Current Mileage</label>
+                    <input type="number" class="form-input" id="mileage" placeholder="Enter current mileage" required>
+                </div>
 
-  <!-- FAQ Section -->
-  <section class="py-16 px-4">
-    <h2 class="text-2xl font-bold text-center mb-10">FAQs</h2>
-    <div class="max-w-3xl mx-auto space-y-4">
-      <div>
-        <button class="w-full text-left font-semibold" data-toggle="faq1">Is Waex covered?</button>
-        <div class="mt-2 text-gray-600 hidden" id="faq1">Yes, Waex offers comprehensive coverage across a variety of vehicle types.</div>
-      </div>
-      <div>
-        <button class="w-full text-left font-semibold" data-toggle="faq2">Do I pay a deductible for every claim I make?</button>
-        <div class="mt-2 text-gray-600 hidden" id="faq2">Deductibles vary by plan but are clearly defined before purchase.</div>
-      </div>
-      <div>
-        <button class="w-full text-left font-semibold" data-toggle="faq3">What does coverage begin?</button>
-        <div class="mt-2 text-gray-600 hidden" id="faq3">Immediately after your purchase is complete.</div>
-      </div>
-      <div>
-        <button class="w-full text-left font-semibold" data-toggle="faq4">Can I cancel anytime?</button>
-        <div class="mt-2 text-gray-600 hidden" id="faq4">Yes, you can cancel at any time with prorated refunds.</div>
-      </div>
-      <div>
-        <button class="w-full text-left font-semibold" data-toggle="faq5">How do I pay my coverage?</button>
-        <div class="mt-2 text-gray-600 hidden" id="faq5">You can pay online or set up recurring payments via credit card.</div>
-      </div>
-    </div>
-  </section>
+                <button type="submit" class="btn-primary">Continue</button>
+            </form>
+        </div>
+    </main>
 
-  <!-- Footer -->
-  <footer class="bg-[#2563eb] text-white p-6 text-sm text-center">
-    <div class="mb-2 font-bold">Waex</div>
-    <div>1-800-455-0335</div>
-    <div class="mt-2">
-      <a href="#" class="underline mx-2">Contact Us</a>
-      <a href="#" class="underline mx-2">Terms & Conditions</a>
-      <a href="#" class="underline mx-2">Privacy Policy</a>
-    </div>
-    <div class="mt-4">© 2025 Waex. All rights reserved.</div>
-  </footer>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo" style="color: #2563eb">
+                    <div class="logo-icon" style="background: #f0f5ff">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Waex</span>
+                </a>
+                <p class="text-sm text-gray-500 mt-2">866-555-0123</p>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Terms & Conditions</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Populate years (current year - 25 years)
+        const yearSelect = document.getElementById('year');
+        const currentYear = new Date().getFullYear();
+        for (let i = 0; i < 25; i++) {
+            const year = currentYear - i;
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        }
+
+        // Car makes
+        const makes = ['Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jeep', 'Kia', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Nissan', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
+        const makeSelect = document.getElementById('make');
+        makes.forEach(make => {
+            const option = document.createElement('option');
+            option.value = make;
+            option.textContent = make;
+            makeSelect.appendChild(option);
+        });
+
+        // Car models by make
+        const carModels = {
+            'Honda': ['Accord', 'Civic', 'CR-V', 'Pilot', 'Odyssey'],
+            'Toyota': ['Camry', 'Corolla', 'RAV4', 'Highlander', 'Tacoma'],
+            // Add more makes and models as needed
+        };
+
+        // Update models when make changes
+        makeSelect.addEventListener('change', (e) => {
+            const modelSelect = document.getElementById('model');
+            modelSelect.innerHTML = '<option value="">Select Model</option>';
+            
+            const selectedMake = e.target.value;
+            const models = carModels[selectedMake] || [];
+            
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model;
+                option.textContent = model;
+                modelSelect.appendChild(option);
+            });
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const year = document.getElementById('year').value;
+            const make = document.getElementById('make').value;
+            const model = document.getElementById('model').value;
+            const mileage = document.getElementById('mileage').value;
+
+            // Validate form
+            if (!year || !make || !model || !mileage) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Store data and redirect
+            const vehicleData = {
+                year,
+                make,
+                model,
+                mileage
+            };
+            localStorage.setItem('vehicleData', JSON.stringify(vehicleData));
+            
+            // Redirect to next page
+            window.location.href = '/user-details.html';
+        }
+    </script>
 </body>
 </html>
