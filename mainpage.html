@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AutoShield+ | Extended Auto Warranty Protection</title>
-  <meta name="description" content="Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns for all vehicle makes and models."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns for all vehicle makes and models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,14 +28,14 @@
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
-    ::-webkit-scrollbar { width:10px }
-    ::-webkit-scrollbar-track { background:#f1f1f1 }
-    ::-webkit-scrollbar-thumb { background:#60a5fa; border-radius:9999px }
-    ::-webkit-scrollbar-thumb:hover { background:#3b82f6 }
-    .dropdown-content { display:none; opacity:0; transform:translateY(-10px); transition:opacity .3s, transform .3s }
-    .dropdown-content.show { display:block; opacity:1; transform:translateY(0) }
-    .section-animate { opacity:0; transform:translateY(20px); transition:opacity .5s ease-out, transform .5s ease-out }
-    .section-animate.visible { opacity:1; transform:translateY(0) }
+    ::-webkit-scrollbar { width:10px; }
+    ::-webkit-scrollbar-track { background:#f1f1f1; }
+    ::-webkit-scrollbar-thumb { background:#60a5fa; border-radius:9999px; }
+    ::-webkit-scrollbar-thumb:hover { background:#3b82f6; }
+    .dropdown-content { display:none; opacity:0; transform:translateY(-10px); transition:opacity .3s, transform .3s; }
+    .dropdown-content.show { display:block; opacity:1; transform:translateY(0); }
+    .section-animate { opacity:0; transform:translateY(20px); transition:opacity .5s ease-out, transform .5s ease-out; }
+    .section-animate.visible { opacity:1; transform:translateY(0); }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -127,13 +127,15 @@
       </div>
     </section>
 
-    <!-- (Other sections remain exactly as you already have them: Features, Coverage, Testimonials, FAQ, CTA, Footer…) -->
+    <!-- (rest of your static sections unchanged…) -->
 
   </main>
 
+  <!-- Footer (unchanged…) -->
+
   <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // --- 1) DEFINE YOUR MAKES ---
+    // 1) Hard-coded makes list
     const autoMakers = [
       'Toyota','Honda','Ford','Chevrolet','BMW','Mercedes-Benz','Audi','Nissan',
       'Hyundai','Kia','Volkswagen','Subaru','Mazda','Lexus','Acura','Infiniti',
@@ -142,33 +144,32 @@
       'RAM','GMC','FIAT','Alfa Romeo'
     ];
 
-    // --- 2) YEARS (last 30) ---
+    // 2) Build last 30 years
     const years = Array.from({length:30},(_,i)=>new Date().getFullYear()-i);
 
-    // --- STATE & DOM REFS ---
+    // 3) Cache DOM + state
     let selMaker=null, selModel=null, selYear=null;
-    const md = document.getElementById('maker-dropdown'),
+    const md  = document.getElementById('maker-dropdown'),
           mdt = document.getElementById('maker-text'),
-          mc = document.getElementById('maker-content'),
-          od = document.getElementById('model-dropdown'),
+          mc  = document.getElementById('maker-content'),
+          od  = document.getElementById('model-dropdown'),
           odt = document.getElementById('model-text'),
-          oc = document.getElementById('model-content'),
-          yd = document.getElementById('year-dropdown'),
+          oc  = document.getElementById('model-content'),
+          yd  = document.getElementById('year-dropdown'),
           ydt = document.getElementById('year-text'),
-          yc = document.getElementById('year-content'),
-          qb = document.getElementById('quote-button');
+          yc  = document.getElementById('year-content'),
+          qb  = document.getElementById('quote-button');
 
-    // --- 3) POPULATE MAKES ---
-    autoMakers.forEach(make=>{
-      const div = document.createElement('div');
-      div.className='px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
-      div.textContent = make;
-      div.onclick = () => {
+    // 4) Populate Make dropdown
+    autoMakers.forEach(make => {
+      const d = document.createElement('div');
+      d.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
+      d.textContent = make;
+      d.onclick = () => {
         selMaker = make;
         mdt.textContent = make;
         mc.classList.remove('show');
-
-        // enable model dropdown
+        // enable Model dropdown
         od.disabled = false;
         od.classList.remove('opacity-50');
         selModel = selYear = null;
@@ -176,104 +177,84 @@
         ydt.textContent = 'Select year';
         yd.disabled = true;
         yd.classList.add('opacity-50');
-
-        // fetch all models for that make via vPIC API
         oc.innerHTML = '<div class="p-4 text-gray-500">Loading models…</div>';
+        // fetch models from NHTSA
         fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${encodeURIComponent(make)}?format=json`)
-          .then(res => res.json())
-          .then(data => {
+          .then(r=>r.json())
+          .then(data=>{
             oc.innerHTML = '';
-            // Extract, filter (2000+), sort
-            const models = data.Results
+            data.Results
               .map(r=>r.Model_Name)
               .filter(name=>{
-                const yearPrefix = parseInt(name.slice(0,4));
-                return isNaN(yearPrefix) || yearPrefix >= 2000;
+                // try to filter out pre-2000 based on common prefix
+                const year = parseInt(name.substring(0,4));
+                return isNaN(year) || year >= 2000;
               })
-              .sort((a,b)=>a.localeCompare(b));
-            models.forEach(model=>{
-              const e = document.createElement('div');
-              e.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
-              e.textContent = model;
-              e.onclick = () => selectModel(model);
-              oc.appendChild(e);
-            });
+              .sort((a,b)=>a.localeCompare(b))
+              .forEach(name=>{
+                const e = document.createElement('div');
+                e.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
+                e.textContent = name;
+                e.onclick = ()=> selectModel(name);
+                oc.appendChild(e);
+              });
+          })
+          .catch(()=>{
+            oc.innerHTML = '<div class="p-4 text-red-500">Failed to load models.</div>';
           });
-
         updateButton();
       };
-      mc.appendChild(div);
+      mc.appendChild(d);
     });
 
-    // --- 4) SELECT MODEL & POPULATE YEARS ---
-    function selectModel(model){
-      selModel = model;
-      odt.textContent = model;
+    // 5) Model selection
+    function selectModel(name){
+      selModel = name;
+      odt.textContent = name;
       oc.classList.remove('show');
-
+      // enable Year
       yd.disabled = false;
       yd.classList.remove('opacity-50');
       selYear = null;
       ydt.textContent = 'Select year';
-
       yc.innerHTML = '';
       years.forEach(y=>{
-        const div = document.createElement('div');
-        div.className='px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
-        div.textContent = y;
-        div.onclick = () => {
+        const el = document.createElement('div');
+        el.className = 'px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900';
+        el.textContent = y;
+        el.onclick = ()=>{
           selYear = y;
           ydt.textContent = y;
           yc.classList.remove('show');
           updateButton();
         };
-        yc.appendChild(div);
+        yc.appendChild(el);
       });
-
       updateButton();
     }
 
-    // --- 5) ENABLE QUOTE BUTTON WHEN READY ---
+    // 6) Enable/disable quote button
     function updateButton(){
-      const ready = selMaker && selModel && selYear;
-      qb.disabled = !ready;
-      qb.className = ready
+      const ok = selMaker && selModel && selYear;
+      qb.disabled = !ok;
+      qb.className = ok
         ? 'w-full px-6 py-3 rounded-lg font-semibold bg-white text-blue-900 hover:bg-blue-100 cursor-pointer'
         : 'w-full px-6 py-3 rounded-lg font-semibold bg-white/30 text-white/70 cursor-not-allowed';
     }
 
-    // --- 6) DROPDOWN TOGGLES ---
-    md.onclick = e=>{
-      e.stopPropagation();
-      mc.classList.toggle('show');
-      oc.classList.remove('show');
-      yc.classList.remove('show');
-    };
-    od.onclick = e=>{
-      if (od.disabled) return;
-      e.stopPropagation();
-      oc.classList.toggle('show');
-      mc.classList.remove('show');
-      yc.classList.remove('show');
-    };
-    yd.onclick = e=>{
-      if (yd.disabled) return;
-      e.stopPropagation();
-      yc.classList.toggle('show');
-      mc.classList.remove('show');
-      oc.classList.remove('show');
-    };
-    document.addEventListener('click',()=>{
-      mc.classList.remove('show');
-      oc.classList.remove('show');
-      yc.classList.remove('show');
+    // 7) Dropdown toggles
+    md.onclick = e=>{ e.stopPropagation(); mc.classList.toggle('show'); oc.classList.remove('show'); yc.classList.remove('show'); };
+    od.onclick = e=>{ if(od.disabled) return; e.stopPropagation(); oc.classList.toggle('show'); mc.classList.remove('show'); yc.classList.remove('show'); };
+    yd.onclick = e=>{ if(yd.disabled) return; e.stopPropagation(); yc.classList.toggle('show'); mc.classList.remove('show'); oc.classList.remove('show'); };
+    document.addEventListener('click', ()=>{ mc.classList.remove('show'); oc.classList.remove('show'); yc.classList.remove('show'); });
+
+    // 8) Mobile menu
+    document.getElementById('mobile-menu-button').addEventListener('click', ()=> {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 
-    // --- 7) MOBILE MENU & SCROLL EFFECTS & SECTION ANIMATIONS & FAQ (unchanged) ---
-    document.getElementById('mobile-menu-button')
-      .addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));
-
-    window.addEventListener('scroll',()=>{
+    // 9) Header scroll effect
+    window.addEventListener('scroll', () => {
       const h = document.getElementById('header');
       if (window.scrollY > 50) {
         h.classList.add('py-3','shadow-lg');
@@ -284,16 +265,21 @@
       }
     });
 
+    // 10) Section reveal
     document.querySelectorAll('.section-animate').forEach(sec=>{
       new IntersectionObserver(entries=>{
-        entries.forEach(ent=>ent.isIntersecting&&ent.target.classList.add('visible'));
+        entries.forEach(ent=>{
+          if (ent.isIntersecting) ent.target.classList.add('visible');
+        });
       },{threshold:0.1}).observe(sec);
     });
 
+    // 11) FAQ accordion
     document.querySelectorAll('.faq-question').forEach(btn=>{
-      btn.addEventListener('click',()=>btn.nextElementSibling.classList.toggle('hidden'));
+      btn.addEventListener('click', ()=> {
+        btn.nextElementSibling.classList.toggle('hidden');
+      });
     });
-
   });
   </script>
 </body>
