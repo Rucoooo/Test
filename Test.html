@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoShield+ | Extended Auto Warranty Protection</title>
+    <meta name="description" content="Get peace of mind with our comprehensive extended warranty plans. Protecting against unexpected repairs and costly breakdowns for all vehicle makes and models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Animations */
+        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+        .animate-slide-up { animation: slideUp 0.5s ease-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #60a5fa; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        /* Focus styles */
+        *:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3b82f6;
+            border-radius: 0.25rem;
+        }
+
+        /* Dropdown styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Custom background gradient */
+        .bg-custom-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div id="root">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 bg-blue-900 shadow-lg py-3">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span class="ml-2 text-white font-bold text-xl">AutoShield+</span>
+                    </div>
+                    
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#features" class="text-white hover:text-blue-300 transition-colors">Features</a>
+                        <a href="#coverage" class="text-white hover:text-blue-300 transition-colors">Coverage</a>
+                        <a href="#testimonials" class="text-white hover:text-blue-300 transition-colors">Testimonials</a>
+                        <a href="#faq" class="text-white hover:text-blue-300 transition-colors">FAQ</a>
+                    </nav>
+                    
+                    <button class="bg-white text-blue-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-100 transition-colors">
+                        Call Now
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 bg-custom-gradient text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8 text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                            <span class="block">Protect Your Vehicle</span>
+                            <span class="block text-blue-300">Beyond the Factory Warranty</span>
+                        </h1>
+                        
+                        <p class="text-xl text-blue-100">
+                            Get peace of mind with our comprehensive extended warranty plans. 
+                            Protecting against unexpected repairs and costly breakdowns.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg">
+                                Get a Quote
+                            </button>
+                            <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-white/20">
+                        <div class="text-center mb-6">
+                            <h2 class="text-2xl font-bold mb-2">Get Your Free Quote</h2>
+                            <p class="text-blue-200">Select your vehicle to see our warranty options</p>
+                        </div>
+                        
+                        <!-- Vehicle Selector Form -->
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Make</label>
+                                <select class="w-full bg-white/10 border border-white/30 rounded-lg p-3 text-white">
+                                    <option value="" class="text-gray-900">Select manufacturer</option>
+                                    <option value="toyota" class="text-gray-900">Toyota</option>
+                                    <option value="honda" class="text-gray-900">Honda</option>
+                                    <option value="ford" class="text-gray-900">Ford</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Model</label>
+                                <select class="w-full bg-white/10 border border-white/30 rounded-lg p-3 text-white">
+                                    <option value="" class="text-gray-900">Select model</option>
+                                    <!-- Models will be populated via JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-blue-200 mb-1">Vehicle Year</label>
+                                <select class="w-full bg-white/10 border border-white/30 rounded-lg p-3 text-white">
+                                    <option value="" class="text-gray-900">Select year</option>
+                                    <!-- Years will be populated via JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 transition-colors mt-6">
+                                Get Instant Quote
+                            </button>
+                        </form>
+                        
+                        <p class="text-center text-xs text-blue-200 mt-4">
+                            Free, no-obligation quote. Your information is secure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Why Choose Our Warranty
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We provide comprehensive protection for your vehicle with industry-leading coverage and exceptional service.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature cards will be populated via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- More sections (Coverage, Testimonials, FAQ, etc.) would follow -->
+        
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <span class="ml-2 text-white font-bold text-xl">AutoShield+</span>
+                        </div>
+                        <p class="text-gray-400">
+                            Providing peace of mind for vehicle owners since 2010 with comprehensive extended warranty coverage.
+                        </p>
+                    </div>
+                    
+                    <!-- Footer content continues... -->
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for dynamic functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add your JavaScript here for handling form submission,
+            // populating dropdowns, and other interactive features
+        });
+    </script>
+</body>
+</html>
