@@ -82,75 +82,50 @@
 </head>
 <body class="bg-white text-gray-900">
 
-  <!-- Header -->
-  <header class="bg-white shadow-md border-b-4 border-blue-600">
-    <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
-     <div class="flex items-center">
-  <!-- Wayzere logo -->
-  <img src="images/Wayzerelogo.png" alt="Wayzere logo" class="h-8 w-auto mr-3" />
-
-  <!-- Brand word-mark -->
-  <span class="text-2xl font-extrabold text-gray-900 tracking-tight">
-    Wayzere
-  </span>
-</div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#features" class="text-gray-700 hover:text-blue-600 transition"
-          >Features</a
-        >
-        <a href="#coverage" class="text-gray-700 hover:text-blue-600 transition"
-          >Coverage</a
-        >
-        <a
-          href="#testimonials"
-          class="text-gray-700 hover:text-blue-600 transition"
-          >Testimonials</a
-        >
-        <a href="#faq" class="text-gray-700 hover:text-blue-600 transition"
-          >FAQ</a
-        >
-      </nav>
-      <button
-        id="mobile-menu-button"
-        class="md:hidden text-gray-700 hover:text-blue-600 transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="4" y1="6" x2="20" y2="6" />
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <line x1="4" y1="18" x2="20" y2="18" />
-        </svg>
-      </button>
+ <!-- ======= HEADER (Wayzere) ======= -->
+<header class="bg-white shadow-md border-b-4 border-blue-600">
+  <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
+    <!-- logo + word-mark -->
+    <div class="flex items-center">
+      <!-- BIGGER, PROPORTIONAL LOGO -->
+      <img
+        src="images/Wayzerelogo.png"   <!-- <-- make sure the file name / path matches exactly -->
+        alt="Wayzere logo"
+        class="h-12 w-auto mr-3"       <!-- h-12 = 48 px tall; adjust up/down if you want -->
+      />
+      <span class="text-2xl font-extrabold text-gray-900 tracking-tight">
+        Wayzere
+      </span>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-      <a
-        href="#features"
-        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
-        >Features</a
-      >
-      <a
-        href="#coverage"
-        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
-        >Coverage</a
-      >
-      <a
-        href="#testimonials"
-        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
-        >Testimonials</a
-      >
-      <a href="#faq" class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
-        >FAQ</a
-      >
-    </div>
-  </header>
 
+    <!-- desktop nav -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#features"     class="text-gray-700 hover:text-blue-600 transition">Features</a>
+      <a href="#coverage"     class="text-gray-700 hover:text-blue-600 transition">Coverage</a>
+      <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition">Testimonials</a>
+      <a href="#faq"          class="text-gray-700 hover:text-blue-600 transition">FAQ</a>
+    </nav>
+
+    <!-- mobile button -->
+    <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6"  x2="20" y2="6"  />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- mobile nav panel -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <a href="#features"     class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Features</a>
+    <a href="#coverage"     class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Coverage</a>
+    <a href="#testimonials" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Testimonials</a>
+    <a href="#faq"          class="block px-6 py-3 text-gray-700 hover:bg-gray-100">FAQ</a>
+  </div>
+</header>
+<!-- ======= END HEADER ======= -->
   <main class="pt-0">
 
     <!-- Hero & Quote Form -->
