@@ -1,46 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Waex Protection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waex Auto Protection</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = document.getElementById(btn.dataset.toggle);
+          target.classList.toggle('hidden');
+        });
+      });
+    });
+  </script>
 </head>
-<body>
-  <div>
-    <!-- Hero Section -->
-    <section class="bg-white py-16">
-      <div class="container mx-auto px-4 max-w-5xl">
-        <div class="text-center mb-10">
-          <h1 class="text-3xl md:text-4xl font-bold mb-4">
-            Unexpected auto breakdowns happen.<br />
-            Let <span class="text-[#2563eb]">Waex</span> protect your investment.
-          </h1>
-          <p class="text-gray-600 mb-6">Premium coverage in 30 seconds or less.</p>
-          <a href="/vehicle-details" class="btn-primary">Get Protected Now</a>
-        </div>
-        <!-- Icons Grid -->
-        <!-- Use provided SVGs here as they were already inline -->
-        <!-- [... continues with converted HTML exactly as in JSX including SVGs ...] -->
+<body class="bg-white text-gray-800">
+  <!-- Navbar -->
+  <header class="bg-[#2563eb] text-white p-4 flex justify-between items-center">
+    <div class="font-bold text-lg">Waex</div>
+    <div class="text-sm">Call: 1-800-455-0335</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 px-4">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">Unexpected auto breakdowns happen. <br />Let <span class="text-[#2563eb]">Waex</span> protect your investment.</h1>
+    <p class="text-gray-600 mb-6">Premium coverage in 30 seconds or less.</p>
+    <a href="#" class="bg-[#2563eb] text-white py-2 px-4 rounded font-semibold">Get Protected Now</a>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
+      <div class="text-sm">Premium Coverage</div>
+      <div class="text-sm">Instant Coverage</div>
+      <div class="text-sm">Competitive Rates</div>
+      <div class="text-sm">Simple Process</div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="bg-gray-50 py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-4">How Waex works</h2>
+    <p class="text-center text-gray-600 mb-10">We make getting coverage for unexpected auto repairs simple, affordable, and hassle-free.</p>
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="bg-white p-6 rounded shadow text-center">
+        <h3 class="font-semibold text-xl mb-2">Choose your plan</h3>
+        <p class="text-gray-600">Select the coverage that works best for your vehicle and budget.</p>
       </div>
-    </section>
+      <div class="bg-white p-6 rounded shadow text-center">
+        <h3 class="font-semibold text-xl mb-2">Get covered immediately</h3>
+        <p class="text-gray-600">No waiting periods. Your coverage begins right after purchase.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow text-center">
+        <h3 class="font-semibold text-xl mb-2">Just file a claim</h3>
+        <p class="text-gray-600">When you need a repair, simply file a claim online or by phone.</p>
+      </div>
+    </div>
+    <div class="text-center mt-10">
+      <a href="#" class="bg-[#2563eb] text-white py-2 px-6 rounded font-semibold">Get Started</a>
+    </div>
+  </section>
 
-    <!-- How It Works Section -->
-    <!-- [... continues with exact structure ...] -->
+  <!-- Coverage Section -->
+  <section class="py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-4">What's covered by Waex</h2>
+    <p class="text-center text-gray-600 mb-12">Our plans are designed to protect you from unexpected repair costs.</p>
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="bg-[#f0f5ff] p-6 rounded">
+        <h3 class="font-semibold text-xl mb-3">Routine maintenance</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li>Oil changes and filter replacements</li>
+          <li>Spark plug replacements</li>
+          <li>Brake pad replacements</li>
+          <li>Tire rotations and alignments</li>
+        </ul>
+      </div>
+      <div class="bg-[#f0f5ff] p-6 rounded">
+        <h3 class="font-semibold text-xl mb-3">Pre-existing conditions</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li>Coverage for vehicles with existing issues</li>
+          <li>Mechanical breakdowns from wear and tear</li>
+          <li>Electrical system issues</li>
+          <li>Commercial vehicle coverage</li>
+        </ul>
+      </div>
+      <div class="bg-[#f0f5ff] p-6 rounded">
+        <h3 class="font-semibold text-xl mb-3">Powertrain coverage</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li>Engine components and repairs</li>
+          <li>Transmission system repairs</li>
+          <li>Drive axle protection</li>
+          <li>Transfer case coverage</li>
+        </ul>
+      </div>
+      <div class="bg-[#f0f5ff] p-6 rounded">
+        <h3 class="font-semibold text-xl mb-3">Mechanical alterations</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li>Coverage for modified vehicles</li>
+          <li>Aftermarket parts and accessories</li>
+          <li>Performance upgrades</li>
+          <li>Modified suspension systems</li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="#" class="bg-[#2563eb] text-white py-2 px-6 rounded font-semibold">Get Your Quote</a>
+    </div>
+  </section>
 
-    <!-- Coverage Details -->
-    <!-- [... continues ...] -->
+  <!-- Testimonials -->
+  <section class="bg-gray-50 py-16 px-4 text-center">
+    <h2 class="text-2xl font-bold mb-6">The (virtually) 5-star auto repair coverage</h2>
+    <div class="flex justify-center space-x-1 text-yellow-400 mb-6">⭐⭐⭐⭐⭐</div>
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="p-6 border rounded">
+        <p class="mb-4 italic">“I was skeptical at first, but Waex really came through when my car broke down. Easy claims process and amazing customer support!”</p>
+        <strong>Diana R.<br />Colorado</strong>
+      </div>
+      <div class="p-6 border rounded">
+        <p class="mb-4 italic">“I had a great experience. Within a day, I had my repairs started without any hassle.”</p>
+        <strong>David L.<br />Nevada</strong>
+      </div>
+      <div class="p-6 border rounded">
+        <p class="mb-4 italic">“Unparalleled support and coverage. I never worry about car issues anymore.”</p>
+        <strong>Patrick K.<br />Texas</strong>
+      </div>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <!-- Replace with actual HTML or embed the component manually -->
-    <section class="py-16 bg-gray-100 text-center">
-      <p class="text-xl">[Testimonials content placeholder]</p>
-    </section>
+  <!-- FAQ Section -->
+  <section class="py-16 px-4">
+    <h2 class="text-2xl font-bold text-center mb-10">FAQs</h2>
+    <div class="max-w-3xl mx-auto space-y-4">
+      <div>
+        <button class="w-full text-left font-semibold" data-toggle="faq1">Is Waex covered?</button>
+        <div class="mt-2 text-gray-600 hidden" id="faq1">Yes, Waex offers comprehensive coverage across a variety of vehicle types.</div>
+      </div>
+      <div>
+        <button class="w-full text-left font-semibold" data-toggle="faq2">Do I pay a deductible for every claim I make?</button>
+        <div class="mt-2 text-gray-600 hidden" id="faq2">Deductibles vary by plan but are clearly defined before purchase.</div>
+      </div>
+      <div>
+        <button class="w-full text-left font-semibold" data-toggle="faq3">What does coverage begin?</button>
+        <div class="mt-2 text-gray-600 hidden" id="faq3">Immediately after your purchase is complete.</div>
+      </div>
+      <div>
+        <button class="w-full text-left font-semibold" data-toggle="faq4">Can I cancel anytime?</button>
+        <div class="mt-2 text-gray-600 hidden" id="faq4">Yes, you can cancel at any time with prorated refunds.</div>
+      </div>
+      <div>
+        <button class="w-full text-left font-semibold" data-toggle="faq5">How do I pay my coverage?</button>
+        <div class="mt-2 text-gray-600 hidden" id="faq5">You can pay online or set up recurring payments via credit card.</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ Section -->
-    <section class="py-16 bg-white text-center">
-      <p class="text-xl">[FAQ content placeholder]</p>
-    </section>
-  </div>
+  <!-- Footer -->
+  <footer class="bg-[#2563eb] text-white p-6 text-sm text-center">
+    <div class="mb-2 font-bold">Waex</div>
+    <div>1-800-455-0335</div>
+    <div class="mt-2">
+      <a href="#" class="underline mx-2">Contact Us</a>
+      <a href="#" class="underline mx-2">Terms & Conditions</a>
+      <a href="#" class="underline mx-2">Privacy Policy</a>
+    </div>
+    <div class="mt-4">© 2025 Waex. All rights reserved.</div>
+  </footer>
 </body>
 </html>
