@@ -43,27 +43,13 @@
       scroll-behavior: smooth;
     }
     body {
-      margin: 0;
       font-family: "Inter", sans-serif;
-      /* yellow→blue gradient */
-      background: linear-gradient(to right, #FBBF24, #3B82F6) fixed;
-      color: white;
     }
-
-    /* kill any Tailwind “bg-white” or light‐gray backgrounds */
-    .bg-white,
-    .bg-gray-50,
-    .bg-gray-100,
-    .bg-gray-200 {
-      background-color: transparent !important;
-    }
-
-    /* transparent scrollbar track */
     ::-webkit-scrollbar {
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: transparent !important;
+      background: #f1f1f1;
     }
     ::-webkit-scrollbar-thumb {
       background: #60a5fa;
@@ -94,52 +80,83 @@
     }
   </style>
 </head>
-<body class="m-0">
+<body class="bg-white text-gray-900">
 
- <!-- ========= HEADER (Wayzere) ========= -->
-<header class="bg-transparent shadow-md border-b-4 border-yellow-400">
-  <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
-    <!-- logo + word-mark -->
-    <div class="flex items-center space-x-3">
-      <img src="images/Wayzere.png"
-           alt="Wayzere logo"
-           class="h-32 md:h-40 xl:h-48 w-auto object-contain mr-3" />
-      <span class="text-2xl font-extrabold text-gray-900 tracking-tight">
-        
-      </span>
+  <!-- Header -->
+  <header class="bg-white shadow-md border-b-4 border-blue-600">
+    <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
+      <div class="flex items-center">
+        <svg
+          class="h-8 w-8 text-blue-600 mr-3"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2L4 5v6c0 5 4 9 8 11 4-2 8-6 8-11V5l-8-3z"
+          />
+        </svg>
+        <span class="text-2xl font-extrabold text-gray-900 tracking-tight"
+          >Wayzere</span
+        >
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#features" class="text-gray-700 hover:text-blue-600 transition"
+          >Features</a
+        >
+        <a href="#coverage" class="text-gray-700 hover:text-blue-600 transition"
+          >Coverage</a
+        >
+        <a
+          href="#testimonials"
+          class="text-gray-700 hover:text-blue-600 transition"
+          >Testimonials</a
+        >
+        <a href="#faq" class="text-gray-700 hover:text-blue-600 transition"
+          >FAQ</a
+        >
+      </nav>
+      <button
+        id="mobile-menu-button"
+        class="md:hidden text-gray-700 hover:text-blue-600 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+        </svg>
+      </button>
     </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <a
+        href="#features"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >Features</a
+      >
+      <a
+        href="#coverage"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >Coverage</a
+      >
+      <a
+        href="#testimonials"
+        class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >Testimonials</a
+      >
+      <a href="#faq" class="block px-6 py-3 text-gray-700 hover:bg-gray-100"
+        >FAQ</a
+      >
+    </div>
+  </header>
 
-    <!-- desktop nav -->
-    <nav class="hidden md:flex space-x-8">
-      <a href="#features"     class="text-gray-700 hover:text-blue-600 transition">Features</a>
-      <a href="#coverage"     class="text-gray-700 hover:text-blue-600 transition">Coverage</a>
-      <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition">Testimonials</a>
-      <a href="#faq"          class="text-gray-700 hover:text-blue-600 transition">FAQ</a>
-    </nav>
-
-    <!-- mobile button -->
-    <button id="mobile-menu-button"
-            class="md:hidden text-gray-700 hover:text-blue-600 transition">
-      <svg xmlns="http://www.w3.org/2000/svg"
-           class="h-6 w-6" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="4" y1="6"  x2="20" y2="6"  />
-        <line x1="4" y1="12" x2="20" y2="12" />
-        <line x1="4" y1="18" x2="20" y2="18" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- mobile nav panel -->
-  <div id="mobile-menu"
-       class="hidden md:hidden bg-white border-t border-gray-200">
-    <a href="#features"     class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Features</a>
-    <a href="#coverage"     class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Coverage</a>
-    <a href="#testimonials" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Testimonials</a>
-    <a href="#faq"          class="block px-6 py-3 text-gray-700 hover:bg-gray-100">FAQ</a>
-  </div>
-</header>
-<!-- ========= END HEADER ========= -->
   <main class="pt-0">
 
     <!-- Hero & Quote Form -->
@@ -239,7 +256,7 @@
     </section>
 
     <!-- Features -->
-    <section id="features" class="py-20 bg-transparent section-animate">
+    <section id="features" class="py-20 bg-gray-50 section-animate">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Why Choose Our Warranty
@@ -756,6 +773,43 @@
             Absolutely—transfer to a new owner for increased resale value. A
             small fee applies.
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white section-animate"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Protect Your Vehicle Today
+        </h2>
+        <p class="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
+          Get peace of mind with our comprehensive warranty coverage. Start
+          with a free, no-obligation quote.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg"
+          >
+            Get Your Free Quote
+          </button>
+          <button
+            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"
+          >
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8"
+    >
       <div>
         <div class="flex items-center mb-4">
           <svg
