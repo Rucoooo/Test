@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Wayzere Coverage Plans</title>
 
-  <!-- Google Fonts + Tailwind CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,102 +25,192 @@
       }
     };
   </script>
+  <style>
+    @keyframes pulse-border {
+      0% { border-color: rgba(37, 99, 235, 0.5); }
+      50% { border-color: rgba(37, 99, 235, 1); }
+      100% { border-color: rgba(37, 99, 235, 0.5); }
+    }
+    .plan-card {
+      transition: all 0.3s ease;
+    }
+    .plan-card.selected {
+      transform: scale(1.02);
+      border-color: #2563EB;
+      animation: pulse-border 2s infinite;
+    }
+    .feature-reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    .feature-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      .plan-card {
+        max-width: 100%;
+        margin: 0 auto 1rem;
+      }
+    }
+    #cart-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #2563EB;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      cursor: pointer;
+    }
+    .cart-count {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .cart-icon {
+      font-size: 1.125rem;
+    }
+    @media (max-width: 640px) {
+      #cart-container {
+        padding: 0.375rem 0.625rem;
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+      .cart-count {
+        font-size: 0.875rem;
+      }
+      .cart-icon {
+        font-size: 1rem;
+      }
+    }
+    .nav-logo {
+      height: 2.5rem;
+      width: auto;
+    }
+    .nav-container {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-50 min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-sm fixed w-full z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 nav-container">
+        <div class="flex items-center">
+          <img id="company-logo"
+     src="images/Wayzere.png"
+     alt="Wayzere Logo"
+     class="h-32 w-auto mr-3">
+        </div>
+        <div class="flex items-center">
+          <a href="tel:1234567890" class="text-gray-600 hover:text-blue-600 hidden sm:flex items-center">
+            <span class="mr-2">📞</span>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Floating Cart -->
+  <div id="cart-container">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-count">0</span>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 py-8 sm:py-16 sm:px-6 lg:px-8 pt-20">
     <!-- Header -->
-    <header class="text-center mb-16">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Choose Your Coverage Plan</h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+    <header class="text-center mb-8 sm:mb-16">
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Choose Your Coverage Plan</h1>
+      <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
         Select the perfect protection plan for your vehicle with our comprehensive coverage options.
       </p>
     </header>
 
     <!-- Plans -->
-    <section class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-      <!-- ========= BASIC COVERAGE ========= -->
-      <article class="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-100 transform hover:-translate-y-1 transition-transform duration-300">
+    <section class="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+      <!-- Basic Coverage -->
+      <article class="plan-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-100 transform transition-all duration-300">
         <header class="bg-blue-600 px-6 py-4">
           <h2 class="text-2xl font-bold text-white">Basic Coverage</h2>
           <p class="text-blue-100 mt-1">Essential protection for your vehicle</p>
         </header>
 
         <div class="p-6">
-          <!-- price -->
           <div class="mb-6">
             <div class="flex items-baseline">
               <span class="text-5xl font-bold text-gray-900">$2,480</span>
               <span class="text-xl text-gray-600 ml-2">/ 24&nbsp;months</span>
             </div>
-            <p class="text-blue-600 font-medium mt-2">Claims up to $20,000</p>
+            <p class="text-blue-600 font-medium mt-2 text-lg">Claims up to $20,000</p>
           </div>
 
-          <!-- blurb -->
           <p class="text-gray-600 mb-6">
             Any repair under $10,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
           </p>
 
-          <!-- feature list -->
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Engine, transmission, drive axle</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Suspension, steering, brakes, fuel system</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Cooling &amp; electrical systems</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Turbo/supercharger &amp; hybrid components</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Seals &amp; gaskets</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Rental car included up to 30&nbsp;days</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Uber/Lyft credits up to $50/day (30&nbsp;days)</li>
+          <ul class="space-y-3 mb-8 features-list">
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Engine, transmission, drive axle</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Suspension, steering, brakes, fuel system</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Cooling &amp; electrical systems</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Turbo/supercharger &amp; hybrid components</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Seals &amp; gaskets</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Rental car included up to 30&nbsp;days</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Uber/Lyft credits up to $50/day (30&nbsp;days)</li>
           </ul>
 
-          <!-- SELECT BUTTON -->
           <button id="btn-basic"
-                  class="block w-full bg-blue-600 text-white rounded-lg py-3 font-semibold hover:bg-blue-700 transition-colors">
+                  class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
             Select Basic Coverage
           </button>
         </div>
       </article>
 
-      <!-- ========= ULTIMATE COVERAGE ========= -->
-      <article class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-blue-600 transform hover:-translate-y-1 transition-transform duration-300">
+      <!-- Ultimate Coverage -->
+      <article class="plan-card bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-blue-600 transform transition-all duration-300">
         <header class="bg-gradient-to-r from-blue-700 to-blue-600 px-6 py-4 flex justify-between items-center">
           <div>
             <h2 class="text-2xl font-bold text-white">Ultimate Coverage</h2>
             <p class="text-blue-100 mt-1">Maximum protection &amp; benefits</p>
           </div>
-          <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">RECOMMENDED</span>
+          <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">RECOMMENDED</span>
         </header>
 
         <div class="p-6">
-          <!-- price -->
           <div class="mb-6">
             <div class="flex items-baseline">
-              <span class="text-5xl font-bold text-gray-900">$2,997</span>
+              <span class="text-5xl font-bold text-gray-900">$2,980</span>
               <span class="text-xl text-gray-600 ml-2">/ 36&nbsp;months</span>
             </div>
-            <p class="text-sm text-gray-600 mt-1">&nbsp;&nbsp;</p>
-            <p class="text-blue-600 font-medium mt-2">Claims up to $50,000</p>
+            <p class="text-sm text-gray-600 mt-1">or $1,800/year</p>
+            <p class="text-blue-600 font-medium mt-2 text-lg">Claims up to $50,000</p>
           </div>
 
-          <!-- blurb -->
           <p class="text-gray-600 mb-6">
             Any repair under $25,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
           </p>
 
-          <!-- feature list -->
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Everything in Basic Coverage, plus:</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Tires and rims</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Key fobs</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Luxury rental car included up to 90&nbsp;days</li>
-            <li class="flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Uber/Lyft credits up to $100/day (90&nbsp;days)</li>
-            <li class="flex items-center font-medium text-blue-600"><span class="text-green-500 mr-2">✓</span>Higher coverage limits on all repairs</li>
+          <ul class="space-y-3 mb-8 features-list">
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Everything in Basic Coverage, plus:</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Tires and rims</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Key fobs</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Luxury rental car included up to 90&nbsp;days</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Uber/Lyft credits up to $100/day (90&nbsp;days)</li>
+            <li class="feature-reveal flex items-center font-medium text-blue-600"><span class="text-green-500 mr-2">✓</span>Higher coverage limits on all repairs</li>
           </ul>
 
-          <!-- SELECT BUTTON -->
           <button id="btn-ultimate"
-                  class="block w-full bg-blue-600 text-white rounded-lg py-3 font-semibold hover:bg-blue-700 transition-colors">
+                  class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
             Select Ultimate Coverage
           </button>
         </div>
@@ -129,23 +218,191 @@
     </section>
 
     <!-- Trust indicators -->
-    <section class="mt-16 text-center">
-      <div class="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-        <div><div class="text-blue-600 font-bold text-4xl mb-2">24/7</div><p class="text-gray-600">Support available anytime, anywhere</p></div>
-        <div><div class="text-blue-600 font-bold text-4xl mb-2">100%</div><p class="text-gray-600">Satisfaction guaranteed</p></div>
-        <div><div class="text-blue-600 font-bold text-4xl mb-2">0$</div><p class="text-gray-600">Deductible on all plans</p></div>
+    <section class="mt-12 sm:mt-16 text-center">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:-translate-y-1">
+          <div class="text-blue-600 font-bold text-4xl mb-2">24/7</div>
+          <p class="text-gray-600">Support available anytime, anywhere</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:-translate-y-1">
+          <div class="text-blue-600 font-bold text-4xl mb-2">100%</div>
+          <p class="text-gray-600">Satisfaction guaranteed</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:-translate-y-1">
+          <div class="text-blue-600 font-bold text-4xl mb-2">0$</div>
+          <p class="text-gray-600">Deductible on all plans</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage Details -->
+    <section class="mt-16 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-8">What's Not Covered</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="font-semibold mb-3 text-lg">Routine Maintenance</h3>
+          <p class="text-gray-600">Regular maintenance items like oil changes, filters, and tune-ups</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="font-semibold mb-3 text-lg">Pre-existing Conditions</h3>
+          <p class="text-gray-600">Issues that existed before coverage began</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="font-semibold mb-3 text-lg">Cosmetic Damage</h3>
+          <p class="text-gray-600">Paint, body damage, interior wear and tear</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="font-semibold mb-3 text-lg">Modified Components</h3>
+          <p class="text-gray-600">Parts that have been altered from factory specifications</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="mt-16 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-8">Customer Reviews</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">D</div>
+            <div class="ml-4">
+              <h3 class="font-semibold">David R.</h3>
+              <div class="text-yellow-400">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600">"Coverage saved me thousands on my transmission repair. Process was quick and easy."</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">S</div>
+            <div class="ml-4">
+              <h3 class="font-semibold">Sarah M.</h3>
+              <div class="text-yellow-400">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600">"Great customer service and fast claim processing. Would definitely recommend!"</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">P</div>
+            <div class="ml-4">
+              <h3 class="font-semibold">Peter H.</h3>
+              <div class="text-yellow-400">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600">"Comprehensive coverage that gives me peace of mind. Worth every penny."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mt-16 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="w-full px-6 py-4 text-left flex justify-between items-center">
+            <span class="font-semibold">Is labor covered?</span>
+            <span class="transform transition-transform">+</span>
+          </button>
+          <div class="px-6 pb-4 hidden">
+            <p class="text-gray-600">Yes, both parts and labor are covered for all approved repairs.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="w-full px-6 py-4 text-left flex justify-between items-center">
+            <span class="font-semibold">Do I need a vehicle inspection?</span>
+            <span class="transform transition-transform">+</span>
+          </button>
+          <div class="px-6 pb-4 hidden">
+            <p class="text-gray-600">No inspection is required to start your coverage.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="w-full px-6 py-4 text-left flex justify-between items-center">
+            <span class="font-semibold">Can I cancel anytime?</span>
+            <span class="transform transition-transform">+</span>
+          </button>
+          <div class="px-6 pb-4 hidden">
+            <p class="text-gray-600">Yes, you can cancel at any time and receive a prorated refund.</p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
 
-  <!-- ========= REDIRECTS ========= -->
   <script>
-    /*  CHANGE THESE TWO VALUES  */
-    const BASIC_URL    = "https://example.com/checkout-basic";
+    // URLs for redirects
+    const BASIC_URL = "https://example.com/checkout-basic";
     const ULTIMATE_URL = "https://example.com/checkout-ultimate";
 
-    document.getElementById("btn-basic")   .addEventListener("click", () => window.location.href = BASIC_URL);
-    document.getElementById("btn-ultimate").addEventListener("click", () => window.location.href = ULTIMATE_URL);
+    // Plan selection handling
+    const basicBtn = document.getElementById("btn-basic");
+    const ultimateBtn = document.getElementById("btn-ultimate");
+    const plans = document.querySelectorAll('.plan-card');
+    const cartCount = document.querySelector('.cart-count');
+    const cartContainer = document.getElementById('cart-container');
+    let count = 0;
+
+    function selectPlan(selectedPlan) {
+      plans.forEach(plan => plan.classList.remove('selected'));
+      selectedPlan.closest('.plan-card').classList.add('selected');
+      
+      // Update cart count
+      count = 1;
+      cartCount.textContent = count;
+      
+      // Animate cart
+      cartContainer.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        cartContainer.style.transform = 'scale(1)';
+      }, 200);
+    }
+
+    basicBtn.addEventListener("click", (e) => {
+      selectPlan(e.target);
+      setTimeout(() => window.location.href = BASIC_URL, 500);
+    });
+
+    ultimateBtn.addEventListener("click", (e) => {
+      selectPlan(e.target);
+      setTimeout(() => window.location.href = ULTIMATE_URL, 500);
+    });
+
+    // Feature reveal animation
+    function revealFeatures() {
+      const features = document.querySelectorAll('.feature-reveal');
+      features.forEach((feature, index) => {
+        setTimeout(() => {
+          feature.classList.add('visible');
+        }, index * 100);
+      });
+    }
+
+    // Intersection Observer for feature reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          revealFeatures();
+          observer.disconnect();
+        }
+      });
+    });
+
+    document.querySelectorAll('.features-list').forEach(list => {
+      observer.observe(list);
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.bg-white.rounded-lg button').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('span:last-child');
+        
+        content.classList.toggle('hidden');
+        icon.textContent = content.classList.contains('hidden') ? '+' : '-';
+        icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(45deg)';
+      });
+    });
   </script>
 </body>
 </html>
