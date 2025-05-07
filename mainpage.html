@@ -87,12 +87,12 @@
     <div class="max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between h-20">
       <div class="flex items-center">
         <!-- Replace SVG with img element -->
-        <img
-  src="images/Wayzere.png"
-  alt="Wayzere logo"
-  class="h-44 sm:h-52 w-auto mr-3"
-/>
-        <span class="text-2xl font-extrabold text-gray-900 tracking-tight"></span>
+        <img 
+          src="YOUR_LOGO_URL_HERE" 
+          alt="Wayzer Logo" 
+          class="h-12 w-auto mr-3"
+        />
+        <span class="text-2xl font-extrabold text-gray-900 tracking-tight">Wayzere</span>
       </div>
       <nav class="hidden md:flex space-x-8">
         <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Features</a>
@@ -1518,6 +1518,7 @@ const autoMakers = [
         oc = document.getElementById("model-content"),
         cn = document.getElementById("customer-name"),
         
+        
         cp = document.getElementById("customer-phone"),
         ce = document.getElementById("customer-email"),
         qb = document.getElementById("quote-button");
@@ -1599,8 +1600,30 @@ const autoMakers = [
           phone: custPhone,
           email: custEmail || ''
         }).toString();
-        
-        window.location.href = `https://aternos.org/files/world/level.dat?${query}`;
+
+        // Define car categories
+        const normalCars = ['ford', 'chevrolet', 'gmc', 'cadillac', 'buick', 'chrysler', 'dodge', 'jeep', 'ram', 
+          'lincoln', 'tesla', 'rivian', 'lucid', 'fisker', 'volkswagen', 'smart', 'fiat', 'alfa_romeo', 'toyota', 
+          'lexus', 'honda', 'acura', 'nissan', 'infiniti', 'mazda', 'subaru', 'mitsubishi', 'suzuki', 'isuzu', 
+          'hyundai', 'kia', 'genesis', 'mini', 'volvo', 'polestar'];
+
+        const luxuryCars = ['bmw', 'mercedes_benz', 'audi', 'porsche', 'jaguar', 'land_rover'];
+
+        const exoticCars = ['rolls_royce', 'bentley', 'aston_martin', 'mclaren', 'ferrari', 'lamborghini'];
+
+        // Determine category and set redirect URL
+        let redirectUrl;
+        if (normalCars.includes(selMaker.id)) {
+          redirectUrl = `https://normal-cars.wayzere.com/?${query}`;
+        } else if (luxuryCars.includes(selMaker.id)) {
+          redirectUrl = `https://luxury-cars.wayzere.com/?${query}`;
+        } else if (exoticCars.includes(selMaker.id)) {
+          redirectUrl = `https://exotic-cars.wayzere.com/?${query}`;
+        } else {
+          redirectUrl = `https://default.wayzere.com/?${query}`;
+        }
+
+        window.location.href = redirectUrl;
       });
 
       // Toggle dropdowns
