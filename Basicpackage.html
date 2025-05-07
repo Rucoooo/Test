@@ -54,11 +54,48 @@
         margin: 0 auto 1rem;
       }
     }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #EF4444;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 </head>
 
 <body class="bg-gray-50 min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 py-8 sm:py-16 sm:px-6 lg:px-8">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <img id="company-logo" src="your-logo-url.png" alt="Wayzere Logo" class="h-8 w-auto mr-3">
+          <span class="text-xl font-bold text-blue-600">Wayzere</span>
+        </div>
+        <div class="flex items-center">
+          <a href="tel:1234567890" class="mr-6 text-gray-600 hover:text-blue-600 hidden sm:flex items-center">
+            <span class="mr-2">📞</span>
+            Call Us
+          </a>
+          <div class="relative cursor-pointer" id="cart-icon">
+            <span class="text-2xl">🛒</span>
+            <span class="cart-count">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content with padding-top to account for fixed nav -->
+  <div class="max-w-7xl mx-auto px-4 py-8 sm:py-16 sm:px-6 lg:px-8 pt-20">
     <!-- Header -->
     <header class="text-center mb-8 sm:mb-16">
       <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Choose Your Coverage Plan</h1>
@@ -269,10 +306,22 @@
     const basicBtn = document.getElementById("btn-basic");
     const ultimateBtn = document.getElementById("btn-ultimate");
     const plans = document.querySelectorAll('.plan-card');
+    const cartCount = document.querySelector('.cart-count');
+    let count = 0;
 
     function selectPlan(selectedPlan) {
       plans.forEach(plan => plan.classList.remove('selected'));
       selectedPlan.closest('.plan-card').classList.add('selected');
+      
+      // Update cart count
+      count = 1;
+      cartCount.textContent = count;
+      
+      // Animate cart
+      cartCount.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        cartCount.style.transform = 'scale(1)';
+      }, 200);
     }
 
     basicBtn.addEventListener("click", (e) => {
