@@ -12,16 +12,23 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
+            font-family: "Inter", sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
         main {
             margin: 0;
             padding: 0;
             overflow: hidden;
+            position: relative;
         }
         
         section {
@@ -61,6 +68,23 @@
             display: block;
             opacity: 1;
             transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
         }
     </style>
 </head>
