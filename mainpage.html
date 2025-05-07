@@ -43,17 +43,27 @@
       scroll-behavior: smooth;
     }
     body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  /* yellow→blue gradient */
-  background: linear-gradient(to right, #FBBF24, #3B82F6) fixed;
-  color: white;
-}
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      /* yellow→blue gradient */
+      background: linear-gradient(to right, #FBBF24, #3B82F6) fixed;
+      color: white;
+    }
+
+    /* kill any Tailwind “bg-white” or light‐gray backgrounds */
+    .bg-white,
+    .bg-gray-50,
+    .bg-gray-100,
+    .bg-gray-200 {
+      background-color: transparent !important;
+    }
+
+    /* transparent scrollbar track */
     ::-webkit-scrollbar {
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: transparent !important;
     }
     ::-webkit-scrollbar-thumb {
       background: #60a5fa;
