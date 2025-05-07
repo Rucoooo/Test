@@ -1,196 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta name="description" content="Tester Up – The fun way to motivate kids! Download now and transform chores into exciting challenges with rewards." />
-  <title>Tester Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayzere - Vehicle Protection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+        main {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        section {
+            margin: 0;
+            padding: 0;
+        }
 
-  <!-- Meta Pixels (deduplicated) -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;
-      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
-      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-      n.queue=[]; t=b.createElement(e); t.async=!0;
-      t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
-    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
 
-    /* 1️⃣ init ORIGINAL pixel and fire global events */
-    fbq('init','1664457917492479');
-    fbq('track','PageView');
-    const pageProps = {
-      content_name:'Tester Up Landing Page',
-      content_category:'App Discovery',
-      content_ids:['playful_rewards_landing'],
-      content_type:'product_group'
-    };
-    fbq('track','ViewContent',pageProps);
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    /* 2️⃣ init NEW pixel with autoConfig OFF (prevents duplicates) */
-    fbq('init','2226705874414188',{},false);
-    fbq('trackSingle','2226705874414188','PageView');
-    fbq('trackSingle','2226705874414188','ViewContent',pageProps);
-  </script>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
 
-  <style>
-    body{font-family:'Inter',sans-serif;}
-    .testimonial{display:none;}
-    .testimonial.active{display:block;animation:fadeIn .5s ease-in-out;}
-    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-    .download-btn{box-shadow:0 10px 25px -5px rgba(234,88,12,.4);}
-    .download-btn:hover{box-shadow:0 15px 30px -5px rgba(234,88,12,.6);}
-    .feature-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.1);}
-  </style>
+        .faq-answer.active {
+            max-height: 200px;
+        }
+
+        .dropdown-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .dropdown-content.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-  <!-- noscript fall-backs -->
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" /></noscript>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2226705874414188&ev=PageView&noscript=1" /></noscript>
-
-  <!-- ===================== LANDER ===================== -->
-  <div class="min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
-    <div class="container mx-auto px-4 py-16">
-      <!-- Hero -->
-      <header class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <i data-lucide="trophy" class="w-16 h-16 text-orange-500"></i>
-        </div>
-        <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500">
-          Tester Up
-        </h1>
-        <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Start Winning And Progress The Same Day!
-        </p>
-        <button class="download-btn bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-red-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
-          Download Today!
-        </button>
-        <p class="text-gray-500 mt-4">1,000,000+ Downloads Worldwide!</p>
-      </header>
-
-      <!-- Features -->
-      <section class="grid md:grid-cols-3 gap-8 mb-24 px-4">
-        <div class="feature-card bg-white p-8 rounded-2xl border border-gray-100">
-          <i data-lucide="gift" class="w-10 h-10 text-orange-500 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Reward System</h3>
-          <p class="text-gray-600 text-lg">Customize rewards that motivate you to make money!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl border border-gray-100">
-          <i data-lucide="star" class="w-10 h-10 text-orange-500 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Achievement Tracking</h3>
-          <p class="text-gray-600 text-lg">Watch how you earn quickly!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl border border-gray-100">
-          <i data-lucide="smartphone" class="w-10 h-10 text-orange-500 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">iOS & Android Compatible</h3>
-          <p class="text-gray-600 text-lg">Designed specifically for Earning Money!</p>
-        </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500">
-          What Our Winners Say
-        </h2>
-        <div class="bg-white rounded-3xl p-8 md:p-12 relative border border-gray-100">
-          <button onclick="prevTestimonial()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
-            <i data-lucide="chevron-left" class="w-6 h-6 text-orange-600"></i>
-          </button>
-          <div id="testimonials-container" class="text-center px-8 md:px-16">
-            <div class="testimonial active">
-              <p class="text-gray-700 italic mb-8 text-xl leading-relaxed">
-                "Tester Up has transformed how I make money! Now it's extra cash I can use!"
-              </p>
-              <p class="font-semibold text-gray-900 text-lg">Sarah Johnson</p>
-              <div class="flex justify-center mt-2">
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-              </div>
+<body class="font-sans">
+    <main class="overflow-hidden">
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white section-animate">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Sarah -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center">
+                                <span class="text-xl font-bold">S</span>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">Sarah L.</h3>
+                                <p class="text-blue-300">2018 Honda CR-V</p>
+                            </div>
+                        </div>
+                        <p class="text-blue-100 mb-4">
+                            "The customer service is outstanding. When my car broke down, they arranged everything—from towing to repairs. I didn't have to worry about anything."
+                        </p>
+                        <div class="text-yellow-400 text-lg">★★★★★</div>
+                    </div>
+                    <!-- James -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center">
+                                <span class="text-xl font-bold">J</span>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">James R.</h3>
+                                <p class="text-blue-300">2020 Ford F-150</p>
+                            </div>
+                        </div>
+                        <p class="text-blue-100 mb-4">
+                            "Best decision I made for my truck. The coverage is comprehensive and the claims process is hassle-free. Highly recommend!"
+                        </p>
+                        <div class="text-yellow-400 text-lg">★★★★★</div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <button onclick="nextTestimonial()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
-            <i data-lucide="chevron-right" class="w-6 h-6 text-orange-600"></i>
-          </button>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-20 bg-gray-50 section-animate">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left faq-question flex justify-between items-center">
+                        <span class="text-lg font-semibold text-gray-900">
+                            What is covered under the warranty?
+                        </span>
+                        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="px-6 pb-4 text-gray-600 faq-answer">
+                        Our plans cover mechanical and electrical components; specifics depend on the plan—from powertrain to bumper-to-bumper.
+                    </div>
+                </div>
+                <!-- More FAQ items... -->
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white section-animate">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Protect Your Vehicle Today
+                </h2>
+                <p class="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
+                    Get peace of mind with our comprehensive warranty coverage. Start with a free, no-obligation quote.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors shadow-lg">
+                        Get Your Free Quote
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <svg class="h-8 w-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2"/>
+                    </svg>
+                    <span class="ml-2 text-white font-bold text-xl">Wayzere</span>
+                </div>
+                <p class="text-gray-400">
+                    Protecting your vehicle with comprehensive warranty coverage and exceptional service.
+                </p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
+                    <li><a href="#coverage" class="text-gray-400 hover:text-white">Coverage</a></li>
+                    <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                    <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- Contact -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li>1-800-WARRANTY</li>
+                    <li>support@autoshield.com</li>
+                    <li>123 Warranty Street</li>
+                    <li>Suite 100</li>
+                    <li>Los Angeles, CA 90001</li>
+                </ul>
+            </div>
+            <!-- Connect -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+                    <a href="#" class="text-gray-400 hover:text-white">LinkedIn</a>
+                </div>
+            </div>
         </div>
-        <div id="dots-container" class="flex justify-center mt-6 gap-3"></div>
-      </section>
+        <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>&copy; 2024 Wayzere. All rights reserved.</p>
+        </div>
+    </footer>
 
-      <!-- CTA -->
-      <section class="text-center mt-24 mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Life?</h2>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of happy winners today!</p>
-        <button class="download-btn bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-red-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
-          Download Today!
-        </button>
-        <p class="text-gray-400 mt-4 text-sm">Start Now And Earn Today!</p>
-      </section>
-    </div>
-  </div>
-  <!-- ===================== /LANDER ===================== -->
+    <script>
+        // Intersection Observer for section animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-  <script>
-    /* Conversion tracking (single-pixel calls) */
-    function trackConversion() {
-      const props = {
-        content_name:'Tester Up iOS Download',
-        content_category:'App Store Redirect',
-        content_ids:['playful_rewards_ios'],
-        content_type:'product_group',
-        value:0,
-        currency:'USD'
-      };
-      try{
-        fbq('trackSingle','1664457917492479','InitiateCheckout',props);
-        fbq('trackSingle','1664457917492479','SubmitApplication',props);
-        fbq('trackSingle','2226705874414188','InitiateCheckout',props);
-        fbq('trackSingle','2226705874414188','SubmitApplication',props);
-      }catch(e){console.error(e);}
-      setTimeout(()=>window.location.href='https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}',500);
-    }
-
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('.download-btn').forEach(btn=>{
-        btn.addEventListener('click',e=>{
-          e.preventDefault();
-          trackConversion();
+        document.querySelectorAll('.section-animate').forEach(section => {
+            observer.observe(section);
         });
-      });
-    });
 
-    /* Testimonials carousel */
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dotsContainer = document.getElementById('dots-container');
-
-    testimonials.forEach((_, idx)=>{
-      const dot=document.createElement('div');
-      dot.className=idx===0?'h-2 w-6 rounded-full bg-gradient-to-r from-red-600 to-orange-500 transition-all':'h-2 w-2 rounded-full bg-orange-200 transition-all';
-      dotsContainer.appendChild(dot);
-    });
-
-    function updateTestimonials(){
-      testimonials.forEach((t,i)=>{
-        t.classList.toggle('active',i===currentTestimonial);
-        dotsContainer.children[i].className=i===currentTestimonial?'h-2 w-6 rounded-full bg-gradient-to-r from-red-600 to-orange-500 transition-all':'h-2 w-2 rounded-full bg-orange-200 transition-all';
-      });
-    }
-    function nextTestimonial(){currentTestimonial=(currentTestimonial+1)%testimonials.length;updateTestimonials();}
-    function prevTestimonial(){currentTestimonial=(currentTestimonial-1+testimonials.length)%testimonials.length;updateTestimonials();}
-    setInterval(nextTestimonial,5000);
-
-    /* Icons */
-    lucide.createIcons();
-  </script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('active');
+                const icon = question.querySelector('svg');
+                icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : '';
+            });
+        });
+    </script>
 </body>
 </html>
