@@ -56,10 +56,10 @@
     }
     #cart-container {
       position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #2563EB;
-      color: white;
+      top: 2rem;
+      right: 2rem;
+      background: #00FFB9;
+      color: #2563EB;
       padding: 0.75rem 1.5rem;
       border-radius: 9999px;
       display: flex;
@@ -68,18 +68,14 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       transition: all 0.3s ease;
       z-index: 100;
+      cursor: pointer;
     }
     #cart-container:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
     .cart-count {
-      background-color: white;
-      color: #2563EB;
-      border-radius: 9999px;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
+      font-size: 1.25rem;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -87,7 +83,7 @@
       transition: all 0.3s ease;
     }
     .cart-icon {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
   </style>
 </head>
@@ -112,7 +108,7 @@
   </nav>
 
   <!-- Floating Cart -->
-  <div id="cart-container" class="cursor-pointer">
+  <div id="cart-container">
     <span class="cart-icon">🛒</span>
     <span class="cart-count">0</span>
   </div>
