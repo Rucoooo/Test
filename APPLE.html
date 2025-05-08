@@ -690,28 +690,52 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8"
-    >
-      <div>
-        <div class="flex items-center mb-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8 text-blue-400"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
-          <span class="ml-2 text-white font-bold text-xl">Wayzere</span>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="images/Wayzere.png" alt="Wayzere logo" class="h-28 w-auto" />
+            <span class="ml-2 text-white font-bold text-xl">Wayzere</span>
+          </div>
+          <p class="text-gray-400">
+            Protecting your vehicle with comprehensive warranty coverage and
+            exceptional service.
+          </p>
         </div>
-        <p class="text-gray-400">
-          Protecting your vehicle with comprehensive warranty coverage and
-          exceptional service.
-        </p>
+        <!-- Other footer sections -->
       </div>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById('warrantyForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        fetch('https://script.google.com/macros/s/your-web-app-url/exec', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone')
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(response => response.json())
+          .then(data => {
+            if (data.result === 'success') {
+              alert("Form submitted successfully!");
+            } else {
+              alert("There was an error.");
+            }
+          });
+      });
+    });
+  </script>
       <div>
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <ul class="space-y-2">
