@@ -715,7 +715,7 @@
         e.preventDefault();
         const formData = new FormData(form);
 
-        fetch('https://script.google.com/macros/s/your-web-app-url/exec', {
+        fetch('https://docs.google.com/spreadsheets/d/1G_AfBmLJ0lu22FuwZFSullcPEv1vhkYAImSn67W1xN4/edit?usp=sharing', {
           method: 'POST',
           body: JSON.stringify({
             name: formData.get('name'),
