@@ -33,7 +33,40 @@
               800: "#1E40AF",
               900: "#1E3A8A",
             },
+            silver: {
+              50: "#F9FAFB",
+              100: "#F3F4F6",
+              200: "#E5E7EB",
+              300: "#D1D5DB",
+              400: "#9CA3AF",
+              500: "#6B7280",
+              600: "#4B5563",
+              700: "#374151",
+              800: "#1F2937",
+              900: "#111827",
+            },
+            gold: {
+              50: "#FFFDEb",
+              100: "#FEFCE8",
+              200: "#FEF9C3",
+              300: "#FEF08A",
+              400: "#FDE047",
+              500: "#EAB308",
+              600: "#CA8A04",
+              700: "#A16207",
+              800: "#854D0E",
+              900: "#713F12",
+            },
           },
+          animation: {
+            'glow': 'glow 1.5s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            glow: {
+              '0%': { textShadow: '0 0 5px rgba(255,255,255,0.5), 0 0 15px rgba(59, 130, 246, 0.5)' },
+              '100%': { textShadow: '0 0 10px rgba(255,255,255,0.7), 0 0 25px rgba(59, 130, 246, 0.7)' },
+            }
+          }
         },
       },
     };
@@ -77,6 +110,42 @@
     .section-animate.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+    .glowing-text {
+      animation: glow 1.5s ease-in-out infinite alternate;
+      color: white;
+      font-weight: bold;
+    }
+    .checkmark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      margin-right: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .blue-check {
+      background-color: #3B82F6;
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+    .silver-check {
+      background: linear-gradient(145deg, #D1D5DB, #9CA3AF);
+      box-shadow: 0 0 5px rgba(156, 163, 175, 0.5);
+    }
+    .gold-check {
+      background: linear-gradient(145deg, #FDE047, #EAB308);
+      box-shadow: 0 0 5px rgba(234, 179, 8, 0.5);
+    }
+    .testim-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
@@ -138,6 +207,10 @@
     <!-- Hero & Quote Form -->
     <section class="bg-blue-900 text-white py-20">
       <div class="max-w-3xl mx-auto text-center px-4">
+        <!-- Glowing headline text -->
+        <div class="mb-4">
+          <p class="text-xl md:text-2xl glowing-text">We Cover Any Repair Under $25,000!</p>
+        </div>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
           Extended Auto Warranty Protection
         </h1>
@@ -368,13 +441,13 @@
       Select the perfect protection plan for your vehicle with our comprehensive coverage options.
     </p>
   </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
 
-    <!-- Basic Plan -->
-    <div class="relative rounded-2xl overflow-hidden border-2 border-blue-100 transform transition-all duration-300">
+    <!-- Essential Coverage (Blue) -->
+    <div class="relative rounded-2xl overflow-hidden border-2 border-blue-100 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <div class="bg-blue-600 px-6 py-4">
-        <h2 class="text-2xl font-bold text-white">Basic Coverage</h2>
-        <p class="text-blue-100 mt-1">Essential protection for your vehicle</p>
+        <h2 class="text-2xl font-bold text-white">Essential Coverage</h2>
+        <p class="text-blue-100 mt-1">Ideal for basic protection</p>
       </div>
       <div class="p-6">
         <p class="text-gray-600 mb-6">
@@ -383,57 +456,104 @@
 
         <ul class="space-y-3 mb-8">
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Engine Components: Pistons, timing chain, valves
+            <span class="checkmark blue-check">✓</span>Engine Components: Pistons, timing chain, valves
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Transmission: Gears, torque converter
+            <span class="checkmark blue-check">✓</span>Transmission: Gears, torque converter
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Drive Axle: CV joints, driveshaft
+            <span class="checkmark blue-check">✓</span>Drive Axle: CV joints, driveshaft
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Steering: Power steering pump, rack and pinion
+            <span class="checkmark blue-check">✓</span>Braking system: Master cylinder, ABS components
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Brakes: Master cylinder, ABS components
+            <span class="checkmark blue-check">✓</span>Steering: Power steering pump, rack & pinion
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Cooling System: Water pump, radiator
+            <span class="checkmark blue-check">✓</span>Cooling system: Water pump, radiator
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Electrical: Alternator, starter motor
+            <span class="checkmark blue-check">✓</span>Electrical basics: Alternator, starter motor
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>AC/Heating: Compressor, condenser
+            <span class="checkmark blue-check">✓</span>Rental Car: Up to 15 days of coverage
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Turbo/Supercharger Components
-          </li>
-          <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Hybrid/EV: Battery, inverter
-          </li>
-          <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Rental Car: Up to 30 days
-          </li>
-          <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Rideshare Credit: Up to 30 days
+            <span class="checkmark blue-check">✓</span>Roadside Assistance: Towing & jump-start
           </li>
         </ul>
 
         <button id="btn-basic" class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
-          Select Basic Coverage
+          Select Essential Coverage
         </button>
       </div>
     </div>
 
-    <!-- Ultimate Coverage -->
-    <div class="relative rounded-2xl overflow-hidden border-2 border-blue-600 transform transition-all duration-300">
-      <div class="bg-gradient-to-r from-blue-700 to-blue-600 px-6 py-4 flex justify-between items-center">
+    <!-- Advantage Coverage (Silver) -->
+    <div class="relative rounded-2xl overflow-hidden border-2 border-silver-300 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div class="bg-gradient-to-r from-silver-400 to-silver-300 px-6 py-4">
+        <h2 class="text-2xl font-bold text-white">Advantage Coverage</h2>
+        <p class="text-silver-100 mt-1">Enhanced protection & benefits</p>
+      </div>
+      <div class="p-6">
+        <p class="text-gray-600 mb-6">
+          Any repair under $20,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
+        </p>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Engine Components: Pistons, timing chain, valves
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Transmission: Gears, torque converter
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Drive Axle: CV joints, driveshaft
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Steering: Power steering pump, rack and pinion
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Brakes: Master cylinder, ABS components
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Cooling System: Water pump, radiator
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Electrical: Alternator, starter motor
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>AC/Heating: Compressor, condenser
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Turbo/Supercharger Components
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Hybrid/EV: Battery, inverter
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Rental Car: Up to 30 days
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="checkmark silver-check">✓</span>Rideshare Credit: Up to 30 days
+          </li>
+        </ul>
+
+        <button id="btn-advantage" class="w-full bg-silver-500 text-white rounded-lg py-4 font-semibold hover:bg-silver-600 transition-all duration-300 transform hover:scale-105 active:scale-95">
+          Select Advantage Coverage
+        </button>
+      </div>
+    </div>
+
+    <!-- Ultimate Coverage (Gold) -->
+    <div class="relative rounded-2xl overflow-hidden border-2 border-gold-500 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div class="bg-gradient-to-r from-gold-600 to-gold-500 px-6 py-4 flex justify-between items-center">
         <div>
           <h2 class="text-2xl font-bold text-white">Ultimate Coverage</h2>
-          <p class="text-blue-100 mt-1">Maximum protection & benefits</p>
+          <p class="text-gold-100 mt-1">Maximum protection & benefits</p>
         </div>
-        <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">RECOMMENDED</span>
+        <span class="bg-white text-gold-600 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">RECOMMENDED</span>
       </div>
 
       <div class="p-6">
@@ -443,44 +563,44 @@
 
         <ul class="space-y-3 mb-8">
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Everything in Basic Coverage, plus:
+            <span class="checkmark gold-check">✓</span>Everything in Basic Coverage, plus:
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Tires & Rims: Road hazard coverage
+            <span class="checkmark gold-check">✓</span>Tires & Rims: Road hazard coverage
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Key Fob: Replacement & programming
+            <span class="checkmark gold-check">✓</span>Key Fob: Replacement & programming
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Advanced Electronics: Navigation, audio
+            <span class="checkmark gold-check">✓</span>Advanced Electronics: Navigation, audio
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Safety Systems: Cameras, sensors
+            <span class="checkmark gold-check">✓</span>Safety Systems: Cameras, sensors
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Enhanced Cooling: Secondary radiators
+            <span class="checkmark gold-check">✓</span>Enhanced Cooling: Secondary radiators
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Advanced Suspension: Air ride
+            <span class="checkmark gold-check">✓</span>Advanced Suspension: Air ride
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Emissions: Sensors, catalytic converter
+            <span class="checkmark gold-check">✓</span>Emissions: Sensors, catalytic converter
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Luxury Rental Car: Up to 90 days
+            <span class="checkmark gold-check">✓</span>Luxury Rental Car: Up to 90 days
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Enhanced Rideshare: Up to 90 days
+            <span class="checkmark gold-check">✓</span>Enhanced Rideshare: Up to 90 days
           </li>
           <li class="flex items-center text-gray-600">
-            <span class="text-blue-500 mr-2">✓</span>Trip Interruption: Up to $300/day
+            <span class="checkmark gold-check">✓</span>Trip Interruption: Up to $300/day
           </li>
-          <li class="flex items-center font-medium text-blue-600">
-            <span class="text-blue-500 mr-2">✓</span>Higher coverage limits on all repairs
+          <li class="flex items-center font-medium text-gold-700">
+            <span class="checkmark gold-check">✓</span>Higher coverage limits on all repairs
           </li>
         </ul>
 
-        <button id="btn-ultimate" class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
+        <button id="btn-ultimate" class="w-full bg-gradient-to-r from-gold-600 to-gold-500 text-white rounded-lg py-4 font-semibold hover:from-gold-700 hover:to-gold-600 transition-all duration-300 transform hover:scale-105 active:scale-95">
           Select Ultimate Coverage
         </button>
       </div>
@@ -504,11 +624,11 @@
         <!-- Michael -->
         <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
           <div class="flex items-center mb-4">
-            <div
-              class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center"
-            >
-              <span class="text-xl font-bold">M</span>
-            </div>
+            <img 
+              src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600" 
+              alt="Michael S." 
+              class="testim-img"
+            />
             <div class="ml-4 text-left">
               <h3 class="font-semibold">Michael S.</h3>
               <p class="text-blue-300">2019 Toyota Camry</p>
@@ -524,11 +644,11 @@
         <!-- Sarah -->
         <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
           <div class="flex items-center mb-4">
-            <div
-              class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center"
-            >
-              <span class="text-xl font-bold">S</span>
-            </div>
+            <img 
+              src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600" 
+              alt="Sarah L." 
+              class="testim-img"
+            />
             <div class="ml-4 text-left">
               <h3 class="font-semibold">Sarah L.</h3>
               <p class="text-blue-300">2018 Honda CR-V</p>
@@ -544,11 +664,11 @@
         <!-- James -->
         <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
           <div class="flex items-center mb-4">
-            <div
-              class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center"
-            >
-              <span class="text-xl font-bold">J</span>
-            </div>
+            <img 
+              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" 
+              alt="James R." 
+              class="testim-img"
+            />
             <div class="ml-4 text-left">
               <h3 class="font-semibold">James R.</h3>
               
