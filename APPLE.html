@@ -98,17 +98,18 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Dampened glow effect */
     .glow-text {
       color: white;
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #3b82f6, 0 0 20px #3b82f6, 0 0 25px #3b82f6, 0 0 30px #3b82f6, 0 0 35px #3b82f6;
+      text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 8px #3b82f6, 0 0 12px #3b82f6, 0 0 15px #3b82f6;
       animation: glow 1.5s ease-in-out infinite alternate;
     }
     @keyframes glow {
       from {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #3b82f6, 0 0 20px #3b82f6, 0 0 25px #3b82f6, 0 0 30px #3b82f6, 0 0 35px #3b82f6;
+        text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 8px #3b82f6, 0 0 12px #3b82f6, 0 0 15px #3b82f6;
       }
       to {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #5a9cff, 0 0 40px #5a9cff, 0 0 50px #5a9cff, 0 0 60px #5a9cff, 0 0 70px #5a9cff;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #5a9cff, 0 0 20px #5a9cff, 0 0 25px #5a9cff;
       }
     }
     .package-blue {
@@ -142,6 +143,39 @@
     .cross-out {
       text-decoration: line-through;
       opacity: 0.6;
+    }
+    /* Testimonial carousel styles */
+    .testimonial-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-slide {
+      display: none;
+      animation: fadeEffect 0.5s ease-in-out;
+    }
+    .testimonial-slide.active {
+      display: block;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0.7;}
+      to {opacity: 1;}
+    }
+    .carousel-indicators {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .indicator.active {
+      background-color: white;
     }
   </style>
 </head>
@@ -400,71 +434,76 @@
         </p>
       </div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-        <!-- Basic Plan -->
+        <!-- Essential Coverage Plan -->
         <div class="relative rounded-2xl overflow-hidden border-2 border-blue-100 transform transition-all duration-300 hover:shadow-xl">
           <div class="package-blue px-6 py-4">
             <h2 class="text-2xl font-bold text-white">Essential Coverage</h2>
-            <p class="text-blue-100 mt-1">Ideal for basic protection</p>
+            <p class="text-blue-100 mt-1">Basic protection for essential vehicle components</p>
           </div>
           <div class="p-6 bg-white">
             <p class="text-gray-600 mb-6">
-              Any repair under $10,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
+              Any repair under $10,000 — no claims adjuster needed.
             </p>
 
+            <p class="font-medium mb-3">Includes coverage for:</p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Engine Components: Pistons, timing chain, valves</span>
+                <span class="text-gray-600">Engine components such as pistons, timing chain, and valves.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Transmission: Gears, torque converter</span>
+                <span class="text-gray-600">Transmission gears.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Drive Axle: CV joints, driveshaft</span>
+                <span class="text-gray-600">CV joints in the drive axle.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Braking system: Master cylinder, ABS components</span>
+                <span class="text-gray-600">Master cylinder in the braking system.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Steering components: Power steering pump, rack & pinion</span>
+                <span class="text-gray-600">Alternator in the electrical system.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Cooling system: Water pump, radiator</span>
+                <span class="text-gray-600">Up to 15 days of rental car coverage.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Electrical basics: Alternator, starter motor</span>
-              </li>
-              <li class="flex items-start">
-                <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Rental Car: Up to 15 days of coverage</span>
-              </li>
-              <li class="flex items-start">
-                <span class="check-blue text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Roadside Assistance: Towing & jump-start services</span>
+                <span class="text-gray-600">Roadside assistance for towing and jump-start services.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-gray-400 text-xl mr-2">✗</span>
-                <span class="text-gray-400 cross-out">AC/Heating: Compressor, condenser</span>
+                <span class="text-gray-400 cross-out">Power steering pump, rack and pinion.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-gray-400 text-xl mr-2">✗</span>
-                <span class="text-gray-400 cross-out">Turbo/Supercharger Components</span>
+                <span class="text-gray-400 cross-out">Torque converter in the transmission.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-gray-400 text-xl mr-2">✗</span>
-                <span class="text-gray-400 cross-out">Hybrid/EV: Battery, inverter</span>
+                <span class="text-gray-400 cross-out">Full drive axle coverage including driveshaft.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-gray-400 text-xl mr-2">✗</span>
-                <span class="text-gray-400 cross-out">Rideshare Credit: Up to 30 days</span>
+                <span class="text-gray-400 cross-out">ABS components in the braking system.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-gray-400 text-xl mr-2">✗</span>
+                <span class="text-gray-400 cross-out">Radiator and water pump in the cooling system.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-gray-400 text-xl mr-2">✗</span>
+                <span class="text-gray-400 cross-out">AC and heating components.</span>
               </li>
             </ul>
+            
+            <p class="text-gray-600 mb-6">
+              Limited protection for common issues and breakdowns.
+            </p>
 
             <button id="btn-basic" class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
               Select Essential Coverage
@@ -472,71 +511,80 @@
           </div>
         </div>
 
-        <!-- Advantage Plan -->
+        <!-- Advantage Coverage Plan -->
         <div class="relative rounded-2xl overflow-hidden border-2 border-silver-300 transform transition-all duration-300 hover:shadow-xl">
           <div class="package-silver px-6 py-4">
             <h2 class="text-2xl font-bold text-white">Advantage Coverage</h2>
-            <p class="text-silver-100 mt-1">Enhanced protection & benefits</p>
+            <p class="text-silver-100 mt-1">Expanded coverage with more system protection</p>
           </div>
           <div class="p-6 bg-white">
             <p class="text-gray-600 mb-6">
-              Any repair under $20,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
+              Any repair under $20,000 — no claims adjuster needed.
             </p>
 
+            <p class="font-medium mb-3">Everything in Essential Coverage, plus:</p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Engine Components: Pistons, timing chain, valves</span>
+                <span class="text-gray-600">Power steering pump, rack and pinion.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Transmission: Gears, torque converter</span>
+                <span class="text-gray-600">Torque converter in the transmission.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Drive Axle: CV joints, driveshaft</span>
+                <span class="text-gray-600">Full drive axle coverage including driveshaft.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Steering: Power steering pump, rack and pinion</span>
+                <span class="text-gray-600">ABS components in the braking system.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Brakes: Master cylinder, ABS components</span>
+                <span class="text-gray-600">Radiator and water pump in the cooling system.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Cooling System: Water pump, radiator</span>
+                <span class="text-gray-600">Starter motor in the electrical system.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Electrical: Alternator, starter motor</span>
+                <span class="text-gray-600">AC and heating components including compressor and condenser.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">AC/Heating: Compressor, condenser</span>
+                <span class="text-gray-600">Turbo or supercharger components.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Turbo/Supercharger Components</span>
+                <span class="text-gray-600">Hybrid or EV components like battery and inverter.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Hybrid/EV: Battery, inverter</span>
+                <span class="text-gray-600">Up to 30 days of rental car coverage.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Rental Car: Up to 30 days</span>
-              </li>
-              <li class="flex items-start">
-                <span class="check-silver text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Rideshare Credit: Up to 30 days</span>
+                <span class="text-gray-600">Rideshare credit for up to 30 days.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-gray-400 text-xl mr-2">✗</span>
-                <span class="text-gray-400 cross-out">Tires & Rims: Road hazard coverage</span>
+                <span class="text-gray-400 cross-out">Road hazard protection for tires and rims.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-gray-400 text-xl mr-2">✗</span>
+                <span class="text-gray-400 cross-out">Navigation and audio under advanced electronics.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-gray-400 text-xl mr-2">✗</span>
+                <span class="text-gray-400 cross-out">Key fob replacement and programming.</span>
               </li>
             </ul>
+            
+            <p class="text-gray-600 mb-6">
+              More complete protection for drivers who want added confidence.
+            </p>
 
             <button id="btn-advantage" class="w-full bg-silver-600 text-white rounded-lg py-4 font-semibold hover:bg-silver-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
               Select Advantage Coverage
@@ -544,68 +592,69 @@
           </div>
         </div>
 
-        <!-- Ultimate Coverage -->
+        <!-- Ultimate Coverage Plan -->
         <div class="relative rounded-2xl overflow-hidden border-2 border-gold-400 transform transition-all duration-300 hover:shadow-xl">
           <div class="package-gold px-6 py-4 flex justify-between items-center">
             <div>
               <h2 class="text-2xl font-bold text-white">Ultimate Coverage</h2>
-              <p class="text-gold-100 mt-1">Maximum protection & benefits</p>
+              <p class="text-gold-100 mt-1">Maximum protection with premium benefits</p>
             </div>
             <span class="bg-white text-gold-600 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">RECOMMENDED</span>
           </div>
           <div class="p-6 bg-white">
             <p class="text-gray-600 mb-6">
-              Any repair under $25,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
+              Any repair under $25,000 — no claims adjuster needed.
             </p>
 
+            <p class="font-medium mb-3">Everything in Advantage Coverage, plus:</p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Everything in Basic Coverage, plus:</span>
+                <span class="text-gray-600">Road hazard protection for tires and rims.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Tires & Rims: Road hazard coverage</span>
+                <span class="text-gray-600">Navigation and audio under advanced electronics.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Key Fob: Replacement & programming</span>
+                <span class="text-gray-600">Key fob replacement and programming.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Advanced Electronics: Navigation, audio</span>
+                <span class="text-gray-600">Safety systems including cameras and sensors.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Safety Systems: Cameras, sensors</span>
+                <span class="text-gray-600">Secondary radiators in the enhanced cooling system.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Enhanced Cooling: Secondary radiators</span>
+                <span class="text-gray-600">Air ride and other advanced suspension components.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Advanced Suspension: Air ride</span>
+                <span class="text-gray-600">Full system AC and heating coverage.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Emissions: Sensors, catalytic converter</span>
+                <span class="text-gray-600">Luxury rental car coverage for up to 90 days.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Luxury Rental Car: Up to 90 days</span>
+                <span class="text-gray-600">Rideshare credit extended to 90 days.</span>
               </li>
               <li class="flex items-start">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Enhanced Rideshare: Up to 90 days</span>
-              </li>
-              <li class="flex items-start">
-                <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span class="text-gray-600">Trip Interruption: Up to $300/day</span>
+                <span class="text-gray-600">Trip interruption benefits up to $300 per day.</span>
               </li>
               <li class="flex items-start font-medium text-gold-600">
                 <span class="check-gold text-xl mr-2 font-bold">✓</span>
-                <span>Higher coverage limits on all repairs</span>
+                <span>Higher coverage limits on all repairs.</span>
+              </li>
+              <li class="flex items-start font-medium text-gold-600">
+                <span class="check-gold text-xl mr-2 font-bold">✓</span>
+                <span>Faster claims processing with VIP-level support.</span>
               </li>
             </ul>
 
@@ -627,54 +676,190 @@
           Don't just take our word for it. Here's what vehicle owners have to say about their experience with Wayzere.
         </p>
       </div>
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-        <!-- Michael -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div class="flex items-center mb-4">
-            <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+      
+      <!-- Testimonial Carousel -->
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="testimonial-carousel">
+          <!-- First slide (3 testimonials) -->
+          <div class="testimonial-slide active grid md:grid-cols-3 gap-8">
+            <!-- Michael -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Michael S.</h3>
+                  <p class="text-blue-300">2019 Toyota Camry</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "I was skeptical about extended warranties until my transmission failed last year. The warranty paid for everything, over $3,800 in repairs. The process was simple and fast."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
             </div>
-            <div class="ml-4 text-left">
-              <h3 class="font-semibold">Michael S.</h3>
-              <p class="text-blue-300">2019 Toyota Camry</p>
+            
+            <!-- Sarah -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Sarah L.</h3>
+                  <p class="text-blue-300">2018 Honda CR-V</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "The customer service is outstanding. When my car broke down, they arranged everything—from towing to repairs. I didn't have to worry about anything."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            
+            <!-- James -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">James R.</h3>
+                  <p class="text-blue-300">2020 Ford F-150</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "Best decision I made for my truck. The coverage is comprehensive
+                and the claims process is hassle-free. Highly recommend!"
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
             </div>
           </div>
-          <p class="text-blue-100 mb-4">
-            "I was skeptical about extended warranties until my transmission failed last year. The warranty paid for everything, over $3,800 in repairs. The process was simple and fast."
-          </p>
-          <div class="text-yellow-400 text-lg">★★★★★</div>
+          
+          <!-- Second slide (3 more testimonials) -->
+          <div class="testimonial-slide grid md:grid-cols-3 gap-8">
+            <!-- Jessica -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Jessica M.</h3>
+                  <p class="text-blue-300">2021 Chevrolet Equinox</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "My SUV's AC system failed during summer. Wayzere covered the entire repair cost of $1,750 and had me back on the road in 48 hours. Worth every penny!"
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            
+            <!-- Robert -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/1121796/pexels-photo-1121796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Robert T.</h3>
+                  <p class="text-blue-300">2017 BMW 5 Series</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "As a BMW owner, I was worried about expensive repairs after the manufacturer warranty expired. Wayzere saved me $4,200 on an electronics issue. No hassles, no delays."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            
+            <!-- Amanda -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Amanda K.</h3>
+                  <p class="text-blue-300">2019 Subaru Outback</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "Their roadside assistance saved me when my car broke down on a road trip. They arranged a tow, rental car, and handled all repairs. I could continue my vacation without stress."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
+          
+          <!-- Third slide (4 more testimonials) -->
+          <div class="testimonial-slide grid md:grid-cols-3 gap-8">
+            <!-- David -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">David W.</h3>
+                  <p class="text-blue-300">2018 Tesla Model 3</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "Finding warranty coverage for my Tesla wasn't easy until I found Wayzere. When my display screen failed, they covered the $2,500 repair completely. Perfect for EV owners!"
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            
+            <!-- Patricia -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Patricia C.</h3>
+                  <p class="text-blue-300">2020 Jeep Grand Cherokee</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "When my Jeep's 4WD system failed off-road, Wayzere not only covered the repairs but also the towing from a remote location. The claims representative was knowledgeable and supportive."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            
+            <!-- Marcus -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Marcus J.</h3>
+                  <p class="text-blue-300">2017 Audi A6</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "After getting quotes from several warranty providers, Wayzere offered the most comprehensive coverage at the best price. When my turbocharger failed, they saved me $3,200."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
+          
+          <!-- Fourth slide (Final testimonial) -->
+          <div class="testimonial-slide grid md:grid-cols-1 md:max-w-lg mx-auto">
+            <!-- Jennifer -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div class="flex items-center mb-4">
+                <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/1580270/pexels-photo-1580270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+                </div>
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Jennifer P.</h3>
+                  <p class="text-blue-300">2019 Lexus RX 350</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "I was able to transfer my Wayzere warranty to the buyer when I sold my Lexus, which increased the selling price by almost $2,000. The transfer process was simple and the new owner was thrilled to have the coverage."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
         </div>
         
-        <!-- Sarah -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div class="flex items-center mb-4">
-            <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
-            </div>
-            <div class="ml-4 text-left">
-              <h3 class="font-semibold">Sarah L.</h3>
-              <p class="text-blue-300">2018 Honda CR-V</p>
-            </div>
-          </div>
-          <p class="text-blue-100 mb-4">
-            "The customer service is outstanding. When my car broke down, they arranged everything—from towing to repairs. I didn't have to worry about anything."
-          </p>
-          <div class="text-yellow-400 text-lg">★★★★★</div>
-        </div>
-        
-        <!-- James -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div class="flex items-center mb-4">
-            <div class="testimonial-img" style="background-image: url('https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
-            </div>
-            <div class="ml-4 text-left">
-              <h3 class="font-semibold">James R.</h3>
-              <p class="text-blue-300">2020 Ford F-150</p>
-            </div>
-          </div>
-          <p class="text-blue-100 mb-4">
-            "Best decision I made for my truck. The coverage is comprehensive
-            and the claims process is hassle-free. Highly recommend!"
-          </p>
-          <div class="text-yellow-400 text-lg">★★★★★</div>
+        <!-- Carousel indicators -->
+        <div class="carousel-indicators mt-8">
+          <span class="indicator active" data-slide="0"></span>
+          <span class="indicator" data-slide="1"></span>
+          <span class="indicator" data-slide="2"></span>
+          <span class="indicator" data-slide="3"></span>
         </div>
       </div>
     </section>
@@ -1176,6 +1361,46 @@
       // FAQ accordion
       document.querySelectorAll(".faq-question").forEach((btn) => {
         btn.addEventListener("click", () => btn.nextElementSibling.classList.toggle("hidden"));
+      });
+      
+      // Testimonial carousel
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const indicators = document.querySelectorAll('.indicator');
+      const totalSlides = slides.length;
+      
+      // Auto-rotate every 2 seconds
+      const carouselInterval = setInterval(nextSlide, 2000);
+      
+      function nextSlide() {
+        showSlide((currentSlide + 1) % totalSlides);
+      }
+      
+      function showSlide(slideIndex) {
+        // Hide all slides
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        
+        // Update indicators
+        indicators.forEach(indicator => {
+          indicator.classList.remove('active');
+        });
+        
+        // Show the selected slide
+        slides[slideIndex].classList.add('active');
+        indicators[slideIndex].classList.add('active');
+        
+        // Update current slide index
+        currentSlide = slideIndex;
+      }
+      
+      // Add click event to indicators
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          clearInterval(carouselInterval); // Stop auto-rotation when user interacts
+          showSlide(index);
+        });
       });
     });
   </script>
