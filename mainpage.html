@@ -60,11 +60,16 @@
           },
           animation: {
             'glow': 'glow 1.5s ease-in-out infinite alternate',
+            'fade': 'fade 0.5s ease-in-out',
           },
           keyframes: {
             glow: {
               '0%': { textShadow: '0 0 5px rgba(255,255,255,0.5), 0 0 15px rgba(59, 130, 246, 0.5)' },
               '100%': { textShadow: '0 0 10px rgba(255,255,255,0.7), 0 0 25px rgba(59, 130, 246, 0.7)' },
+            },
+            fade: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
             }
           }
         },
@@ -146,6 +151,47 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    .testimonial-slider {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-slide {
+      min-width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      display: none;
+    }
+    .testimonial-slide.active {
+      opacity: 1;
+      display: block;
+      animation: fade 0.5s ease-in-out;
+    }
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .slider-dot.active {
+      background-color: white;
+    }
+    .slider-nav-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .slider-nav-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
     }
   </style>
 </head>
@@ -266,6 +312,30 @@
               </button>
               <div
                 id="model-content"
+                class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto"
+              ></div>
+            </div>
+            
+            <!-- Mileage (Added as requested) -->
+            <div class="relative">
+              <label class="block mb-1 font-medium text-blue-200">Vehicle Mileage</label>
+              <button
+                id="mileage-dropdown"
+                class="w-full bg-white/10 border border-white/30 rounded-lg p-3 flex justify-between items-center"
+              >
+                <span id="mileage-text">Select mileage</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div
+                id="mileage-content"
                 class="dropdown-content absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto"
               ></div>
             </div>
@@ -611,7 +681,7 @@
 
     <!-- Testimonials -->
     <section id="testimonials" class="py-20 bg-blue-900 text-white section-animate">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
           What Our Customers Say
         </h2>
@@ -620,67 +690,159 @@
           say about their experience with Wayzere.
         </p>
       </div>
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-        <!-- Michael -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div class="flex items-center mb-4">
-            <img 
-              src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600" 
-              alt="Michael S." 
-              class="testim-img"
-            />
-            <div class="ml-4 text-left">
-              <h3 class="font-semibold">Michael S.</h3>
-              <p class="text-blue-300">2019 Toyota Camry</p>
+      
+      <!-- Testimonials carousel container -->
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Testimonial slides -->
+        <div id="testimonial-container" class="relative overflow-hidden">
+          <!-- Slide 1 - Michael -->
+          <div class="testimonial-slide active">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mx-auto max-w-md">
+              <div class="flex items-center mb-4">
+                <img 
+                  src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="Michael S." 
+                  class="testim-img"
+                />
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Michael S.</h3>
+                  <p class="text-blue-300">2019 Toyota Camry</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "I was skeptical about extended warranties until my transmission
+                failed last year. The warranty paid for everything, over $3,800 in
+                repairs. The process was simple and fast."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
             </div>
           </div>
-          <p class="text-blue-100 mb-4">
-            "I was skeptical about extended warranties until my transmission
-            failed last year. The warranty paid for everything, over $3,800 in
-            repairs. The process was simple and fast."
-          </p>
-          <div class="text-yellow-400 text-lg">★★★★★</div>
-        </div>
-        <!-- Sarah -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div class="flex items-center mb-4">
-            <img 
-              src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600" 
-              alt="Sarah L." 
-              class="testim-img"
-            />
-            <div class="ml-4 text-left">
-              <h3 class="font-semibold">Sarah L.</h3>
-              <p class="text-blue-300">2018 Honda CR-V</p>
+          
+          <!-- Slide 2 - Sarah -->
+          <div class="testimonial-slide">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mx-auto max-w-md">
+              <div class="flex items-center mb-4">
+                <img 
+                  src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="Sarah L." 
+                  class="testim-img"
+                />
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Sarah L.</h3>
+                  <p class="text-blue-300">2018 Honda CR-V</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "The customer service is outstanding. When my car broke down, they
+                arranged everything—from towing to repairs. I didn't have to worry
+                about anything."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
             </div>
           </div>
-          <p class="text-blue-100 mb-4">
-            "The customer service is outstanding. When my car broke down, they
-            arranged everything—from towing to repairs. I didn't have to worry
-            about anything."
-          </p>
-          <div class="text-yellow-400 text-lg">★★★★★</div>
-        </div>
-        <!-- James -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div class="flex items-center mb-4">
-            <img 
-              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" 
-              alt="James R." 
-              class="testim-img"
-            />
-            <div class="ml-4 text-left">
-              <h3 class="font-semibold">James R.</h3>
-              
-              <p class="text-blue-300">2020 Ford F-150</p>
+          
+          <!-- Slide 3 - James -->
+          <div class="testimonial-slide">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mx-auto max-w-md">
+              <div class="flex items-center mb-4">
+                <img 
+                  src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="James R." 
+                  class="testim-img"
+                />
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">James R.</h3>
+                  <p class="text-blue-300">2020 Ford F-150</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "Best decision I made for my truck. The coverage is comprehensive
+                and the claims process is hassle-free. Highly recommend!"
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
             </div>
           </div>
-          <p class="text-blue-100 mb-4">
-            "Best decision I made for my truck. The coverage is comprehensive
-            and the claims process is hassle-free. Highly recommend!"
-          </p>
-          <div class="text-yellow-400 text-lg">★★★★★</div>
+          
+          <!-- Slide 4 - Jennifer (New) -->
+          <div class="testimonial-slide">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mx-auto max-w-md">
+              <div class="flex items-center mb-4">
+                <img 
+                  src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="Jennifer T." 
+                  class="testim-img"
+                />
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Jennifer T.</h3>
+                  <p class="text-blue-300">2021 Chevrolet Equinox</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "After my SUV's infotainment system failed, I was worried about the high replacement cost. Wayzere approved my claim within hours and covered the entire $2,400 repair. Incredible service!"
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
+          
+          <!-- Slide 5 - David (New) -->
+          <div class="testimonial-slide">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mx-auto max-w-md">
+              <div class="flex items-center mb-4">
+                <img 
+                  src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="David K." 
+                  class="testim-img"
+                />
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">David K.</h3>
+                  <p class="text-blue-300">2017 BMW 3 Series</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "As a BMW owner, I was concerned about expensive repairs after my factory warranty expired. Wayzere has already saved me over $5,000 in just the first year. The Ultimate Coverage plan is worth every penny."
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
+          
+          <!-- Slide 6 - Maria (New) -->
+          <div class="testimonial-slide">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mx-auto max-w-md">
+              <div class="flex items-center mb-4">
+                <img 
+                  src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="Maria G." 
+                  class="testim-img"
+                />
+                <div class="ml-4 text-left">
+                  <h3 class="font-semibold">Maria G.</h3>
+                  <p class="text-blue-300">2019 Nissan Rogue</p>
+                </div>
+              </div>
+              <p class="text-blue-100 mb-4">
+                "My CVT transmission needed replacing which would have cost $4,200. With Wayzere, I only paid my deductible. The roadside assistance was prompt, and they even covered my rental car for the entire repair period!"
+              </p>
+              <div class="text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
         </div>
+        
+        <!-- Navigation arrows -->
+        <div class="flex justify-between absolute top-1/2 left-0 right-0 -mt-6 px-4 md:px-0">
+          <button id="prev-testimonial" class="slider-nav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="next-testimonial" class="slider-nav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Dots navigation -->
+        <div class="flex justify-center space-x-2 mt-8" id="testimonial-dots"></div>
       </div>
     </section>
 
@@ -1511,9 +1673,25 @@ const autoMakers = [
   ],
 };
 
+      // Create mileage ranges for the dropdown
+      const mileageRanges = [
+        { id: "0_10k", name: "0 - 10,000 miles" },
+        { id: "10k_20k", name: "10,000 - 20,000 miles" },
+        { id: "20k_30k", name: "20,000 - 30,000 miles" },
+        { id: "30k_40k", name: "30,000 - 40,000 miles" },
+        { id: "40k_50k", name: "40,000 - 50,000 miles" },
+        { id: "50k_60k", name: "50,000 - 60,000 miles" },
+        { id: "60k_70k", name: "60,000 - 70,000 miles" },
+        { id: "70k_80k", name: "70,000 - 80,000 miles" },
+        { id: "80k_90k", name: "80,000 - 90,000 miles" },
+        { id: "90k_100k", name: "90,000 - 100,000 miles" },
+        { id: "100k_plus", name: "100,000+ miles" }
+      ];
+
       // DOM refs
       let selMaker = null,
         selModel = null,
+        selMileage = null,
         custName = null,
         custPhone = null,
         custEmail = null;
@@ -1524,9 +1702,10 @@ const autoMakers = [
         od = document.getElementById("model-dropdown"),
         odt = document.getElementById("model-text"),
         oc = document.getElementById("model-content"),
+        mileageD = document.getElementById("mileage-dropdown"),
+        mileageDT = document.getElementById("mileage-text"),
+        mileageC = document.getElementById("mileage-content"),
         cn = document.getElementById("customer-name"),
-        
-        
         cp = document.getElementById("customer-phone"),
         ce = document.getElementById("customer-email"),
         qb = document.getElementById("quote-button");
@@ -1555,6 +1734,20 @@ const autoMakers = [
           updateButton();
         };
         mc.appendChild(d);
+      });
+
+      // Populate mileage ranges
+      mileageRanges.forEach((mileage) => {
+        const m = document.createElement("div");
+        m.className = "px-4 py-2 hover:bg-blue-50 cursor-pointer text-gray-900";
+        m.textContent = mileage.name;
+        m.onclick = () => {
+          selMileage = mileage;
+          mileageDT.textContent = mileage.name;
+          mileageC.classList.remove("show");
+          updateButton();
+        };
+        mileageC.appendChild(m);
       });
 
       function selectModel(mod) {
@@ -1604,6 +1797,7 @@ const autoMakers = [
         const query = new URLSearchParams({
           make: selMaker.id,
           model: selModel.id,
+          mileage: selMileage ? selMileage.id : '',
           name: custName,
           phone: custPhone,
           email: custEmail || ''
@@ -1639,6 +1833,7 @@ const autoMakers = [
         e.stopPropagation();
         mc.classList.toggle("show");
         oc.classList.remove("show");
+        mileageC.classList.remove("show");
       };
       
       od.onclick = (e) => {
@@ -1646,12 +1841,99 @@ const autoMakers = [
         e.stopPropagation();
         oc.classList.toggle("show");
         mc.classList.remove("show");
+        mileageC.classList.remove("show");
+      };
+      
+      mileageD.onclick = (e) => {
+        e.stopPropagation();
+        mileageC.classList.toggle("show");
+        mc.classList.remove("show");
+        oc.classList.remove("show");
       };
       
       document.addEventListener("click", () => {
         mc.classList.remove("show");
         oc.classList.remove("show");
+        mileageC.classList.remove("show");
       });
+
+      // Testimonial carousel functionality
+      const testimonials = document.querySelectorAll('.testimonial-slide');
+      const totalSlides = testimonials.length;
+      let currentSlide = 0;
+      let slideInterval;
+      
+      // Initialize dots for navigation
+      const dotsContainer = document.getElementById('testimonial-dots');
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('slider-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+      
+      // Navigation buttons
+      document.getElementById('prev-testimonial').addEventListener('click', () => {
+        clearInterval(slideInterval);
+        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        startSlideInterval();
+      });
+      
+      document.getElementById('next-testimonial').addEventListener('click', () => {
+        clearInterval(slideInterval);
+        goToSlide((currentSlide + 1) % totalSlides);
+        startSlideInterval();
+      });
+      
+      // Go to specific slide
+      function goToSlide(slideIndex) {
+        testimonials.forEach(slide => slide.classList.remove('active'));
+        testimonials[slideIndex].classList.add('active');
+        
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[slideIndex].classList.add('active');
+        
+        currentSlide = slideIndex;
+      }
+      
+      // Start automatic slide interval
+      function startSlideInterval() {
+        slideInterval = setInterval(() => {
+          goToSlide((currentSlide + 1) % totalSlides);
+        }, 5000); // Change slide every 5 seconds
+      }
+      
+      // Initialize the slider
+      startSlideInterval();
+      
+      // Add touch swipe functionality
+      const testimonialContainer = document.getElementById('testimonial-container');
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      testimonialContainer.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+      
+      testimonialContainer.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, false);
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) { // Swipe left
+          clearInterval(slideInterval);
+          goToSlide((currentSlide + 1) % totalSlides);
+          startSlideInterval();
+        } else if (touchEndX > touchStartX + 50) { // Swipe right
+          clearInterval(slideInterval);
+          goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+          startSlideInterval();
+        }
+      }
 
       // Mobile menu
       document
