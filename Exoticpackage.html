@@ -19,6 +19,16 @@
               50:"#F0F7FF",100:"#E0EFFF",200:"#BBD9FF",300:"#8ABBFF",
               400:"#5A9CFF",500:"#3B82F6",600:"#2563EB",
               700:"#1D4ED8",800:"#1E40AF",900:"#1E3A8A"
+            },
+            silver: {
+              50:"#F9FAFB",100:"#F3F4F6",200:"#E5E7EB",300:"#D1D5DB",
+              400:"#9CA3AF",500:"#6B7280",600:"#4B5563",
+              700:"#374151",800:"#1F2937",900:"#111827"
+            },
+            gold: {
+              50:"#FFFBEB",100:"#FEF3C7",200:"#FDE68A",300:"#FCD34D",
+              400:"#FBBF24",500:"#F59E0B",600:"#D97706",
+              700:"#B45309",800:"#92400E",900:"#78350F"
             }
           }
         }
@@ -97,6 +107,18 @@
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
+    .check-blue {
+      color: #2563EB;
+      margin-right: 0.5rem;
+    }
+    .check-silver {
+      color: #6B7280;
+      margin-right: 0.5rem;
+    }
+    .check-gold {
+      color: #D97706;
+      margin-right: 0.5rem;
+    }
   </style>
 </head>
 
@@ -138,21 +160,19 @@
     </header>
 
     <!-- Plans -->
-    <section class="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-      <!-- Basic Coverage -->
+    <section class="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+      <!-- Essential (Basic) Coverage -->
       <article class="plan-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-100 transform transition-all duration-300">
         <header class="bg-blue-600 px-6 py-4">
-          <h2 class="text-2xl font-bold text-white">Basic Coverage</h2>
-          <p class="text-blue-100 mt-1">Essential protection for your vehicle</p>
+          <h2 class="text-2xl font-bold text-white">Essential Coverage</h2>
+          <p class="text-blue-100 mt-1">Ideal for basic protection</p>
         </header>
 
         <div class="p-6">
           <div class="mb-6">
             <div class="flex items-baseline">
-              <span class="text-5xl font-bold text-gray-900">$2,480</span>
-              <span class="text-xl text-gray-600 ml-2">/ 24&nbsp;months</span>
+              <span class="text-4xl font-bold text-gray-900">$980</span>
             </div>
-            <p class="text-blue-600 font-medium mt-2 text-lg">Claims up to $20,000</p>
           </div>
 
           <p class="text-gray-600 mb-6">
@@ -160,40 +180,77 @@
           </p>
 
           <ul class="space-y-3 mb-8 features-list">
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Engine, transmission, drive axle</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Suspension, steering, brakes, fuel system</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Cooling &amp; electrical systems</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Turbo/supercharger &amp; hybrid components</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Seals &amp; gaskets</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Rental car included up to 30&nbsp;days</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Uber/Lyft credits up to $50/day (30&nbsp;days)</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Engine Components: Pistons, timing chain, valves</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Transmission: Gears, torque converter</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Drive Axle: CV joints, driveshaft</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Braking system: Master cylinder, ABS components</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Steering: Power steering pump, rack & pinion</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Cooling system: Water pump, radiator</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-blue">✓</span>Electrical basics: Alternator, starter motor</li>
           </ul>
 
           <button id="btn-basic"
                   class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
-            Select Basic Coverage
+            Select Essential Coverage
           </button>
         </div>
       </article>
 
-      <!-- Ultimate Coverage -->
-      <article class="plan-card bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-blue-600 transform transition-all duration-300">
-        <header class="bg-gradient-to-r from-blue-700 to-blue-600 px-6 py-4 flex justify-between items-center">
-          <div>
-            <h2 class="text-2xl font-bold text-white">Ultimate Coverage</h2>
-            <p class="text-blue-100 mt-1">Maximum protection &amp; benefits</p>
-          </div>
-          <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">RECOMMENDED</span>
+      <!-- Advantage Coverage -->
+      <article class="plan-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-silver-200 transform transition-all duration-300">
+        <header class="bg-silver-500 px-6 py-4">
+          <h2 class="text-2xl font-bold text-white">Advantage Coverage</h2>
+          <p class="text-silver-100 mt-1">Enhanced protection & benefits</p>
         </header>
 
         <div class="p-6">
           <div class="mb-6">
             <div class="flex items-baseline">
-              <span class="text-5xl font-bold text-gray-900">$2,980</span>
-              <span class="text-xl text-gray-600 ml-2">/ 36&nbsp;months</span>
+              <span class="text-4xl font-bold text-gray-900">$1480</span>
             </div>
-            <p class="text-sm text-gray-600 mt-1"></p>
-            <p class="text-blue-600 font-medium mt-2 text-lg">Claims up to $50,000</p>
+          </div>
+
+          <p class="text-gray-600 mb-6">
+            Any repair under $20,000! Just take a photo, submit your receipt, and we cover it—no claims adjuster needed.
+          </p>
+
+          <ul class="space-y-3 mb-8 features-list">
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Engine Components: Pistons, timing chain, valves</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Transmission: Gears, torque converter</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Drive Axle: CV joints, driveshaft</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Steering: Power steering pump, rack and pinion</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Brakes: Master cylinder, ABS components</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Cooling system: Water pump, radiator</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Electrical: Alternator, starter motor</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>AC/Heating: Compressor, condenser</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Turbo/Supercharger Components</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Hybrid/EV: Battery, inverter</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Rental Car: Up to 30 days</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-silver">✓</span>Rideshare Credit: Up to 30 days</li>
+          </ul>
+
+          <button id="btn-advantage"
+                  class="w-full bg-silver-500 text-white rounded-lg py-4 font-semibold hover:bg-silver-600 transition-all duration-300 transform hover:scale-105 active:scale-95">
+            Select Advantage Coverage
+          </button>
+        </div>
+      </article>
+
+      <!-- Ultimate Coverage -->
+      <article class="plan-card bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-gold-300 transform transition-all duration-300">
+        <header class="bg-gradient-to-r from-gold-600 to-gold-500 px-6 py-4 flex justify-between items-center">
+          <div>
+            <h2 class="text-2xl font-bold text-white">Ultimate Coverage</h2>
+            <p class="text-gold-100 mt-1">Maximum protection & benefits</p>
+          </div>
+          <span class="bg-white text-gold-600 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">RECOMMENDED</span>
+        </header>
+
+        <div class="p-6">
+          <div class="mb-6">
+            <div class="flex items-baseline">
+              <span class="text-4xl font-bold text-gray-900">$1980</span>
+            </div>
           </div>
 
           <p class="text-gray-600 mb-6">
@@ -201,16 +258,22 @@
           </p>
 
           <ul class="space-y-3 mb-8 features-list">
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Everything in Basic Coverage, plus:</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Tires and rims</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Key fobs</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Luxury rental car included up to 90&nbsp;days</li>
-            <li class="feature-reveal flex items-center text-gray-600"><span class="text-green-500 mr-2">✓</span>Uber/Lyft credits up to $100/day (90&nbsp;days)</li>
-            <li class="feature-reveal flex items-center font-medium text-blue-600"><span class="text-green-500 mr-2">✓</span>Higher coverage limits on all repairs</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Everything in Basic Coverage, plus:</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Tires & Rims: Road hazard coverage</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Key Fob: Replacement & programming</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Advanced Electronics: Navigation, audio</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Safety Systems: Cameras, sensors</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Enhanced Cooling: Secondary radiators</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Advanced Suspension: Air ride</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Emissions: Sensors, catalytic converter</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Luxury Rental Car: Up to 90 days</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Enhanced Rideshare: Up to 90 days</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Trip Interruption: Up to $3000/day</li>
+            <li class="feature-reveal flex items-center text-gray-600"><span class="check-gold">✓</span>Higher coverage limits on all repairs</li>
           </ul>
 
           <button id="btn-ultimate"
-                  class="w-full bg-blue-600 text-white rounded-lg py-4 font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                  class="w-full bg-gold-500 text-white rounded-lg py-4 font-semibold hover:bg-gold-600 transition-all duration-300 transform hover:scale-105 active:scale-95">
             Select Ultimate Coverage
           </button>
         </div>
@@ -258,43 +321,6 @@
       </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="mt-16 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-center mb-8">Customer Reviews</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">D</div>
-            <div class="ml-4">
-              <h3 class="font-semibold">David R.</h3>
-              <div class="text-yellow-400">★★★★★</div>
-            </div>
-          </div>
-          <p class="text-gray-600">"Coverage saved me thousands on my transmission repair. Process was quick and easy."</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">S</div>
-            <div class="ml-4">
-              <h3 class="font-semibold">Sarah M.</h3>
-              <div class="text-yellow-400">★★★★★</div>
-            </div>
-          </div>
-          <p class="text-gray-600">"Great customer service and fast claim processing. Would definitely recommend!"</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">P</div>
-            <div class="ml-4">
-              <h3 class="font-semibold">Peter H.</h3>
-              <div class="text-yellow-400">★★★★★</div>
-            </div>
-          </div>
-          <p class="text-gray-600">"Comprehensive coverage that gives me peace of mind. Worth every penny."</p>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ Section -->
     <section class="mt-16 max-w-3xl mx-auto">
       <h2 class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
@@ -332,11 +358,13 @@
 
   <script>
     // URLs for redirects
-    const BASIC_URL = "https://example.com/checkout-basic";
-    const ULTIMATE_URL = "https://example.com/checkout-ultimate";
+    const BASIC_URL = "https://buy.stripe.com/eVa7tb45Uap4ftudQR";
+    const ADVANTAGE_URL = "https://buy.stripe.com/9AQ6p7eKy7cSepq4gg";
+    const ULTIMATE_URL = "https://buy.stripe.com/6oEaFn0TI54K0yAaEG";
 
     // Plan selection handling
     const basicBtn = document.getElementById("btn-basic");
+    const advantageBtn = document.getElementById("btn-advantage");
     const ultimateBtn = document.getElementById("btn-ultimate");
     const plans = document.querySelectorAll('.plan-card');
     const cartCount = document.querySelector('.cart-count');
@@ -361,6 +389,11 @@
     basicBtn.addEventListener("click", (e) => {
       selectPlan(e.target);
       setTimeout(() => window.location.href = BASIC_URL, 500);
+    });
+
+    advantageBtn.addEventListener("click", (e) => {
+      selectPlan(e.target);
+      setTimeout(() => window.location.href = ADVANTAGE_URL, 500);
     });
 
     ultimateBtn.addEventListener("click", (e) => {
