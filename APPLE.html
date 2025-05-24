@@ -3,10 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tester Up – The fun way to motivate kids! Download now and transform chores into exciting challenges with rewards." />
   <title>TesterUp - Earn Money Playing Games</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixels -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    /* 1️⃣ init ORIGINAL pixel and fire global events */
+    fbq('init','1664457917492479');
+    fbq('track','PageView');
+    const pageProps = {
+      content_name:'Tester Up Landing Page',
+      content_category:'App Discovery',
+      content_ids:['playful_rewards_landing'],
+      content_type:'product_group'
+    };
+    fbq('track','ViewContent',pageProps);
+
+    /* 2️⃣ init NEW pixel with autoConfig OFF (prevents duplicates) */
+    fbq('init','2226705874414188',{},false);
+    fbq('trackSingle','2226705874414188','PageView');
+    fbq('trackSingle','2226705874414188','ViewContent',pageProps);
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -293,6 +322,10 @@
   </style>
 </head>
 <body>
+  <!-- noscript fall-backs -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" /></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2226705874414188&ev=PageView&noscript=1" /></noscript>
+
   <div class="container">
     <!-- Logo Section -->
     <div class="logo-container">
@@ -363,7 +396,7 @@
     // Player names for notifications
     const playerNames = [
       'Alex Johnson',
-      'Samantha Williams',
+      'Samantha Williams', 
       'Michael Chen',
       'Jessica Taylor',
       'David Rodriguez',
@@ -429,8 +462,38 @@
       setTimeout(showRandomNotification, 1000);
     }
 
-    // Start the notification system when the page loads
-    document.addEventListener('DOMContentLoaded', startNotifications);
+    // Conversion tracking
+    function trackConversion() {
+      const props = {
+        content_name: 'Tester Up iOS Download',
+        content_category: 'App Store Redirect',
+        content_ids: ['playful_rewards_ios'],
+        content_type: 'product_group',
+        value: 0,
+        currency: 'USD'
+      };
+      try {
+        fbq('trackSingle', '1664457917492479', 'InitiateCheckout', props);
+        fbq('trackSingle', '1664457917492479', 'SubmitApplication', props);
+        fbq('trackSingle', '2226705874414188', 'InitiateCheckout', props);
+        fbq('trackSingle', '2226705874414188', 'SubmitApplication', props);
+      } catch(e) {
+        console.error(e);
+      }
+      setTimeout(() => window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}', 500);
+    }
+
+    // Add click handlers
+    document.addEventListener('DOMContentLoaded', () => {
+      // Start notifications
+      startNotifications();
+      
+      // Add click handler to CTA button
+      document.querySelector('.cta-button').addEventListener('click', (e) => {
+        e.preventDefault();
+        trackConversion();
+      });
+    });
   </script>
 </body>
 </html>
