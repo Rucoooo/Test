@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Meta Pixels -->
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;
@@ -19,21 +19,17 @@
       t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    /* 1️⃣ init ORIGINAL pixel and fire global events */
-    fbq('init','1664457917492479');
-    fbq('track','PageView');
-    const pageProps = {
-      content_name:'Tester Up Landing Page',
-      content_category:'App Discovery',
-      content_ids:['playful_rewards_landing'],
-      content_type:'product_group'
-    };
-    fbq('track','ViewContent',pageProps);
+    fbq('init', '1664457917492479');
+    fbq('init', '2226705874414188');
+    fbq('track', 'PageView');
 
-    /* 2️⃣ init NEW pixel with autoConfig OFF (prevents duplicates) */
-    fbq('init','2226705874414188',{},false);
-    fbq('trackSingle','2226705874414188','PageView');
-    fbq('trackSingle','2226705874414188','ViewContent',pageProps);
+    const pageProps = {
+      content_name: 'Tester Up Landing Page',
+      content_category: 'App Discovery',
+      content_ids: ['playful_rewards_landing'],
+      content_type: 'product_group'
+    };
+    fbq('track', 'ViewContent', pageProps);
   </script>
 
   <style>
@@ -396,7 +392,7 @@
     // Player names for notifications
     const playerNames = [
       'Alex Johnson',
-      'Samantha Williams', 
+      'Samantha Williams',
       'Michael Chen',
       'Jessica Taylor',
       'David Rodriguez',
@@ -473,10 +469,8 @@
         currency: 'USD'
       };
       try {
-        fbq('trackSingle', '1664457917492479', 'InitiateCheckout', props);
-        fbq('trackSingle', '1664457917492479', 'SubmitApplication', props);
-        fbq('trackSingle', '2226705874414188', 'InitiateCheckout', props);
-        fbq('trackSingle', '2226705874414188', 'SubmitApplication', props);
+        fbq('track', 'InitiateCheckout', props);
+        fbq('track', 'SubmitApplication', props);
       } catch(e) {
         console.error(e);
       }
