@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tester Up – The fun way to motivate kids! Download now and transform chores into exciting challenges with rewards." />
-  <title>Tester Up</title>
+  <title>TesterUp - Earn Money Playing Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Meta Pixels (deduplicated) -->
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;
@@ -22,31 +19,302 @@
       t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    /* 1️⃣ init ORIGINAL pixel and fire global events */
-    fbq('init','1664457917492479');
-    fbq('track','PageView');
-    const pageProps = {
-      content_name:'Tester Up Landing Page',
-      content_category:'App Discovery',
-      content_ids:['playful_rewards_landing'],
-      content_type:'product_group'
-    };
-    fbq('track','ViewContent',pageProps);
+    fbq('init', '1664457917492479');
+    fbq('init', '2226705874414188');
+    fbq('track', 'PageView');
 
-    /* 2️⃣ init NEW pixel with autoConfig OFF (prevents duplicates) */
-    fbq('init','2226705874414188',{},false);
-    fbq('trackSingle','2226705874414188','PageView');
-    fbq('trackSingle','2226705874414188','ViewContent',pageProps);
+    const pageProps = {
+      content_name: 'Tester Up Landing Page',
+      content_category: 'App Discovery',
+      content_ids: ['playful_rewards_landing'],
+      content_type: 'product_group'
+    };
+    fbq('track', 'ViewContent', pageProps);
   </script>
 
   <style>
-    body{font-family:'Inter',sans-serif;}
-    .testimonial{display:none;}
-    .testimonial.active{display:block;animation:fadeIn .5s ease-in-out;}
-    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-    .download-btn{box-shadow:0 10px 25px -5px rgba(234,88,12,.4);}
-    .download-btn:hover{box-shadow:0 15px 30px -5px rgba(234,88,12,.6);}
-    .feature-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.1);}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f7;
+      color: #333;
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo-container {
+      background-color: #1c1c1e;
+      width: 100%;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      margin-bottom: 8px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-first {
+      color: white;
+    }
+
+    .logo-last {
+      color: #e63946;
+    }
+
+    .content-card {
+      background-color: white;
+      border-radius: 24px;
+      padding: 32px 24px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      color: #1c1c1e;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .checkmark {
+      background-color: #e63946;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-content h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #1c1c1e;
+    }
+
+    .step-content p {
+      color: #6e6e73;
+      font-size: 1rem;
+    }
+
+    .cta-button-container {
+      width: 100%;
+    }
+
+    .cta-button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 20px;
+      border-radius: 100px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-button:hover {
+      background-color: #d62f3d;
+      transform: translateY(-2px);
+    }
+
+    .cta-button:active {
+      transform: translateY(1px);
+    }
+
+    .arrow {
+      font-size: 1.5rem;
+    }
+
+    .trustpilot {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .rating-text {
+      color: #6e6e73;
+      font-size: 0.9rem;
+    }
+
+    .stars {
+      display: flex;
+      color: #00b67a;
+    }
+
+    .star {
+      font-size: 1rem;
+    }
+
+    .trustpilot-text {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1c1c1e;
+    }
+
+    .notification-container {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 300px;
+      z-index: 1000;
+    }
+
+    .notification {
+      background-color: #e63946;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+      display: flex;
+      align-items: center;
+      animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease 3.7s forwards;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    .notification-icon {
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .notification-icon:before {
+      content: "$";
+      font-weight: 700;
+    }
+
+    .notification-text {
+      line-height: 1.3;
+    }
+
+    .notification-name {
+      font-weight: 600;
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      
+      .container {
+        gap: 16px;
+      }
+      
+      .logo-container {
+        border-radius: 0;
+      }
+      
+      .content-card {
+        border-radius: 16px;
+        padding: 24px 16px;
+      }
+      
+      .main-heading {
+        font-size: 1.5rem;
+      }
+      
+      .step-content h2 {
+        font-size: 1.1rem;
+      }
+      
+      .cta-button {
+        font-size: 1.1rem;
+        padding: 16px;
+      }
+      
+      .notification-container {
+        max-width: 250px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -54,143 +322,172 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" /></noscript>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2226705874414188&ev=PageView&noscript=1" /></noscript>
 
-  <!-- ===================== LANDER ===================== -->
-  <div class="min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
-    <div class="container mx-auto px-4 py-16">
-      <!-- Hero -->
-      <header class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <i data-lucide="trophy" class="w-16 h-16 text-orange-500"></i>
-        </div>
-        <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500">
-          Tester Up
-        </h1>
-        <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Start Winning And Progress The Same Day!
-        </p>
-        <button class="download-btn bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-red-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
-          Download Today!
-        </button>
-        <p class="text-gray-500 mt-4">1,000,000+ Downloads Worldwide!</p>
-      </header>
-
-      <!-- Features -->
-      <section class="grid md:grid-cols-3 gap-8 mb-24 px-4">
-        <div class="feature-card bg-white p-8 rounded-2xl border border-gray-100">
-          <i data-lucide="gift" class="w-10 h-10 text-orange-500 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Reward System</h3>
-          <p class="text-gray-600 text-lg">Customize rewards that motivate you to make money!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl border border-gray-100">
-          <i data-lucide="star" class="w-10 h-10 text-orange-500 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Achievement Tracking</h3>
-          <p class="text-gray-600 text-lg">Watch how you earn quickly!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl border border-gray-100">
-          <i data-lucide="smartphone" class="w-10 h-10 text-orange-500 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">iOS & Android Compatible</h3>
-          <p class="text-gray-600 text-lg">Designed specifically for Earning Money!</p>
-        </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500">
-          What Our Winners Say
-        </h2>
-        <div class="bg-white rounded-3xl p-8 md:p-12 relative border border-gray-100">
-          <button onclick="prevTestimonial()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
-            <i data-lucide="chevron-left" class="w-6 h-6 text-orange-600"></i>
-          </button>
-          <div id="testimonials-container" class="text-center px-8 md:px-16">
-            <div class="testimonial active">
-              <p class="text-gray-700 italic mb-8 text-xl leading-relaxed">
-                "Tester Up has transformed how I make money! Now it's extra cash I can use!"
-              </p>
-              <p class="font-semibold text-gray-900 text-lg">Sarah Johnson</p>
-              <div class="flex justify-center mt-2">
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-                <i data-lucide="star" class="w-5 h-5 text-orange-400"></i>
-              </div>
-            </div>
-          </div>
-          <button onclick="nextTestimonial()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
-            <i data-lucide="chevron-right" class="w-6 h-6 text-orange-600"></i>
-          </button>
-        </div>
-        <div id="dots-container" class="flex justify-center mt-6 gap-3"></div>
-      </section>
-
-      <!-- CTA -->
-      <section class="text-center mt-24 mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Life?</h2>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of happy winners today!</p>
-        <button class="download-btn bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-red-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
-          Download Today!
-        </button>
-        <p class="text-gray-400 mt-4 text-sm">Start Now And Earn Today!</p>
-      </section>
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <div class="logo">
+        <span class="logo-text">
+          <span class="logo-first">tester</span><span class="logo-last">up</span>
+        </span>
+      </div>
     </div>
+
+    <!-- Main Content -->
+    <div class="content-card">
+      <h1 class="main-heading">Follow the instructions below</h1>
+      
+      <!-- Steps -->
+      <div class="steps">
+        <div class="step">
+          <div class="checkmark">✓</div>
+          <div class="step-content">
+            <h2>Download the TesterUp app</h2>
+            <p>Click the button below</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="checkmark">✓</div>
+          <div class="step-content">
+            <h2>Play 1-3 Games</h2>
+            <p>Earn up to $100/day</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="checkmark">✓</div>
+          <div class="step-content">
+            <h2>Cash out and Repeat anytime</h2>
+            <p>Withdraw whenever!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="cta-button-container">
+      <button class="cta-button">
+        Start Earning Now <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Trustpilot Rating -->
+    <div class="trustpilot">
+      <span class="rating-text">Excellent</span>
+      <div class="stars">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <span class="trustpilot-text">Trustpilot</span>
+    </div>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notificationContainer"></div>
   </div>
-  <!-- ===================== /LANDER ===================== -->
 
   <script>
-    /* Conversion tracking (single-pixel calls) */
+    // Player names for notifications
+    const playerNames = [
+      'Alex Johnson',
+      'Samantha Williams',
+      'Michael Chen',
+      'Jessica Taylor',
+      'David Rodriguez',
+      'Emma Wilson',
+      'James Brown',
+      'Olivia Martinez',
+      'Daniel Thompson',
+      'Sophia Garcia'
+    ];
+
+    // Function to create and show a notification
+    function showNotification(name) {
+      const notificationContainer = document.getElementById('notificationContainer');
+      
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      
+      // Create icon
+      const icon = document.createElement('div');
+      icon.className = 'notification-icon';
+      
+      // Create text content
+      const textContent = document.createElement('div');
+      textContent.className = 'notification-text';
+      textContent.innerHTML = `<span class="notification-name">${name}</span> just received $23!`;
+      
+      // Append elements
+      notification.appendChild(icon);
+      notification.appendChild(textContent);
+      notificationContainer.appendChild(notification);
+      
+      // Remove notification after animation completes
+      setTimeout(() => {
+        notification.remove();
+      }, 4000);
+    }
+
+    // Function to show notifications at random intervals
+    function startNotifications() {
+      let shownNames = [];
+      
+      function showRandomNotification() {
+        // If we've shown all names, reset the list
+        if (shownNames.length === playerNames.length) {
+          shownNames = [];
+        }
+        
+        // Find a name we haven't shown yet
+        let availableNames = playerNames.filter(name => !shownNames.includes(name));
+        let randomName = availableNames[Math.floor(Math.random() * availableNames.length)];
+        
+        // Show notification and add to shown list
+        showNotification(randomName);
+        shownNames.push(randomName);
+        
+        // Schedule next notification
+        const nextTime = 3000 + Math.random() * 2000; // 3-5 seconds
+        setTimeout(showRandomNotification, nextTime);
+      }
+      
+      // Show first notification after a slight delay
+      setTimeout(showRandomNotification, 1000);
+    }
+
+    // Conversion tracking
     function trackConversion() {
       const props = {
-        content_name:'Tester Up iOS Download',
-        content_category:'App Store Redirect',
-        content_ids:['playful_rewards_ios'],
-        content_type:'product_group',
-        value:0,
-        currency:'USD'
+        content_name: 'Tester Up iOS Download',
+        content_category: 'App Store Redirect',
+        content_ids: ['playful_rewards_ios'],
+        content_type: 'product_group',
+        value: 0,
+        currency: 'USD'
       };
-      try{
-        fbq('trackSingle','1664457917492479','InitiateCheckout',props);
-        fbq('trackSingle','1664457917492479','SubmitApplication',props);
-        fbq('trackSingle','2226705874414188','InitiateCheckout',props);
-        fbq('trackSingle','2226705874414188','SubmitApplication',props);
-      }catch(e){console.error(e);}
-      setTimeout(()=>window.location.href='https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}',500);
+      try {
+        fbq('track', 'InitiateCheckout', props);
+        fbq('track', 'SubmitApplication', props);
+      } catch(e) {
+        console.error(e);
+      }
+      setTimeout(() => window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}', 500);
     }
 
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('.download-btn').forEach(btn=>{
-        btn.addEventListener('click',e=>{
-          e.preventDefault();
-          trackConversion();
-        });
+    // Add click handlers
+    document.addEventListener('DOMContentLoaded', () => {
+      // Start notifications
+      startNotifications();
+      
+      // Add click handler to CTA button
+      document.querySelector('.cta-button').addEventListener('click', (e) => {
+        e.preventDefault();
+        trackConversion();
       });
     });
-
-    /* Testimonials carousel */
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dotsContainer = document.getElementById('dots-container');
-
-    testimonials.forEach((_, idx)=>{
-      const dot=document.createElement('div');
-      dot.className=idx===0?'h-2 w-6 rounded-full bg-gradient-to-r from-red-600 to-orange-500 transition-all':'h-2 w-2 rounded-full bg-orange-200 transition-all';
-      dotsContainer.appendChild(dot);
-    });
-
-    function updateTestimonials(){
-      testimonials.forEach((t,i)=>{
-        t.classList.toggle('active',i===currentTestimonial);
-        dotsContainer.children[i].className=i===currentTestimonial?'h-2 w-6 rounded-full bg-gradient-to-r from-red-600 to-orange-500 transition-all':'h-2 w-2 rounded-full bg-orange-200 transition-all';
-      });
-    }
-    function nextTestimonial(){currentTestimonial=(currentTestimonial+1)%testimonials.length;updateTestimonials();}
-    function prevTestimonial(){currentTestimonial=(currentTestimonial-1+testimonials.length)%testimonials.length;updateTestimonials();}
-    setInterval(nextTestimonial,5000);
-
-    /* Icons */
-    lucide.createIcons();
   </script>
 </body>
 </html>
