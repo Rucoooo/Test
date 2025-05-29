@@ -11,174 +11,195 @@
     :root {
       --bg-color: #0a0a0a;
       --text-color: #fff;
-      --text-secondary: rgba(255, 255, 255, 0.7);
+      --text-secondary: rgba(255,255,255,0.7);
       --accent-color: #e91e63;
-      --border-color: rgba(255, 255, 255, 0.1);
+      --border-color: rgba(255,255,255,0.1);
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      min-height: 100vh;
-      line-height: 1.6;
+      font-family:'Poppins',sans-serif;
+      background:var(--bg-color);
+      color:var(--text-color);
+      min-height:100vh;
+      line-height:1.6;
     }
-
     .container {
-      max-width: 960px;
-      padding: 1rem;
-      margin: 0 auto;
+      max-width:960px;
+      margin:0 auto;
+      padding:1rem;
     }
-
     header {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:2rem;
+    }
+    .site-logo {
+      height:40px;
+      object-fit:contain;
     }
     .notification-icon,
     .menu-icon {
-      cursor: pointer;
-      transition: opacity 0.3s;
+      font-size:1.5rem;
+      cursor:pointer;
+      transition:opacity .3s;
     }
     .notification-icon:hover,
-    .menu-icon:hover {
-      opacity: 0.7;
-    }
+    .menu-icon:hover { opacity:.7; }
 
+    /* Profile */
     .profile-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2.5rem;
-      animation: fadeIn 0.8s ease-in-out;
+      text-align:center;
+      margin-bottom:3rem;
+      animation:fadeIn .8s ease-in-out;
     }
     .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background-size: cover;
-      background-position: center;
-      border: 3px solid var(--accent-color);
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid var(--accent-color);
+      box-shadow:0 4px 20px rgba(0,0,0,0.3);
+      transition:transform .3s, box-shadow .3s;
+      margin-bottom:1rem;
     }
     .profile-image:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+      transform:scale(1.05);
+      box-shadow:0 6px 25px rgba(0,0,0,0.4);
     }
     .profile-name {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-size:2.2rem;
+      font-weight:600;
+      margin-bottom:.5rem;
     }
     .profile-tagline {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      text-align: center;
-      max-width: 80%;
-      margin-bottom: 1.5rem;
+      color:var(--text-secondary);
+      max-width:80%;
+      margin:0 auto 1.5rem;
     }
-
     .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      display:flex;
+      justify-content:center;
+      gap:1rem;
     }
     .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s;
-      color: var(--text-color);
-      text-decoration: none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border:1px solid var(--border-color);
+      border-radius:50%;
+      color:var(--text-color);
+      text-decoration:none;
+      transition:all .3s;
     }
     .social-link:hover {
-      background: var(--accent-color);
-      border-color: var(--accent-color);
-      transform: translateY(-3px);
+      background:var(--accent-color);
+      border-color:var(--accent-color);
+      transform:translateY(-3px);
     }
 
+    /* Feature */
     .main-content {
-      max-width: 600px;
-      margin: 0 auto;
+      max-width:600px;
+      margin:0 auto;
     }
     .feature-image-container {
-      position: relative;
-      display: block;
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
+      position:relative;
+      display:block;
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 30px rgba(0,0,0,0.4);
+      transition:transform .3s, box-shadow .3s;
+      margin-bottom:3rem;
+      text-decoration:none;
     }
     .feature-image-container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      transform:translateY(-5px);
+      box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    }
+    .feature-img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      vertical-align:middle;
     }
     .image-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      position:absolute;
+      bottom:0; left:0; right:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1rem;
+      background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
     }
     .caption-text {
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size:.9rem;
+      font-weight:500;
     }
-    .caption-dots { cursor: pointer; }
+    .caption-dots { cursor:pointer; }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity:0; transform:translateY(10px); }
+      to   { opacity:1; transform:translateY(0); }
     }
-
-    @media (min-width: 768px) {
-      .container { padding: 2rem; }
-      .profile-image { width: 180px; height: 180px; }
-      .profile-name { font-size: 2.6rem; }
-      .profile-tagline { font-size: 1.2rem; }
+    @media(min-width:768px) {
+      .container { padding:2rem; }
+      .profile-image { width:180px; height:180px; }
+      .profile-name { font-size:2.6rem; }
+      .profile-tagline { font-size:1.2rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="notification-icon">🔔</div>
-      <div class="menu-icon">⋮</div>
+      <!-- your site logo -->
+      <img src="images/uplevelslogo (1).png" alt="Logo do site" class="site-logo">
+      <div>
+        <span class="notification-icon">🔔</span>
+        <span class="menu-icon">⋮</span>
+      </div>
     </header>
 
     <main>
       <section class="profile-section">
-        <div class="profile-image" id="profileImage"></div>
+        <!-- PROFILE IMG -->
+        <img 
+          src="images/image-78caadb0-dd85-42ad-928b-aefb98d629d1.jpeg" 
+          alt="Profile" 
+          class="profile-image" 
+          id="profileImage"
+        >
         <h1 class="profile-name" id="profileName">Your Name</h1>
-        <p class="profile-tagline" id="profileTagline">Your custom tagline goes here</p>
-
+        <p class="profile-tagline" id="profileTagline">
+          Your custom tagline goes here
+        </p>
         <div class="social-links">
           <a href="#" class="social-link" id="facebookLink">📱</a>
         </div>
       </section>
 
       <section class="main-content">
-        <a href="#" id="redirectLink" class="feature-image-container">
+        <!-- FEATURE IMG -->
+        <a href="#" 
+           class="feature-image-container" 
+           id="redirectLink"
+        >
+          <img 
+            src="images/image-0c6bd8f8-8b31-47a2-8131-df4e1e426807.jpeg" 
+            alt="Feature" 
+            class="feature-img" 
+            id="featureImage"
+          >
           <div class="image-caption">
-            <span class="caption-text" id="imageCaption">Your Name – Your Caption</span>
-            <div class="caption-dots">⋮</div>
+            <span class="caption-text" id="imageCaption">
+              Your Name – Your Caption
+            </span>
+            <span class="caption-dots">⋮</span>
           </div>
         </a>
       </section>
@@ -188,38 +209,39 @@
   <script>
     const config = {
       profile: {
-        name: "Your Name",
-        tagline: "Your custom tagline goes here",
+        name:   "Your Name",
+        tagline:"Your custom tagline goes here",
         imageUrl: "images/image-78caadb0-dd85-42ad-928b-aefb98d629d1.jpeg",
-        socialLinks: [
-          { platform: "facebook", url: "#" }
-        ]
+        socialLinks: [{ platform:"facebook", url:"#"}]
       },
       featureImage: {
-        imageUrl: "images/image-0c6bd8f8-8b31-47a2-8131-df4e1e426807.jpeg",
-        redirectUrl: "https://your-redirect-url.com",
-        caption: "Your Name – Your Caption"
+        imageUrl:   "images/image-0c6bd8f8-8b31-47a2-8131-df4e1e426807.jpeg",
+        redirectUrl:"https://your-redirect-url.com",
+        caption:    "Your Name – Your Caption"
       }
     };
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Profile
-      document.getElementById("profileName").textContent = config.profile.name;
+      // profile
+      document.getElementById("profileName").textContent    = config.profile.name;
       document.getElementById("profileTagline").textContent = config.profile.tagline;
-      document.getElementById("profileImage").style.backgroundImage =
-        `url('${config.profile.imageUrl}')`;
-
-      // Social
-      if (config.profile.socialLinks.length) {
-        document.getElementById("facebookLink").href = config.profile.socialLinks[0].url;
-      }
-
-      // Feature
+      document.getElementById("profileImage").src           = config.profile.imageUrl;
+      // social
+      document.getElementById("facebookLink").href          = config.profile.socialLinks[0].url;
+      // feature
       const feat = document.getElementById("redirectLink");
-      feat.style.backgroundImage = `url('${config.featureImage.imageUrl}')`;
-      feat.href = config.featureImage.redirectUrl;
-      document.getElementById("imageCaption").textContent = config.featureImage.caption;
+      document.getElementById("featureImage").src           = config.featureImage.imageUrl;
+      feat.href                                              = config.featureImage.redirectUrl;
+      document.getElementById("imageCaption").textContent   = config.featureImage.caption;
     });
+
+    // helper if you ever want to change them via JS:
+    window.updateProfileImage = url => document.getElementById("profileImage").src = url;
+    window.updateFeatureImage = url => document.getElementById("featureImage").src = url;
+    window.updateRedirectUrl  = url => document.getElementById("redirectLink").href = url;
+    window.updateProfileName  = n   => document.getElementById("profileName").textContent = n;
+    window.updateProfileTagline = t => document.getElementById("profileTagline").textContent = t;
+    window.updateImageCaption = c   => document.getElementById("imageCaption").textContent = c;
   </script>
 </body>
 </html>
