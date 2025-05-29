@@ -1,61 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Custom Landing Page</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
-    /* Base Styles */
     :root {
       --bg-color: #0a0a0a;
-      --text-color: #ffffff;
+      --text-color: #fff;
       --text-secondary: rgba(255, 255, 255, 0.7);
       --accent-color: #e91e63;
       --border-color: rgba(255, 255, 255, 0.1);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
+      background: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 100%;
+      max-width: 960px;
       padding: 1rem;
       margin: 0 auto;
     }
 
-    /* Header Styles */
     header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 1rem 0;
-      margin-bottom: 2rem;
     }
-
-    .notification-icon, .menu-icon {
+    .notification-icon,
+    .menu-icon {
       cursor: pointer;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s;
     }
-
-    .notification-icon:hover, .menu-icon:hover {
+    .notification-icon:hover,
+    .menu-icon:hover {
       opacity: 0.7;
     }
 
-    /* Profile Section Styles */
     .profile-section {
       display: flex;
       flex-direction: column;
@@ -63,47 +54,39 @@
       margin-bottom: 2.5rem;
       animation: fadeIn 0.8s ease-in-out;
     }
-
     .profile-image {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      background-color: #333;
       background-size: cover;
       background-position: center;
       border: 3px solid var(--accent-color);
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .profile-image:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.4);
     }
-
     .profile-name {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
     .profile-tagline {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
       text-align: center;
-      margin-bottom: 1.5rem;
       max-width: 80%;
+      margin-bottom: 1.5rem;
     }
 
-    /* Social Links Styles */
     .social-links {
       display: flex;
-      justify-content: center;
       gap: 1rem;
       margin-bottom: 2rem;
     }
-
     .social-link {
       display: flex;
       align-items: center;
@@ -112,41 +95,37 @@
       height: 40px;
       border-radius: 50%;
       border: 1px solid var(--border-color);
+      transition: all 0.3s;
       color: var(--text-color);
-      transition: all 0.3s ease;
+      text-decoration: none;
     }
-
     .social-link:hover {
-      background-color: var(--accent-color);
+      background: var(--accent-color);
       border-color: var(--accent-color);
       transform: translateY(-3px);
     }
 
-    /* Main Content Styles */
     .main-content {
       max-width: 600px;
       margin: 0 auto;
     }
-
     .feature-image-container {
-      display: block;
       position: relative;
+      display: block;
       width: 100%;
+      aspect-ratio: 16/9;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      aspect-ratio: 16/9;
       background-size: cover;
       background-position: center;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
-
     .feature-image-container:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
-
     .image-caption {
       position: absolute;
       bottom: 0;
@@ -156,63 +135,24 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     }
-
     .caption-text {
       font-size: 0.9rem;
       font-weight: 500;
     }
+    .caption-dots { cursor: pointer; }
 
-    .caption-dots {
-      cursor: pointer;
-    }
-
-    /* Animations */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Responsive Styles */
     @media (min-width: 768px) {
-      .container {
-        padding: 2rem;
-      }
-      
-      .profile-image {
-        width: 150px;
-        height: 150px;
-      }
-      
-      .profile-name {
-        font-size: 2.2rem;
-      }
-      
-      .profile-tagline {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-      }
-      
-      .feature-image-container {
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      
-      .feature-image-container:hover {
-        transform: translateY(-8px) scale(1.02);
-      }
+      .container { padding: 2rem; }
+      .profile-image { width: 180px; height: 180px; }
+      .profile-name { font-size: 2.6rem; }
+      .profile-tagline { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -224,94 +164,62 @@
     </header>
 
     <main>
-      <div class="profile-section">
+      <section class="profile-section">
         <div class="profile-image" id="profileImage"></div>
         <h1 class="profile-name" id="profileName">Your Name</h1>
         <p class="profile-tagline" id="profileTagline">Your custom tagline goes here</p>
-        
+
         <div class="social-links">
           <a href="#" class="social-link" id="facebookLink">📱</a>
         </div>
-      </div>
+      </section>
 
-      <div class="main-content">
+      <section class="main-content">
         <a href="#" id="redirectLink" class="feature-image-container">
           <div class="image-caption">
-            <span class="caption-text" id="imageCaption">Your Name - Your Caption</span>
+            <span class="caption-text" id="imageCaption">Your Name – Your Caption</span>
             <div class="caption-dots">⋮</div>
           </div>
         </a>
-      </div>
+      </section>
     </main>
   </div>
 
   <script>
-    // Configuration
     const config = {
       profile: {
         name: "Your Name",
         tagline: "Your custom tagline goes here",
-        imageUrl: "https://via.placeholder.com/300",
+        imageUrl: "images/image-78caadb0-dd85-42ad-928b-aefb98d629d1.jpeg",
         socialLinks: [
-          {
-            platform: "facebook",
-            url: "#"
-          }
+          { platform: "facebook", url: "#" }
         ]
       },
       featureImage: {
-        imageUrl: "https://via.placeholder.com/800x450",
+        imageUrl: "images/image-0c6bd8f8-8b31-47a2-8131-df4e1e426807.jpeg",
         redirectUrl: "https://your-redirect-url.com",
-        caption: "Your Name - Your Caption"
+        caption: "Your Name – Your Caption"
       }
     };
 
-    // Initialize the page
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set profile information
-      document.getElementById('profileName').textContent = config.profile.name;
-      document.getElementById('profileTagline').textContent = config.profile.tagline;
-      document.getElementById('profileImage').style.backgroundImage = `url('${config.profile.imageUrl}')`;
-      
-      // Set feature image and redirect
-      const featureImage = document.getElementById('redirectLink');
-      featureImage.style.backgroundImage = `url('${config.featureImage.imageUrl}')`;
-      featureImage.href = config.featureImage.redirectUrl;
-      
-      // Set caption
-      document.getElementById('imageCaption').textContent = config.featureImage.caption;
-      
-      // Set up social link
-      const facebookLink = document.getElementById('facebookLink');
-      if (config.profile.socialLinks[0]) {
-        facebookLink.href = config.profile.socialLinks[0].url;
+    document.addEventListener("DOMContentLoaded", () => {
+      // Profile
+      document.getElementById("profileName").textContent = config.profile.name;
+      document.getElementById("profileTagline").textContent = config.profile.tagline;
+      document.getElementById("profileImage").style.backgroundImage =
+        `url('${config.profile.imageUrl}')`;
+
+      // Social
+      if (config.profile.socialLinks.length) {
+        document.getElementById("facebookLink").href = config.profile.socialLinks[0].url;
       }
+
+      // Feature
+      const feat = document.getElementById("redirectLink");
+      feat.style.backgroundImage = `url('${config.featureImage.imageUrl}')`;
+      feat.href = config.featureImage.redirectUrl;
+      document.getElementById("imageCaption").textContent = config.featureImage.caption;
     });
-
-    // Helper functions to update content
-    window.updateProfileImage = function(imageUrl) {
-      document.getElementById('profileImage').style.backgroundImage = `url('${imageUrl}')`;
-    };
-
-    window.updateFeatureImage = function(imageUrl) {
-      document.getElementById('redirectLink').style.backgroundImage = `url('${imageUrl}')`;
-    };
-
-    window.updateRedirectUrl = function(url) {
-      document.getElementById('redirectLink').href = url;
-    };
-
-    window.updateProfileName = function(name) {
-      document.getElementById('profileName').textContent = name;
-    };
-
-    window.updateProfileTagline = function(tagline) {
-      document.getElementById('profileTagline').textContent = tagline;
-    };
-
-    window.updateImageCaption = function(caption) {
-      document.getElementById('imageCaption').textContent = caption;
-    };
   </script>
 </body>
 </html>
