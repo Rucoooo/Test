@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tester Up – The fun way to motivate kids! Download now and transform chores into exciting challenges with rewards." />
+  <title>TesterUp - Earn Money Playing Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1664457917492479');
+    fbq('init', '2226705874414188');
+    fbq('track', 'PageView');
+
+    const pageProps = {
+      content_name: 'Tester Up Landing Page',
+      content_category: 'App Discovery',
+      content_ids: ['playful_rewards_landing'],
+      content_type: 'product_group'
+    };
+    fbq('track', 'ViewContent', pageProps);
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f7;
+      color: #333;
+      line-height: 1.5;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-container {
+      background-color: #1c1c1e;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin-bottom: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-first {
+      color: white;
+    }
+
+    .logo-last {
+      color: #e63946;
+    }
+
+    .content-card {
+      background-color: white;
+      padding: 24px 20px;
+      width: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1c1c1e;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .checkmark {
+      background-color: #e63946;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-content h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #1c1c1e;
+    }
+
+    .step-content p {
+      color: #6e6e73;
+      font-size: 0.9rem;
+    }
+
+    .cta-button-container {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .cta-button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-button:active {
+      background-color: #d62f3d;
+    }
+
+    .arrow {
+      font-size: 1.2rem;
+    }
+
+    .trustpilot {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 16px;
+    }
+
+    .rating-text {
+      color: #6e6e73;
+      font-size: 0.8rem;
+    }
+
+    .stars {
+      display: flex;
+      color: #00b67a;
+    }
+
+    .star {
+      font-size: 0.9rem;
+    }
+
+    .trustpilot-text {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #1c1c1e;
+    }
+
+    .notification-container {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 280px;
+      z-index: 1000;
+    }
+
+    .notification {
+      background-color: rgba(230, 57, 70, 0.95);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease 5.7s forwards;
+      opacity: 0;
+      transform: translateX(-100%);
+      backdrop-filter: blur(4px);
+    }
+
+    .notification-icon {
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .notification-icon:before {
+      content: "$";
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .notification-text {
+      line-height: 1.3;
+    }
+
+    .notification-name {
+      font-weight: 600;
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- noscript fall-backs -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" /></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2226705874414188&ev=PageView&noscript=1" /></noscript>
+
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <div class="logo">
+        <span class="logo-text">
+          <span class="logo-first">tester</span><span class="logo-last">up</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-card">
+      <h1 class="main-heading">Follow the instructions below</h1>
+      
+      <!-- Steps -->
+      <div class="steps">
+        <div class="step">
+          <div class="checkmark">✓</div>
+          <div class="step-content">
+            <h2>Download the TesterUp app</h2>
+            <p>Click the button below</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="checkmark">✓</div>
+          <div class="step-content">
+            <h2>Play 1-3 Games</h2>
+            <p>Earn up to $100/day</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="checkmark">✓</div>
+          <div class="step-content">
+            <h2>Cash out and Repeat anytime</h2>
+            <p>Withdraw whenever!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="cta-button-container">
+      <button class="cta-button">
+        Start Earning Now <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Trustpilot Rating -->
+    <div class="trustpilot">
+      <span class="rating-text">Excellent</span>
+      <div class="stars">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <span class="trustpilot-text">Trustpilot</span>
+    </div>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notificationContainer"></div>
+  </div>
+
+  <script>
+    const playerNames = [
+      'Alex Johnson',
+      'Samantha Williams',
+      'Michael Chen',
+      'Jessica Taylor',
+      'David Rodriguez',
+      'Emma Wilson',
+      'James Brown',
+      'Olivia Martinez',
+      'Daniel Thompson',
+      'Sophia Garcia'
+    ];
+
+    function showNotification(name) {
+      const notificationContainer = document.getElementById('notificationContainer');
+      
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      
+      const icon = document.createElement('div');
+      icon.className = 'notification-icon';
+      
+      const textContent = document.createElement('div');
+      textContent.className = 'notification-text';
+      textContent.innerHTML = `<span class="notification-name">${name}</span> just received $23!`;
+      
+      notification.appendChild(icon);
+      notification.appendChild(textContent);
+      notificationContainer.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.remove();
+      }, 6000);
+    }
+
+    function startNotifications() {
+      let shownNames = [];
+      
+      function showRandomNotification() {
+        if (shownNames.length === playerNames.length) {
+          shownNames = [];
+        }
+        
+        let availableNames = playerNames.filter(name => !shownNames.includes(name));
+        let randomName = availableNames[Math.floor(Math.random() * availableNames.length)];
+        
+        showNotification(randomName);
+        shownNames.push(randomName);
+        
+        const nextTime = 6000 + Math.random() * 3000; // 6-9 seconds
+        setTimeout(showRandomNotification, nextTime);
+      }
+      
+      setTimeout(showRandomNotification, 2000);
+    }
+
+    function trackConversion() {
+      const props = {
+        content_name: 'Tester Up iOS Download',
+        content_category: 'App Store Redirect',
+        content_ids: ['playful_rewards_ios'],
+        content_type: 'product_group',
+        value: 0,
+        currency: 'USD'
+      };
+      try {
+        fbq('track', 'InitiateCheckout', props);
+        fbq('track', 'SubmitApplication', props);
+      } catch(e) {
+        console.error(e);
+      }
+      setTimeout(() => window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}', 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      startNotifications();
+      
+      document.querySelector('.cta-button').addEventListener('click', (e) => {
+        e.preventDefault();
+        trackConversion();
+      });
+    });
+  </script>
+</body>
+</html>
