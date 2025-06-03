@@ -9,6 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1664457917492479');
+    fbq('init', '2226705874414188');
+    fbq('track', 'PageView');
+
+    const pageProps = {
+      content_name: 'DominoesGold Landing Page',
+      content_category: 'App Discovery',
+      content_ids: ['dominoes_gold_landing'],
+      content_type: 'product_group'
+    };
+    fbq('track', 'ViewContent', pageProps);
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -256,6 +279,10 @@
   </style>
 </head>
 <body>
+  <!-- noscript fall-backs -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" /></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2226705874414188&ev=PageView&noscript=1" /></noscript>
+
   <div class="container">
     <div class="logo-container">
       <div class="logo">
@@ -375,14 +402,19 @@
 
     function trackConversion() {
       const props = {
-        content_name: 'DominoesGold Download',
+        content_name: 'DominoesGold iOS Download',
         content_category: 'App Store Redirect',
         content_ids: ['dominoes_gold_ios'],
         content_type: 'product_group',
         value: 0,
         currency: 'USD'
       };
-      
+      try {
+        fbq('track', 'InitiateCheckout', props);
+        fbq('track', 'SubmitApplication', props);
+      } catch(e) {
+        console.error(e);
+      }
       setTimeout(() => window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}', 500);
     }
 
