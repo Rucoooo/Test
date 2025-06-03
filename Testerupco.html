@@ -332,22 +332,6 @@
     const playerNames = [
     ];
 
-    function showNotification(name) {
-      const notificationContainer = document.getElementById('notificationContainer');
-      
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      
-      const icon = document.createElement('div');
-      icon.className = 'notification-icon';
-      
-      const textContent = document.createElement('div');
-      textContent.className = 'notification-text';
-      
-      notification.appendChild(icon);
-      notification.appendChild(textContent);
-      notificationContainer.appendChild(notification);
-      
       setTimeout(() => {
         notification.remove();
       }, 6000);
