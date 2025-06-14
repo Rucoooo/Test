@@ -1,431 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DominoesGold – Play Dominoes for Real Money! Download now and start earning up to $100 per day." />
-  <title>DominoesGold - Play Dominoes for Real Money</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;
-      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
-      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-      n.queue=[]; t=b.createElement(e); t.async=!0;
-      t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
-    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '1664457917492479');
-    fbq('init', '2226705874414188');
-    fbq('track', 'PageView');
-
-    const pageProps = {
-      content_name: 'DominoesGold Landing Page',
-      content_category: 'App Discovery',
-      content_ids: ['dominoes_gold_landing'],
-      content_type: 'product_group'
-    };
-    fbq('track', 'ViewContent', pageProps);
-  </script>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f5f7;
-      color: #333;
-      line-height: 1.5;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .logo-container {
-      background: linear-gradient(to right, #2C1810, #1a0f0a);
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      margin-bottom: 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-text {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: white;
-    }
-
-    .logo-first {
-      color: white;
-    }
-
-    .logo-last {
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .content-card {
-      background-color: white;
-      padding: 24px 20px;
-      width: 100%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .main-heading {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 24px;
-      color: #2C1810;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .checkmark {
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      color: #2C1810;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    .step-content {
-      flex-grow: 1;
-    }
-
-    .step-content h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-      color: #2C1810;
-    }
-
-    .step-content p {
-      color: #6e6e73;
-      font-size: 0.9rem;
-    }
-
-    .cta-button-container {
-      width: 100%;
-      padding: 20px;
-    }
-
-    .cta-button {
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      color: #2C1810;
-      border: none;
-      width: 100%;
-      padding: 16px;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .cta-button:active {
-      transform: scale(0.98);
-    }
-
-    .arrow {
-      font-size: 1.2rem;
-    }
-
-    .trustpilot {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 16px;
-    }
-
-    .rating-text {
-      color: #6e6e73;
-      font-size: 0.8rem;
-    }
-
-    .stars {
-      display: flex;
-      color: #FFD700;
-    }
-
-    .star {
-      font-size: 0.9rem;
-    }
-
-    .trustpilot-text {
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: #2C1810;
-    }
-
-    .notification-container {
-      position: fixed;
-      bottom: 16px;
-      left: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-width: 280px;
-      z-index: 1000;
-    }
-
-    .notification {
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      color: #2C1810;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease 5.7s forwards;
-      opacity: 0;
-      transform: translateX(-100%);
-      backdrop-filter: blur(4px);
-    }
-
-    .notification-icon {
-      background-color: rgba(44, 24, 16, 0.2);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
-
-    .notification-icon:before {
-      content: "$";
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .notification-text {
-      line-height: 1.3;
-    }
-
-    .notification-name {
-      font-weight: 600;
-    }
-
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeOut {
-      0% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- noscript fall-backs -->
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" /></noscript>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2226705874414188&ev=PageView&noscript=1" /></noscript>
-
-  <div class="container">
-    <div class="logo-container">
-      <div class="logo">
-        <span class="logo-text">
-          <span class="logo-first">dominoes</span><span class="logo-last">gold</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="content-card">
-      <h1 class="main-heading">Follow the instructions below</h1>
-      
-      <div class="steps">
-        <div class="step">
-          <div class="checkmark">✓</div>
-          <div class="step-content">
-            <h2>Download DominoesGold</h2>
-            <p>Click the button below</p>
-          </div>
-        </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shein Sweepstakes Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
-        <div class="step">
-          <div class="checkmark">✓</div>
-          <div class="step-content">
-            <h2>Play Dominoes</h2>
-            <p>Earn up to $10 - 100/day * Varies By Player Skill</p>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="checkmark">✓</div>
-          <div class="step-content">
-            <h2>Cash out anytime</h2>
-            <p>Withdraw your winnings whenever!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cta-button-container">
-      <button class="cta-button">
-        Start Playing Now <span class="arrow">→</span>
-      </button>
-    </div>
-
-    <div class="trustpilot">
-      <span class="rating-text">Excellent</span>
-      <div class="stars">
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">★</span>
-      </div>
-      <span class="trustpilot-text">Trustpilot</span>
-    </div>
-
-    <div class="notification-container" id="notificationContainer"></div>
-  </div>
-
-  <script>
-    const playerNames = [
-      'Alex Johnson',
-      'Samantha Williams',
-      'Michael Chen',
-      'Jessica Taylor',
-      'David Rodriguez',
-      'Emma Wilson',
-      'James Brown',
-      'Olivia Martinez',
-      'Daniel Thompson',
-      'Sophia Garcia'
-    ];
-
-    function showNotification(name) {
-      const notificationContainer = document.getElementById('notificationContainer');
-      
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      
-      const icon = document.createElement('div');
-      icon.className = 'notification-icon';
-      
-      const textContent = document.createElement('div');
-      textContent.className = 'notification-text';
-      textContent.innerHTML = `<span class="notification-name">${name}</span> just won $23!`;
-      
-      notification.appendChild(icon);
-      notification.appendChild(textContent);
-      notificationContainer.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.remove();
-      }, 6000);
-    }
-
-    function startNotifications() {
-      let shownNames = [];
-      
-      function showRandomNotification() {
-        if (shownNames.length === playerNames.length) {
-          shownNames = [];
+        body {
+            font-family: 'Inter', sans-serif;
         }
         
-        let availableNames = playerNames.filter(name => !shownNames.includes(name));
-        let randomName = availableNames[Math.floor(Math.random() * availableNames.length)];
+        .gradient-bg {
+            background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+        }
         
-        showNotification(randomName);
-        shownNames.push(randomName);
+        .header-gradient {
+            background: linear-gradient(90deg, #111827 0%, #000000 50%, #111827 100%);
+        }
         
-        const nextTime = 6000 + Math.random() * 3000; // 6-9 seconds
-        setTimeout(showRandomNotification, nextTime);
-      }
-      
-      setTimeout(showRandomNotification, 2000);
-    }
+        .button-gradient {
+            background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .button-gradient:hover {
+            background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
+        }
+        
+        .cta-gradient {
+            background: linear-gradient(90deg, #ec4899 0%, #dc2626 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .icon-bounce {
+            transition: transform 0.2s ease;
+        }
+        
+        .group:hover .icon-bounce {
+            transform: translateX(4px);
+        }
+        
+        .scale-hover {
+            transition: transform 0.3s ease;
+        }
+        
+        .scale-hover:hover {
+            transform: scale(1.02);
+        }
+        
+        .pulse-hover:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Header -->
+    <div class="header-gradient px-6 py-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold">
+                <span class="text-white">shein</span>
+                <span class="text-red-400">sweeps</span>
+            </h1>
+            <div class="mt-2 flex items-center justify-center gap-2">
+                <!-- Gift Icon -->
+                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                </svg>
+                <span class="text-gray-300 text-sm font-medium">WIN BIG WITH FASHION</span>
+            </div>
+        </div>
+    </div>
 
-    function trackConversion() {
-      const props = {
-        content_name: 'DominoesGold iOS Download',
-        content_category: 'App Store Redirect',
-        content_ids: ['dominoes_gold_ios'],
-        content_type: 'product_group',
-        value: 0,
-        currency: 'USD'
-      };
-      try {
-        fbq('track', 'InitiateCheckout', props);
-        fbq('track', 'SubmitApplication', props);
-      } catch(e) {
-        console.error(e);
-      }
-      setTimeout(() => window.location.href = 'https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}', 500);
-    }
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Follow the instructions below
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Enter our exclusive sweepstakes for a chance to win amazing Shein prizes and shopping credits!
+            </p>
+        </div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      startNotifications();
-      
-      document.querySelector('.cta-button').addEventListener('click', (e) => {
-        e.preventDefault();
-        trackConversion();
-      });
-    });
-  </script>
+        <!-- Steps -->
+        <div class="space-y-8 mb-12">
+            <!-- Step 1 -->
+            <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm card-hover">
+                <div class="flex-shrink-0 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                    <!-- Check Icon -->
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        Download Shein App
+                    </h3>
+                    <p class="text-gray-600">
+                        Click the button below to download the official Shein app
+                    </p>
+                </div>
+                <!-- Download Icon -->
+                <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm card-hover">
+                <div class="flex-shrink-0 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                    <!-- Check Icon -->
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        Shop on Shein
+                    </h3>
+                    <p class="text-gray-600">
+                        Earn up to $1,000 in shopping credits • Varies by purchase amount
+                    </p>
+                </div>
+                <!-- Shopping Bag Icon -->
+                <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"></path>
+                </svg>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm card-hover">
+                <div class="flex-shrink-0 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                    <!-- Check Icon -->
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        Win prizes anytime
+                    </h3>
+                    <p class="text-gray-600">
+                        Claim your rewards and prizes whenever you want!
+                    </p>
+                </div>
+                <!-- Gift Icon -->
+                <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Entry Form -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <form id="sweepstakesForm" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-400 focus:border-transparent transition-all duration-200 text-lg"
+                        placeholder="Enter your email address"
+                        required
+                    />
+                </div>
+                
+                <button
+                    type="submit"
+                    class="w-full button-gradient text-white font-bold text-lg py-4 px-8 rounded-xl transition-all duration-300 scale-hover shadow-lg group"
+                >
+                    <span class="flex items-center justify-center gap-3">
+                        Start Shopping Now
+                        <!-- Arrow Right Icon -->
+                        <svg class="w-5 h-5 icon-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="text-gray-700 font-medium">Excellent</span>
+                <div class="flex items-center gap-1">
+                    <!-- 5 Star Icons -->
+                    <svg class="w-5 h-5 text-red-400 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <svg class="w-5 h-5 text-red-400 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <svg class="w-5 h-5 text-red-400 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <svg class="w-5 h-5 text-red-400 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <svg class="w-5 h-5 text-red-400 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <span class="text-gray-700 font-medium">Trustpilot</span>
+            </div>
+            
+            <div class="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                <p class="mb-2">
+                    <strong>Prize Details:</strong> Win up to $1,000 in Shein shopping credits, exclusive fashion bundles, and limited edition items.
+                </p>
+                <p>
+                    Contest ends December 31st, 2024. Winners will be contacted via email. 
+                    Must be 18+ to enter. See full terms and conditions for details.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-12 text-center">
+            <div class="inline-flex items-center gap-2 cta-gradient text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all duration-300 pulse-hover cursor-pointer">
+                <!-- Gift Icon -->
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                </svg>
+                <span>Limited Time Offer - Start Now!</span>
+            </div>
+        </div>
+
+        <!-- Bottom Download Button -->
+        <div class="mt-8 text-center">
+            <button class="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <!-- Download Icon -->
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span>Get App - Download 100%</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('sweepstakesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate form submission
+            console.log('Sweepstakes entry submitted:', email);
+            
+            // Show success message
+            alert('Thank you for entering! You\'ll be notified about your prizes.');
+            
+            // Reset form
+            document.getElementById('email').value = '';
+            
+            // Here you would typically send the data to your server
+            // fetch('/submit-entry', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ email: email })
+            // });
+        });
+
+        // Add smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add entrance animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card-hover').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
