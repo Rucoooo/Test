@@ -18,6 +18,8 @@
             color: white;
             overflow-x: hidden;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Floating Background Elements */
@@ -119,22 +121,27 @@
         .container {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
+            min-height: 100vh;
         }
 
-        /* Hero Section - Added more top padding */
+        /* Hero Section - Centered */
         .hero {
             text-align: center;
-            padding: 120px 0 60px 0; /* Increased top padding from 60px to 120px */
             position: relative;
+            max-width: 600px;
+            margin: auto;
         }
 
         .hero-coins {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: -40px;
+            right: -40px;
             width: 80px;
             height: 80px;
             background: linear-gradient(45deg, #FFD700, #FFA500);
@@ -152,384 +159,149 @@
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 800;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             background: linear-gradient(45deg, #FFFFFF, #E0E7FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.1;
+            animation: slideInUp 0.8s ease-out forwards;
         }
 
         .hero-subtitle {
-            font-size: clamp(1rem, 4vw, 1.25rem);
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: slideInUp 0.8s ease-out 0.2s both;
         }
 
         .cta-button {
             background: linear-gradient(45deg, #FF6B6B, #FF8E53);
             border: none;
-            border-radius: 25px;
-            padding: 16px 32px;
-            font-size: 18px;
+            border-radius: 30px;
+            padding: 20px 40px;
+            font-size: 20px;
             font-weight: 700;
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            margin-bottom: 20px;
+            gap: 12px;
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+            margin-bottom: 24px;
+            animation: slideInUp 0.8s ease-out 0.4s both;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(255, 107, 107, 0.5);
+            scale: 1.05;
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+            scale: 1.02;
         }
 
         .stats-text {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+            animation: slideInUp 0.8s ease-out 0.6s both;
         }
 
-        /* Features Grid */
+        /* Features Grid - Simplified */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin: 60px 0;
+            max-width: 900px;
+            width: 100%;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 24px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 32px 24px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
+            text-align: center;
+            animation: slideInUp 0.8s ease-out 0.8s both;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
-            font-size: 24px;
+            margin: 0 auto 20px;
+            font-size: 28px;
         }
 
         .feature-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .feature-description {
             color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
-        }
-
-        /* Games Section */
-        .games-section {
-            margin: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .game-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .game-image {
-            width: 100%;
-            height: 160px;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 16px;
-        }
-
-        .game-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .game-category {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .game-stats {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .game-rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #FFD700;
-            font-size: 14px;
-        }
-
-        .game-players {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-        }
-
-        .game-reward {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #1A1A2E;
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .play-button {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 12px;
-            padding: 12px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .play-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Leaderboard Section */
-        .leaderboard {
-            margin: 80px 0;
-            text-align: center;
-        }
-
-        .podium {
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .podium-place {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            min-width: 200px;
-            position: relative;
-        }
-
-        .podium-place.first {
-            order: 2;
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 193, 7, 0.1));
-            border-color: #FFD700;
-        }
-
-        .podium-place.second {
-            order: 1;
-            margin-top: 20px;
-        }
-
-        .podium-place.third {
-            order: 3;
-            margin-top: 20px;
-        }
-
-        .podium-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 16px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .podium-place.first .podium-avatar {
-            border-color: #FFD700;
-            width: 100px;
-            height: 100px;
-        }
-
-        .podium-name {
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .podium-score {
-            color: #FFD700;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .crown {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 30px;
-        }
-
-        /* Rewards Section */
-        .rewards {
-            margin: 80px 0;
-        }
-
-        .rewards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .reward-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .reward-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .reward-image {
-            width: 100%;
-            height: 120px;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 16px;
-        }
-
-        .reward-title {
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .reward-description {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-
-        .reward-cost {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .cost-amount {
-            color: #FFD700;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .redeem-button {
-            background: linear-gradient(45deg, #4ECDC4, #44A08D);
-            border: none;
-            border-radius: 8px;
-            padding: 8px 16px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .redeem-button:hover {
-            transform: scale(1.05);
+            line-height: 1.6;
+            font-size: 16px;
         }
 
         /* Footer CTA */
         .footer-cta {
             text-align: center;
-            padding: 80px 0;
+            padding: 60px 20px;
             background: rgba(0, 0, 0, 0.2);
             border-radius: 30px;
-            margin: 40px 0;
+            margin-top: 40px;
+            max-width: 600px;
+            width: 100%;
+            animation: slideInUp 0.8s ease-out 1s both;
         }
 
         .footer-cta h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 6vw, 2.8rem);
             font-weight: 700;
             margin-bottom: 16px;
+            background: linear-gradient(45deg, #FFFFFF, #E0E7FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .footer-cta p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 32px;
-            font-size: 1.1rem;
+            font-size: 18px;
+            line-height: 1.5;
         }
 
         .download-button {
             background: linear-gradient(45deg, #4ECDC4, #44A08D);
             border: none;
-            border-radius: 25px;
-            padding: 16px 32px;
+            border-radius: 30px;
+            padding: 18px 36px;
             font-size: 18px;
             font-weight: 700;
             color: white;
@@ -537,14 +309,20 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 8px 32px rgba(76, 236, 196, 0.3);
+            gap: 10px;
+            box-shadow: 0 12px 40px rgba(76, 236, 196, 0.4);
             margin-bottom: 16px;
         }
 
         .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(76, 236, 196, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(76, 236, 196, 0.5);
+            scale: 1.05;
+        }
+
+        .download-button:active {
+            transform: translateY(-1px);
+            scale: 1.02;
         }
 
         .disclaimer {
@@ -555,40 +333,28 @@
         /* Mobile Optimizations */
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
-            }
-
-            .hero {
-                padding: 100px 0 40px 0; /* Adjusted for mobile - still more space than before */
+                padding: 20px 15px;
             }
 
             .hero-coins {
                 width: 60px;
                 height: 60px;
-                top: 10px;
-                right: 10px;
+                top: -30px;
+                right: -20px;
             }
 
             .features {
                 grid-template-columns: 1fr;
+                margin: 40px 0;
             }
 
-            .games-grid {
-                grid-template-columns: 1fr;
+            .feature-card {
+                padding: 24px 20px;
             }
 
-            .podium {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .podium-place {
-                margin-top: 0 !important;
-                order: unset !important;
-            }
-
-            .rewards-grid {
-                grid-template-columns: 1fr;
+            .footer-cta {
+                padding: 40px 20px;
+                margin-top: 30px;
             }
 
             .notification {
@@ -601,7 +367,7 @@
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -609,20 +375,20 @@
             }
         }
 
-        .animate-in {
-            animation: slideInUp 0.6s ease-out forwards;
+        /* Pulse animation for coins */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
         }
 
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .coin:nth-child(odd) {
+            animation: float 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -648,7 +414,7 @@
     </div>
 
     <div class="container">
-        <!-- Hero Section -->
+        <!-- Hero Section - Centered -->
         <section class="hero">
             <div class="hero-coins">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
@@ -657,18 +423,18 @@
                 </svg>
             </div>
             
-            <h1 class="hero-title animate-in">Play & Earn Rewards!</h1>
-            <p class="hero-subtitle animate-in">Make money playing fun games and completing easy tasks!</p>
+            <h1 class="hero-title">Play & Earn Rewards!</h1>
+            <p class="hero-subtitle">Make money playing fun games and completing easy tasks!</p>
             
-            <button class="cta-button animate-in" onclick="handleStartPlaying()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button class="cta-button" onclick="handleStartPlaying()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polygon points="5,3 19,12 5,21"></polygon>
                 </svg>
                 Start Playing Now!
             </button>
             
-            <div class="stats-text animate-in">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="stats-text">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -678,9 +444,9 @@
             </div>
         </section>
 
-        <!-- Features Section -->
+        <!-- Features Section - Simplified -->
         <section class="features">
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">
                     🎮
                 </div>
@@ -688,7 +454,7 @@
                 <p class="feature-description">Earn while playing your favorite mobile games!</p>
             </div>
             
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon" style="background: linear-gradient(45deg, #4ECDC4, #44A08D);">
                     🎁
                 </div>
@@ -696,7 +462,7 @@
                 <p class="feature-description">Cash out instantly to PayPal or gift cards!</p>
             </div>
             
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon" style="background: linear-gradient(45deg, #45B7D1, #96CEB4);">
                     📅
                 </div>
@@ -705,129 +471,8 @@
             </div>
         </section>
 
-        <!-- Games Section -->
-        <section class="games-section fade-in">
-            <h2 class="section-title">🎮 Popular Games</h2>
-            <p class="section-subtitle">Choose your favorite games and start earning!</p>
-            
-            <div class="games-grid">
-                <div class="game-card">
-                    <img src="https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Puzzle Quest" class="game-image">
-                    <h3 class="game-title">Puzzle Quest</h3>
-                    <p class="game-category">Puzzle</p>
-                    <div class="game-stats">
-                        <div class="game-rating">
-                            ⭐ 4.8
-                        </div>
-                        <div class="game-players">50K+ players</div>
-                    </div>
-                    <div class="game-reward">💰 $0.25/level</div>
-                    <button class="play-button" onclick="playGame('Puzzle Quest')">Play Now</button>
-                </div>
-                
-                <div class="game-card">
-                    <img src="https://images.pexels.com/photos/278887/pexels-photo-278887.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Word Master" class="game-image">
-                    <h3 class="game-title">Word Master</h3>
-                    <p class="game-category">Word</p>
-                    <div class="game-stats">
-                        <div class="game-rating">
-                            ⭐ 4.6
-                        </div>
-                        <div class="game-players">75K+ players</div>
-                    </div>
-                    <div class="game-reward">💰 $0.30/game</div>
-                    <button class="play-button" onclick="playGame('Word Master')">Play Now</button>
-                </div>
-                
-                <div class="game-card">
-                    <img src="https://images.pexels.com/photos/1040157/pexels-photo-1040157.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Color Match" class="game-image">
-                    <h3 class="game-title">Color Match</h3>
-                    <p class="game-category">Arcade</p>
-                    <div class="game-stats">
-                        <div class="game-rating">
-                            ⭐ 4.9
-                        </div>
-                        <div class="game-players">100K+ players</div>
-                    </div>
-                    <div class="game-reward">💰 $0.20/round</div>
-                    <button class="play-button" onclick="playGame('Color Match')">Play Now</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leaderboard Section -->
-        <section class="leaderboard fade-in">
-            <h2 class="section-title">🏆 Top Champions</h2>
-            <p class="section-subtitle">Compete with players worldwide!</p>
-            
-            <div class="podium">
-                <div class="podium-place second">
-                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sarah Winner" class="podium-avatar">
-                    <div class="podium-name">Sarah Winner</div>
-                    <div class="podium-score">$14,890</div>
-                </div>
-                
-                <div class="podium-place first">
-                    <div class="crown">👑</div>
-                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Alex Champion" class="podium-avatar">
-                    <div class="podium-name">Alex Champion</div>
-                    <div class="podium-score">$15,420</div>
-                </div>
-                
-                <div class="podium-place third">
-                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mike Pro" class="podium-avatar">
-                    <div class="podium-name">Mike Pro</div>
-                    <div class="podium-score">$14,350</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rewards Section -->
-        <section class="rewards fade-in">
-            <h2 class="section-title">🎁 Rewards Store</h2>
-            <p class="section-subtitle">Redeem your coins for amazing rewards!</p>
-            
-            <div class="rewards-grid">
-                <div class="reward-card">
-                    <img src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=400" alt="PayPal Cash" class="reward-image">
-                    <h3 class="reward-title">PayPal Cash</h3>
-                    <p class="reward-description">Instant cash to your PayPal account</p>
-                    <div class="reward-cost">
-                        <div class="cost-amount">
-                            💰 500 coins
-                        </div>
-                        <button class="redeem-button" onclick="redeemReward('PayPal Cash')">Redeem</button>
-                    </div>
-                </div>
-                
-                <div class="reward-card">
-                    <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Amazon Gift Card" class="reward-image">
-                    <h3 class="reward-title">Amazon Gift Card</h3>
-                    <p class="reward-description">$10 Amazon gift card</p>
-                    <div class="reward-cost">
-                        <div class="cost-amount">
-                            💰 1000 coins
-                        </div>
-                        <button class="redeem-button" onclick="redeemReward('Amazon Gift Card')">Redeem</button>
-                    </div>
-                </div>
-                
-                <div class="reward-card">
-                    <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Starbucks Card" class="reward-image">
-                    <h3 class="reward-title">Starbucks Card</h3>
-                    <p class="reward-description">$5 Starbucks gift card</p>
-                    <div class="reward-cost">
-                        <div class="cost-amount">
-                            💰 500 coins
-                        </div>
-                        <button class="redeem-button" onclick="redeemReward('Starbucks Card')">Redeem</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Footer CTA -->
-        <section class="footer-cta fade-in">
+        <section class="footer-cta">
             <h2>Start Earning Today!</h2>
             <p>Join thousands of players who are already earning rewards every day!</p>
             
@@ -888,7 +533,7 @@
         // Create floating coins
         function createFloatingCoins() {
             const container = document.getElementById('floatingCoins');
-            const coinCount = window.innerWidth < 768 ? 8 : 15;
+            const coinCount = window.innerWidth < 768 ? 6 : 12;
             
             for (let i = 0; i < coinCount; i++) {
                 const coin = document.createElement('div');
@@ -899,20 +544,6 @@
                 coin.style.animationDuration = (4 + Math.random() * 4) + 's';
                 container.appendChild(coin);
             }
-        }
-
-        // Scroll animations
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            const windowHeight = window.innerHeight;
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
         }
 
         // Button handlers
@@ -926,14 +557,6 @@
             }, 150);
             
             alert('🎮 Welcome to Play & Earn Rewards! Start playing games to earn money!');
-        }
-
-        function playGame(gameName) {
-            alert(`🎯 Starting ${gameName}! Get ready to earn rewards!`);
-        }
-
-        function redeemReward(rewardName) {
-            alert(`🎁 Redeeming ${rewardName}! Check your account for the reward!`);
         }
 
         function handleDownload() {
@@ -950,16 +573,12 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             createFloatingCoins();
-            handleScrollAnimations();
-            
-            // Add scroll listener for animations
-            window.addEventListener('scroll', handleScrollAnimations);
             
             // Add some interactive effects
-            const cards = document.querySelectorAll('.feature-card, .game-card, .reward-card');
+            const cards = document.querySelectorAll('.feature-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
                 });
                 
                 card.addEventListener('mouseleave', function() {
