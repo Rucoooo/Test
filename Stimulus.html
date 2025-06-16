@@ -18,8 +18,6 @@
             color: white;
             overflow-x: hidden;
             position: relative;
-            display: flex;
-            flex-direction: column;
         }
 
         /* Floating Background Elements */
@@ -62,7 +60,7 @@
         /* Notification System */
         .notification {
             position: fixed;
-            top: 20px;
+            top: 80px;
             left: 20px;
             right: 20px;
             z-index: 1000;
@@ -121,29 +119,26 @@
         .container {
             position: relative;
             z-index: 10;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
-            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Hero Section - Centered */
+        /* Hero Section - Perfectly Centered */
         .hero {
             text-align: center;
             position: relative;
-            max-width: 600px;
-            margin: auto;
+            padding: 120px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
         }
 
         .hero-coins {
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(45deg, #FFD700, #FFA500);
             border-radius: 50%;
             display: flex;
@@ -151,6 +146,7 @@
             justify-content: center;
             animation: spin 3s linear infinite;
             box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+            margin-bottom: 32px;
         }
 
         @keyframes spin {
@@ -176,6 +172,7 @@
             margin-bottom: 40px;
             line-height: 1.6;
             animation: slideInUp 0.8s ease-out 0.2s both;
+            max-width: 600px;
         }
 
         .cta-button {
@@ -217,26 +214,93 @@
             animation: slideInUp 0.8s ease-out 0.6s both;
         }
 
-        /* Features Grid - Simplified */
-        .features {
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #FFFFFF, #E0E7FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 24px;
-            margin: 60px 0;
-            max-width: 900px;
-            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            animation: slideInUp 0.8s ease-out 0.8s both;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .feature-card {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(15px);
             border-radius: 24px;
-            padding: 32px 24px;
+            padding: 40px 30px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s ease;
             cursor: pointer;
-            text-align: center;
-            animation: slideInUp 0.8s ease-out 0.8s both;
+            animation: slideInUp 0.8s ease-out 1s both;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .feature-card:hover {
@@ -246,14 +310,18 @@
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .feature-content {
+            flex: 1;
         }
 
         .feature-title {
@@ -268,33 +336,184 @@
             font-size: 16px;
         }
 
-        /* Footer CTA */
-        .footer-cta {
-            text-align: center;
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 30px;
-            margin-top: 40px;
-            max-width: 600px;
-            width: 100%;
-            animation: slideInUp 0.8s ease-out 1s both;
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 60px 0;
         }
 
-        .footer-cta h2 {
-            font-size: clamp(2rem, 6vw, 2.8rem);
-            font-weight: 700;
+        .testimonials-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 24px;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+
+        .testimonials-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            min-width: 320px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideInUp 0.8s ease-out 1.2s both;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-earnings {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #FFD700;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.6;
             margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .rating {
+            display: flex;
+            gap: 4px;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 16px;
+        }
+
+        /* Games Preview Section */
+        .games-preview {
+            padding: 60px 0;
+        }
+
+        .games-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 24px;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+
+        .games-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .game-card {
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease-out 1.4s both;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .game-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .game-reward {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #FFD700;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .play-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            margin: 40px 0;
+            animation: slideInUp 0.8s ease-out 1.6s both;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
             background: linear-gradient(45deg, #FFFFFF, #E0E7FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .footer-cta p {
+        .final-cta p {
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             font-size: 18px;
             line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .download-button {
@@ -336,30 +555,54 @@
                 padding: 20px 15px;
             }
 
-            .hero-coins {
-                width: 60px;
-                height: 60px;
-                top: -30px;
-                right: -20px;
+            .hero {
+                padding: 100px 15px 60px;
+                min-height: 60vh;
             }
 
-            .features {
+            .hero-coins {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 24px;
+            }
+
+            .features-grid {
                 grid-template-columns: 1fr;
-                margin: 40px 0;
             }
 
             .feature-card {
-                padding: 24px 20px;
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
             }
 
-            .footer-cta {
-                padding: 40px 20px;
-                margin-top: 30px;
+            .feature-icon {
+                margin-bottom: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .stat-card {
+                padding: 20px 15px;
+            }
+
+            .testimonials-container,
+            .games-container {
+                padding-left: 15px;
+            }
+
+            .final-cta {
+                padding: 60px 20px;
+                margin: 30px 0;
             }
 
             .notification {
                 left: 10px;
                 right: 10px;
+                top: 60px;
             }
         }
 
@@ -390,6 +633,13 @@
         .coin:nth-child(odd) {
             animation: float 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
         }
+
+        /* Smooth scrolling for horizontal containers */
+        .testimonials-container,
+        .games-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
     </style>
 </head>
 <body>
@@ -414,10 +664,10 @@
     </div>
 
     <div class="container">
-        <!-- Hero Section - Centered -->
+        <!-- Hero Section - Perfectly Centered -->
         <section class="hero">
             <div class="hero-coins">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
                     <line x1="12" y1="1" x2="12" y2="23"></line>
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                 </svg>
@@ -444,36 +694,256 @@
             </div>
         </section>
 
-        <!-- Features Section - Simplified -->
-        <section class="features">
-            <div class="feature-card">
-                <div class="feature-icon" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">
-                    🎮
+        <!-- Live Stats Section -->
+        <section class="stats-section">
+            <h2 class="section-title">📊 Live Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(45deg, #4ECDC4, #44A08D);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value">250K+</div>
+                    <div class="stat-label">Active Players</div>
                 </div>
-                <h3 class="feature-title">Play Fun Games</h3>
-                <p class="feature-description">Earn while playing your favorite mobile games!</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon" style="background: linear-gradient(45deg, #4ECDC4, #44A08D);">
-                    🎁
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(45deg, #FFD700, #FFA500);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value">$2.5M+</div>
+                    <div class="stat-label">Total Paid Out</div>
                 </div>
-                <h3 class="feature-title">Quick Rewards</h3>
-                <p class="feature-description">Cash out instantly to PayPal or gift cards!</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon" style="background: linear-gradient(45deg, #45B7D1, #96CEB4);">
-                    📅
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Games Available</div>
                 </div>
-                <h3 class="feature-title">Daily Bonuses</h3>
-                <p class="feature-description">Earn extra rewards every single day!</p>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(45deg, #8B45FF, #6B21A8);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                    </div>
+                    <div class="stat-value">4.9★</div>
+                    <div class="stat-label">App Rating</div>
+                </div>
             </div>
         </section>
 
-        <!-- Footer CTA -->
-        <section class="footer-cta">
-            <h2>Start Earning Today!</h2>
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <h2 class="section-title">🎮 How It Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">
+                        🎮
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Play Fun Games</h3>
+                        <p class="feature-description">Earn while playing your favorite mobile games!</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, #4ECDC4, #44A08D);">
+                        🎁
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Quick Rewards</h3>
+                        <p class="feature-description">Cash out instantly to PayPal or gift cards!</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, #45B7D1, #96CEB4);">
+                        📅
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Daily Bonuses</h3>
+                        <p class="feature-description">Earn extra rewards every single day!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2 class="section-title">💬 What Players Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jessica M." class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Jessica M.</div>
+                            <div class="testimonial-earnings">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                $547 earned
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I've earned over $500 just playing games in my free time!"</p>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400" alt="David L." class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">David L.</div>
+                            <div class="testimonial-earnings">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                $823 earned
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Amazing app! Easy to use and payments are always on time."</p>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Maria S." class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Maria S.</div>
+                            <div class="testimonial-earnings">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                $392 earned
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Perfect for earning extra cash while having fun!"</p>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Games Preview -->
+        <section class="games-preview">
+            <h2 class="section-title">🔥 Popular Games</h2>
+            <div class="games-container">
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Puzzle Quest" class="game-image">
+                    <div class="game-name">Puzzle Quest</div>
+                    <div class="game-reward">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        $0.25/level
+                    </div>
+                    <button class="play-button">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                        Play
+                    </button>
+                </div>
+                
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/278887/pexels-photo-278887.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Word Master" class="game-image">
+                    <div class="game-name">Word Master</div>
+                    <div class="game-reward">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        $0.30/game
+                    </div>
+                    <button class="play-button">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                        Play
+                    </button>
+                </div>
+                
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/1040157/pexels-photo-1040157.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Color Match" class="game-image">
+                    <div class="game-name">Color Match</div>
+                    <div class="game-reward">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        $0.20/round
+                    </div>
+                    <button class="play-button">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                        Play
+                    </button>
+                </div>
+                
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/1314543/pexels-photo-1314543.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Number Rush" class="game-image">
+                    <div class="game-name">Number Rush</div>
+                    <div class="game-reward">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        $0.35/level
+                    </div>
+                    <button class="play-button">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                        Play
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta">
+            <h2>Ready to Start Earning?</h2>
             <p>Join thousands of players who are already earning rewards every day!</p>
             
             <button class="download-button" onclick="handleDownload()">
@@ -499,7 +969,9 @@
             { name: 'Jake P.', amount: '$28', game: 'Number Rush' },
             { name: 'Lisa W.', amount: '$22', game: 'Memory Cards' },
             { name: 'Tom H.', amount: '$35', game: 'Logic Puzzles' },
-            { name: 'Amy C.', amount: '$19', game: 'Word Search' }
+            { name: 'Amy C.', amount: '$19', game: 'Word Search' },
+            { name: 'Chris D.', amount: '$41', game: 'Trivia Master' },
+            { name: 'Nina F.', amount: '$27', game: 'Bubble Pop' }
         ];
 
         let currentNotificationIndex = 0;
@@ -528,12 +1000,12 @@
         setTimeout(() => {
             showNotification();
             setInterval(showNotification, 6000);
-        }, 2000);
+        }, 3000);
 
         // Create floating coins
         function createFloatingCoins() {
             const container = document.getElementById('floatingCoins');
-            const coinCount = window.innerWidth < 768 ? 6 : 12;
+            const coinCount = window.innerWidth < 768 ? 8 : 15;
             
             for (let i = 0; i < coinCount; i++) {
                 const coin = document.createElement('div');
@@ -548,43 +1020,81 @@
 
         // Button handlers
         function handleStartPlaying() {
-            // Add click animation
-            const button = event.target;
+            const button = event.target.closest('.cta-button');
             button.style.transform = 'translateY(2px) scale(0.98)';
             
             setTimeout(() => {
                 button.style.transform = '';
             }, 150);
             
-            alert('🎮 Welcome to Play & Earn Rewards! Start playing games to earn money!');
+            // Show success message
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle></svg>Getting Started...';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                alert('🎮 Welcome to Play & Earn Rewards! Start playing games to earn money!');
+            }, 1000);
         }
 
         function handleDownload() {
-            const button = event.target;
+            const button = event.target.closest('.download-button');
             button.style.transform = 'translateY(2px) scale(0.98)';
             
             setTimeout(() => {
                 button.style.transform = '';
             }, 150);
             
-            alert('📱 Redirecting to app download... Start earning rewards today!');
+            // Show download progress
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"/></svg>Preparing Download...';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                alert('📱 Redirecting to app download... Start earning rewards today!');
+            }, 1500);
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             createFloatingCoins();
             
-            // Add some interactive effects
-            const cards = document.querySelectorAll('.feature-card');
+            // Add interactive effects to cards
+            const cards = document.querySelectorAll('.feature-card, .stat-card, .testimonial-card, .game-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
                 });
                 
                 card.addEventListener('mouseleave', function() {
                     this.style.transform = '';
                 });
             });
+
+            // Auto-scroll testimonials and games
+            const testimonialContainer = document.querySelector('.testimonials-container');
+            const gamesContainer = document.querySelector('.games-container');
+            
+            let testimonialScrollPosition = 0;
+            let gamesScrollPosition = 0;
+            
+            setInterval(() => {
+                if (testimonialContainer) {
+                    testimonialScrollPosition += 1;
+                    if (testimonialScrollPosition >= testimonialContainer.scrollWidth - testimonialContainer.clientWidth) {
+                        testimonialScrollPosition = 0;
+                    }
+                    testimonialContainer.scrollLeft = testimonialScrollPosition;
+                }
+                
+                if (gamesContainer) {
+                    gamesScrollPosition += 1;
+                    if (gamesScrollPosition >= gamesContainer.scrollWidth - gamesContainer.clientWidth) {
+                        gamesScrollPosition = 0;
+                    }
+                    gamesContainer.scrollLeft = gamesScrollPosition;
+                }
+            }, 50);
         });
 
         // Resize handler for responsive coins
@@ -592,6 +1102,29 @@
             const container = document.getElementById('floatingCoins');
             container.innerHTML = '';
             createFloatingCoins();
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('[style*="animation"]');
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
         });
     </script>
 </body>
