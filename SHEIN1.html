@@ -13,7 +13,7 @@
         }
     </script>
     <style>
-        @import url('https://rewarduplevel.com/aff_c?offer_id=1229&aff_id=28197');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
@@ -81,15 +81,15 @@
     <div class="header-gradient px-6 py-8">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold">
-                <span class="text-white">SHEIN</span>
-                <span class="text-red-400"></span>
+                <span class="text-white">shein</span>
+                <span class="text-red-400">sweeps</span>
             </h1>
             <div class="mt-2 flex items-center justify-center gap-2">
                 <!-- Gift Icon -->
                 <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
                 </svg>
-                <span class="text-gray-300 text-sm font-medium">WIN BIG!</span>
+                <span class="text-gray-300 text-sm font-medium">WIN BIG WITH FASHION</span>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
     <div class="max-w-4xl mx-auto px-6 py-12">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Follow these steps to get your <span class="text-red-500">$750 Shein</span> Giftcard!
+                Follow these steps to get your <span class="text-red-500">$500 Shein</span> giftcard!
             </h2>
         </div>
 
@@ -161,7 +161,7 @@
                 Click below to claim your reward!
             </h3>
             
-            <button class="w-full max-w-md mx-auto button-gradient text-white font-bold text-xl py-6 px-8 rounded-xl transition-all duration-300 scale-hover shadow-lg group">
+            <button id="claimButton" class="w-full max-w-md mx-auto button-gradient text-white font-bold text-xl py-6 px-8 rounded-xl transition-all duration-300 scale-hover shadow-lg group">
                 <span class="flex items-center justify-center gap-3">
                     Claim Now!
                     <!-- Arrow Right Icon -->
@@ -199,10 +199,10 @@
             
             <div class="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">
                 <p class="mb-2">
-                    <strong>Prize Details:</strong> Win up to $750 in Shein shopping credits, exclusive fashion bundles, and limited edition items.
+                    <strong>Prize Details:</strong> Win up to $500 in Shein shopping credits, exclusive fashion bundles, and limited edition items.
                 </p>
                 <p>
-                    Contest ends December 31st, 2025. Winners will be contacted via email. 
+                    Contest ends December 31st, 2024. Winners will be contacted via email. 
                     Must be 18+ to enter. See full terms and conditions for details.
                 </p>
             </div>
@@ -210,7 +210,7 @@
 
         <!-- Bottom CTA -->
         <div class="mt-12 text-center">
-            <div class="inline-flex items-center gap-2 cta-gradient text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all duration-300 pulse-hover cursor-pointer">
+            <div id="bottomCTA" class="inline-flex items-center gap-2 cta-gradient text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all duration-300 pulse-hover cursor-pointer">
                 <!-- Gift Icon -->
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
@@ -221,6 +221,35 @@
     </div>
 
     <script>
+        // ========================================
+        // REDIRECT URL CONFIGURATION
+        // ========================================
+        // Replace this URL with your actual redirect destination
+        const REDIRECT_URL = 'https://your-claim-page.com';
+        
+        // Alternative: You can also use a relative path if it's on the same domain
+        // const REDIRECT_URL = '/claim-page';
+        
+        // ========================================
+        // BUTTON CLICK HANDLERS
+        // ========================================
+        
+        // Main "Claim Now!" button
+        document.getElementById('claimButton').addEventListener('click', function() {
+            // Redirect to your claim page
+            window.location.href = REDIRECT_URL;
+        });
+        
+        // Bottom CTA banner
+        document.getElementById('bottomCTA').addEventListener('click', function() {
+            // Redirect to your claim page
+            window.location.href = REDIRECT_URL;
+        });
+
+        // ========================================
+        // ANIMATION AND SCROLL EFFECTS
+        // ========================================
+        
         // Add smooth scrolling for any anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -256,13 +285,6 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
-        });
-
-        // Add click handler for main CTA button
-        document.querySelector('.button-gradient').addEventListener('click', function() {
-            alert('Redirecting to claim your $500 Shein giftcard!');
-            // Here you would redirect to your actual claim page
-            // window.location.href = 'your-claim-page-url';
         });
     </script>
 </body>
