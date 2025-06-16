@@ -1,205 +1,979 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stimulus Relief Program - Get your stimulus payment today! Quick verification process with instant approval." />
-  <title>Stimulus Program</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play & Earn Rewards - Make Money Playing Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1642827413055904');
-    fbq('track', 'PageView');
-  </script>
-  <!-- End Meta Pixel Code -->
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #8B45FF 0%, #6B21A8 50%, #581C87 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        /* Floating Background Elements */
+        .floating-coins {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+        .coin {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .testimonial {
-      display: none;
-    }
-    .testimonial.active {
-      display: block;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .download-btn {
-      box-shadow: 0 10px 25px -5px rgba(21, 128, 61, 0.4);
-    }
-    .download-btn:hover {
-      box-shadow: 0 15px 30px -5px rgba(21, 128, 61, 0.6);
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+        .coin::before {
+            content: '$';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #8B45FF, #6B21A8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .notification-text {
+            font-size: 14px;
+            color: #1A1A2E;
+            font-weight: 500;
+        }
+
+        .notification-name {
+            font-weight: 700;
+            color: #8B45FF;
+        }
+
+        .notification-amount {
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .hero-coins {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin 3s linear infinite;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(45deg, #FFFFFF, #E0E7FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            border: none;
+            border-radius: 25px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .stats-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        /* Games Section */
+        .games-section {
+            margin: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .game-category {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .game-players {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .game-reward {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1A1A2E;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .play-button {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Leaderboard Section */
+        .leaderboard {
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .podium {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .podium-place {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 200px;
+            position: relative;
+        }
+
+        .podium-place.first {
+            order: 2;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 193, 7, 0.1));
+            border-color: #FFD700;
+        }
+
+        .podium-place.second {
+            order: 1;
+            margin-top: 20px;
+        }
+
+        .podium-place.third {
+            order: 3;
+            margin-top: 20px;
+        }
+
+        .podium-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .podium-place.first .podium-avatar {
+            border-color: #FFD700;
+            width: 100px;
+            height: 100px;
+        }
+
+        .podium-name {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .podium-score {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .crown {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+        }
+
+        /* Rewards Section */
+        .rewards {
+            margin: 80px 0;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .reward-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .reward-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .reward-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .reward-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .reward-cost {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cost-amount {
+            color: #FFD700;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .redeem-button {
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .redeem-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            margin: 40px 0;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .download-button {
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            border: none;
+            border-radius: 25px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 32px rgba(76, 236, 196, 0.3);
+            margin-bottom: 16px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(76, 236, 196, 0.4);
+        }
+
+        .disclaimer {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-coins {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                right: 10px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .podium {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .podium-place {
+                margin-top: 0 !important;
+                order: unset !important;
+            }
+
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .notification {
+                left: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <noscript>
-    <img height="1" width="1" style="display:none" 
-         src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" />
-  </noscript>
+    <!-- Floating Background Coins -->
+    <div class="floating-coins" id="floatingCoins"></div>
 
-  <div class="min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
-    <div class="container mx-auto px-4 py-16">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <i data-lucide="landmark" class="w-16 h-16 text-green-700"></i>
+    <!-- Notification Popup -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <div class="notification-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+            </div>
+            <div class="notification-text">
+                <span class="notification-name" id="notificationName">Alex M.</span> just earned 
+                <span class="notification-amount" id="notificationAmount">$25</span> playing 
+                <span id="notificationGame">Puzzle Quest</span>!
+            </div>
         </div>
-        <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-green-500">
-          Stimulus Relief!
-        </h1>
-        <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Get Your Stimulus Payment Today!
-        </p>
-        <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
-          Approving People Daily!
-        </button>
-        <p class="text-gray-500 mt-4">Over 250,000+ Americans Approved, You Will Be Next!</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8 mb-24 px-4">
-        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
-          <i data-lucide="check-circle-2" class="w-10 h-10 text-green-600 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Instant Verification</h3>
-          <p class="text-gray-600 text-lg">Quick 2-minute process to verify your eligibility!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
-          <i data-lucide="dollar-sign" class="w-10 h-10 text-green-600 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Fast Payment</h3>
-          <p class="text-gray-600 text-lg">Receive your funds within 24-48 hours!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
-          <i data-lucide="shield-check" class="w-10 h-10 text-green-600 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Secure & Trusted</h3>
-          <p class="text-gray-600 text-lg">Government-approved verification process!</p>
-        </div>
-      </div>
-
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-green-500">
-          Recent Success Stories
-        </h2>
-        <div class="bg-white rounded-3xl p-8 md:p-12 relative border border-gray-100">
-          <button onclick="prevTestimonial()"
-                  class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
-            <i data-lucide="chevron-left" class="w-6 h-6 text-green-600"></i>
-          </button>
-          <div id="testimonials-container" class="text-center px-8 md:px-16">
-            <!-- Testimonials omitted for brevity -->
-          </div>
-          <button onclick="nextTestimonial()"
-                  class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
-            <i data-lucide="chevron-right" class="w-6 h-6 text-green-600"></i>
-          </button>
-        </div>
-        <div id="dots-container" class="flex justify-center mt-6 gap-3"></div>
-      </div>
-
-      <div class="text-center mt-24 mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Don't Wait - Check Your Eligibility Now!</h2>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of Americans who have already received their stimulus payment!</p>
-        <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
-          Verify Eligibility
-        </button>
-        <p class="text-gray-400 mt-4 text-sm">Fast, Secure, and No Credit Check Required</p>
-      </div>
     </div>
-  </div>
 
-  <script>
-    function trackConversion() {
-      try {
-        // Fire ViewContent only on button click
-        fbq('track', 'ViewContent', {
-          content_name: 'Stimulus Relief Landing',
-          content_category: 'Financial Aid',
-          content_ids: ['stimulus_relief_landing'],
-          content_type: 'landing_page',
-        });
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-coins">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+            </div>
+            
+            <h1 class="hero-title animate-in">Play & Earn Rewards!</h1>
+            <p class="hero-subtitle animate-in">Make money playing fun games and completing easy tasks!</p>
+            
+            <button class="cta-button animate-in" onclick="handleStartPlaying()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5,3 19,12 5,21"></polygon>
+                </svg>
+                Start Playing Now!
+            </button>
+            
+            <div class="stats-text animate-in">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Over 250,000+ Players Already Earning!
+            </div>
+        </section>
 
-        fbq('track', 'InitiateCheckout', {
-          content_name: 'Stimulus Relief Program',
-          content_category: 'Financial Aid',
-          content_ids: ['stimulus_relief_program'],
-          content_type: 'product_group',
-          value: 0.00,
-          currency: 'USD'
-        });
-      } catch (error) {
-        console.error('Error tracking Meta conversion:', error);
-      }
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-card fade-in">
+                <div class="feature-icon" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">
+                    🎮
+                </div>
+                <h3 class="feature-title">Play Fun Games</h3>
+                <p class="feature-description">Earn while playing your favorite mobile games!</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon" style="background: linear-gradient(45deg, #4ECDC4, #44A08D);">
+                    🎁
+                </div>
+                <h3 class="feature-title">Quick Rewards</h3>
+                <p class="feature-description">Cash out instantly to PayPal or gift cards!</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon" style="background: linear-gradient(45deg, #45B7D1, #96CEB4);">
+                    📅
+                </div>
+                <h3 class="feature-title">Daily Bonuses</h3>
+                <p class="feature-description">Earn extra rewards every single day!</p>
+            </div>
+        </section>
 
-      setTimeout(function() {
-        window.location.href = "https://auto.redirected4you.com/68000473bc01319da90f63b9?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}";
-      }, 500);
-    }
+        <!-- Games Section -->
+        <section class="games-section fade-in">
+            <h2 class="section-title">🎮 Popular Games</h2>
+            <p class="section-subtitle">Choose your favorite games and start earning!</p>
+            
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Puzzle Quest" class="game-image">
+                    <h3 class="game-title">Puzzle Quest</h3>
+                    <p class="game-category">Puzzle</p>
+                    <div class="game-stats">
+                        <div class="game-rating">
+                            ⭐ 4.8
+                        </div>
+                        <div class="game-players">50K+ players</div>
+                    </div>
+                    <div class="game-reward">💰 $0.25/level</div>
+                    <button class="play-button" onclick="playGame('Puzzle Quest')">Play Now</button>
+                </div>
+                
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/278887/pexels-photo-278887.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Word Master" class="game-image">
+                    <h3 class="game-title">Word Master</h3>
+                    <p class="game-category">Word</p>
+                    <div class="game-stats">
+                        <div class="game-rating">
+                            ⭐ 4.6
+                        </div>
+                        <div class="game-players">75K+ players</div>
+                    </div>
+                    <div class="game-reward">💰 $0.30/game</div>
+                    <button class="play-button" onclick="playGame('Word Master')">Play Now</button>
+                </div>
+                
+                <div class="game-card">
+                    <img src="https://images.pexels.com/photos/1040157/pexels-photo-1040157.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Color Match" class="game-image">
+                    <h3 class="game-title">Color Match</h3>
+                    <p class="game-category">Arcade</p>
+                    <div class="game-stats">
+                        <div class="game-rating">
+                            ⭐ 4.9
+                        </div>
+                        <div class="game-players">100K+ players</div>
+                    </div>
+                    <div class="game-reward">💰 $0.20/round</div>
+                    <button class="play-button" onclick="playGame('Color Match')">Play Now</button>
+                </div>
+            </div>
+        </section>
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const buttons = document.querySelectorAll('.download-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
-          trackConversion();
-        });
-      });
-    });
+        <!-- Leaderboard Section -->
+        <section class="leaderboard fade-in">
+            <h2 class="section-title">🏆 Top Champions</h2>
+            <p class="section-subtitle">Compete with players worldwide!</p>
+            
+            <div class="podium">
+                <div class="podium-place second">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sarah Winner" class="podium-avatar">
+                    <div class="podium-name">Sarah Winner</div>
+                    <div class="podium-score">$14,890</div>
+                </div>
+                
+                <div class="podium-place first">
+                    <div class="crown">👑</div>
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Alex Champion" class="podium-avatar">
+                    <div class="podium-name">Alex Champion</div>
+                    <div class="podium-score">$15,420</div>
+                </div>
+                
+                <div class="podium-place third">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mike Pro" class="podium-avatar">
+                    <div class="podium-name">Mike Pro</div>
+                    <div class="podium-score">$14,350</div>
+                </div>
+            </div>
+        </section>
 
-    lucide.createIcons();
+        <!-- Rewards Section -->
+        <section class="rewards fade-in">
+            <h2 class="section-title">🎁 Rewards Store</h2>
+            <p class="section-subtitle">Redeem your coins for amazing rewards!</p>
+            
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <img src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=400" alt="PayPal Cash" class="reward-image">
+                    <h3 class="reward-title">PayPal Cash</h3>
+                    <p class="reward-description">Instant cash to your PayPal account</p>
+                    <div class="reward-cost">
+                        <div class="cost-amount">
+                            💰 500 coins
+                        </div>
+                        <button class="redeem-button" onclick="redeemReward('PayPal Cash')">Redeem</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Amazon Gift Card" class="reward-image">
+                    <h3 class="reward-title">Amazon Gift Card</h3>
+                    <p class="reward-description">$10 Amazon gift card</p>
+                    <div class="reward-cost">
+                        <div class="cost-amount">
+                            💰 1000 coins
+                        </div>
+                        <button class="redeem-button" onclick="redeemReward('Amazon Gift Card')">Redeem</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Starbucks Card" class="reward-image">
+                    <h3 class="reward-title">Starbucks Card</h3>
+                    <p class="reward-description">$5 Starbucks gift card</p>
+                    <div class="reward-cost">
+                        <div class="cost-amount">
+                            💰 500 coins
+                        </div>
+                        <button class="redeem-button" onclick="redeemReward('Starbucks Card')">Redeem</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dotsContainer = document.getElementById('dots-container');
-    testimonials.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-green-700 to-green-500 w-6' : 'bg-green-200'}`;
-      dotsContainer.appendChild(dot);
-    });
-    function updateTestimonials() {
-      testimonials.forEach((testimonial, index) => {
-        testimonial.classList.remove('active');
-        if (index === currentTestimonial) {
-          testimonial.classList.add('active');
+        <!-- Footer CTA -->
+        <section class="footer-cta fade-in">
+            <h2>Start Earning Today!</h2>
+            <p>Join thousands of players who are already earning rewards every day!</p>
+            
+            <button class="download-button" onclick="handleDownload()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7,10 12,15 17,10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Now - It's Free!
+            </button>
+            
+            <p class="disclaimer">No Purchase Required - Start Earning Immediately</p>
+        </section>
+    </div>
+
+    <script>
+        // Notification system
+        const notifications = [
+            { name: 'Alex M.', amount: '$25', game: 'Puzzle Quest' },
+            { name: 'Sarah K.', amount: '$18', game: 'Word Master' },
+            { name: 'Mike R.', amount: '$32', game: 'Color Match' },
+            { name: 'Emma L.', amount: '$15', game: 'Brain Teaser' },
+            { name: 'Jake P.', amount: '$28', game: 'Number Rush' },
+            { name: 'Lisa W.', amount: '$22', game: 'Memory Cards' },
+            { name: 'Tom H.', amount: '$35', game: 'Logic Puzzles' },
+            { name: 'Amy C.', amount: '$19', game: 'Word Search' }
+        ];
+
+        let currentNotificationIndex = 0;
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            const nameElement = document.getElementById('notificationName');
+            const amountElement = document.getElementById('notificationAmount');
+            const gameElement = document.getElementById('notificationGame');
+            
+            const currentNotification = notifications[currentNotificationIndex];
+            nameElement.textContent = currentNotification.name;
+            amountElement.textContent = currentNotification.amount;
+            gameElement.textContent = currentNotification.game;
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+            
+            currentNotificationIndex = (currentNotificationIndex + 1) % notifications.length;
         }
-      });
-      const dots = dotsContainer.children;
-      Array.from(dots).forEach((dot, index) => {
-        dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-green-700 to-green-500 w-6' : 'bg-green-200'}`;
-      });
-    }
-    function nextTestimonial() {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      updateTestimonials();
-    }
-    function prevTestimonial() {
-      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-      updateTestimonials();
-    }
-    setInterval(nextTestimonial, 5000);
-  </script>
+
+        // Start notification cycle
+        setTimeout(() => {
+            showNotification();
+            setInterval(showNotification, 6000);
+        }, 2000);
+
+        // Create floating coins
+        function createFloatingCoins() {
+            const container = document.getElementById('floatingCoins');
+            const coinCount = window.innerWidth < 768 ? 8 : 15;
+            
+            for (let i = 0; i < coinCount; i++) {
+                const coin = document.createElement('div');
+                coin.className = 'coin';
+                coin.style.left = Math.random() * 100 + '%';
+                coin.style.top = Math.random() * 100 + '%';
+                coin.style.animationDelay = Math.random() * 6 + 's';
+                coin.style.animationDuration = (4 + Math.random() * 4) + 's';
+                container.appendChild(coin);
+            }
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Button handlers
+        function handleStartPlaying() {
+            // Add click animation
+            const button = event.target;
+            button.style.transform = 'translateY(2px) scale(0.98)';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+            
+            alert('🎮 Welcome to Play & Earn Rewards! Start playing games to earn money!');
+        }
+
+        function playGame(gameName) {
+            alert(`🎯 Starting ${gameName}! Get ready to earn rewards!`);
+        }
+
+        function redeemReward(rewardName) {
+            alert(`🎁 Redeeming ${rewardName}! Check your account for the reward!`);
+        }
+
+        function handleDownload() {
+            const button = event.target;
+            button.style.transform = 'translateY(2px) scale(0.98)';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+            
+            alert('📱 Redirecting to app download... Start earning rewards today!');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingCoins();
+            handleScrollAnimations();
+            
+            // Add scroll listener for animations
+            window.addEventListener('scroll', handleScrollAnimations);
+            
+            // Add some interactive effects
+            const cards = document.querySelectorAll('.feature-card, .game-card, .reward-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+
+        // Resize handler for responsive coins
+        window.addEventListener('resize', function() {
+            const container = document.getElementById('floatingCoins');
+            container.innerHTML = '';
+            createFloatingCoins();
+        });
+    </script>
 </body>
 </html>
