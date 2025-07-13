@@ -3,313 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Movie Reviewer - Get Paid to Review</title>
+    <title>ETX Excavation & Dirt Work LLC - Professional Excavation Services in East Texas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'construction-orange': '#FF6B35',
+                        'earth-brown': '#8B4513',
+                        'dirt-tan': '#D2B48C'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
+        
+        .service-card {
+            transition: all 0.3s ease;
         }
-
-        @keyframes slideInFromLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        @keyframes slideOutToRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
-
-        .testimonial-popup {
-            position: fixed;
-            top: 20px;
-            left: 16px;
-            right: 16px;
-            z-index: 1000;
-            animation: slideInFromLeft 0.5s ease-out;
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        .testimonial-popup.slide-out {
-            animation: slideOutToRight 0.5s ease-in;
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B35, #E55A2B);
+            transition: all 0.3s ease;
         }
-
-        /* Smooth transitions for interactive elements */
-        button {
-            transition: all 0.2s ease;
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #E55A2B, #CC4A1F);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
         }
-
-        button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
-        }
-
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #e50914;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b8070f;
-        }
-
-        /* Netflix logo styling */
-        .netflix-logo {
-            background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
-            border-radius: 8px;
-            position: relative;
-        }
-
-        /* Image styling */
-        .logo-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 12px;
-            margin: 0 auto 16px auto;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Netflix red gradient background */
-        .netflix-gradient {
-            background: linear-gradient(135deg, #141414 0%, #000000 100%);
-        }
-
-        /* Step numbers styling */
-        .step-number {
-            background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 </head>
-<body>
-    <div class="min-h-screen netflix-gradient flex items-center justify-center p-4">
-        <div class="w-full max-w-sm">
-            <!-- Main floating card -->
-            <div class="bg-white rounded-2xl shadow-2xl p-6 animate-float">
-                <!-- Netflix Logo or Custom Image -->
-                <div class="flex justify-center mb-4">
-                    <div class="w-20 h-20 netflix-logo flex items-center justify-center">
-                        <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596 2.344.058 4.85.398 4.854.398-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.71.002-22.95zM5.398 1.05V24c2.873-.086 5.81-.406 8.487-.606V1.05z"/>
-                        </svg>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <svg class="w-10 h-10 text-construction-orange mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20,8h-3V4H3C1.89,4 1,4.89 1,6v12c0,1.11 0.89,2 2,2h14l4-4V10C21,8.89 20.11,8 20,8z M19,17.5L15.5,21H3V6h12v4h4V17.5z"/>
+                        <path d="M10,7v4l3,2l3-2V7H10z M14,10.5l-1,0.67L12,10.5V9h2V10.5z"/>
+                    </svg>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">ETX Excavation & Dirt Work LLC</h1>
+                        <p class="text-sm text-gray-600">Professional Excavation Services</p>
                     </div>
                 </div>
-
-                <!-- Alternative: Custom image placeholder (uncomment to use) -->
-                <!-- <img src="/images/netflix-logo.png" alt="Netflix Logo" class="logo-image"> -->
-
-                <!-- Title -->
-                <div class="text-center mb-6">
-                    <h1 class="text-xl font-bold text-gray-900 mb-2 leading-tight">Want to get paid to be a Netflix Movie Reviewer?</h1>
-                    <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
-                        <span>Verified by</span>
-                        <span class="font-semibold text-red-600">Netflix</span>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="m9 12 2 2 4-4"></path>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
                         </svg>
+                        <span>(903) 555-DIRT</span>
                     </div>
-                </div>
-
-                <!-- Steps -->
-                <div class="space-y-4 mb-8">
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-white text-xs font-bold">1</span>
-                        </div>
-                        <span class="text-gray-700 font-medium">Enter your email & basic info</span>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-white text-xs font-bold">2</span>
-                        </div>
-                        <span class="text-gray-700 font-medium">Answer a simple questionnaire</span>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-white text-xs font-bold">3</span>
-                        </div>
-                        <span class="text-gray-700 font-medium">Apply to your desired job</span>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-white text-xs font-bold">4</span>
-                        </div>
-                        <span class="text-gray-700 font-medium">Start reviewing movies</span>
-                    </div>
-
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-white text-xs font-bold">5</span>
-                        </div>
-                        <span class="text-gray-700 font-medium">Click "Apply" to start now</span>
-                    </div>
-                </div>
-
-                <!-- CTA Button -->
-                <button id="applyButton" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mb-6 text-lg">
-                    <span>APPLY</span>
-                </button>
-
-                <!-- Trust indicators -->
-                <div class="flex items-center justify-center gap-2 text-sm">
-                    <span class="font-semibold text-gray-900">Trusted by</span>
-                    <div class="flex gap-1">
-                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
                         </svg>
-                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
-                        </svg>
-                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
-                        </svg>
-                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
-                        </svg>
-                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
-                        </svg>
+                        <span>info@etxexcavation.com</span>
                     </div>
-                    <span class="font-semibold text-gray-900">10,000+ reviewers</span>
+                    <button class="btn-primary text-white px-6 py-2 rounded-lg font-semibold">
+                        Get Quote
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <script>
-        // Configuration - Replace with your actual offer URL
-        const OFFER_URL = 'https://your-netflix-offer-url.com';
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-white relative">
+        <div class="text-center max-w-4xl mx-auto px-4 fade-in">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                East Texas's Premier<br>
+                <span class="text-construction-orange">Excavation Specialists</span>
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                Professional excavation, site preparation, and earthwork services for residential and commercial projects throughout East Texas
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-primary text-white px-10 py-4 rounded-lg text-lg font-semibold">
+                    Get Free Estimate
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-10 py-4 rounded-lg text-lg font-semibold transition-all duration-300">
+                    View Our Work
+                </button>
+            </div>
+        </div>
         
-        // Testimonial data for Netflix reviewers
-        const testimonials = [
-            { name: 'Sarah M.', amount: '$2,400/month', color: 'bg-red-500', action: 'earning' },
-            { name: 'Jake R.', amount: '$1,850/month', color: 'bg-blue-500', action: 'making' },
-            { name: 'Emma L.', amount: '$3,200/month', color: 'bg-purple-500', action: 'earned' },
-            { name: 'David K.', amount: '$2,750/month', color: 'bg-green-500', action: 'receiving' },
-            { name: 'Lisa T.', amount: '$1,950/month', color: 'bg-yellow-500', action: 'making' },
-            { name: 'Alex P.', amount: '$4,100/month', color: 'bg-indigo-500', action: 'earning' },
-            { name: 'Maya W.', amount: '$2,300/month', color: 'bg-pink-500', action: 'made' },
-            { name: 'Chris B.', amount: '$3,500/month', color: 'bg-teal-500', action: 'earning' },
-            { name: 'Taylor S.', amount: '$2,650/month', color: 'bg-orange-500', action: 'receiving' },
-            { name: 'Jordan H.', amount: '$3,800/month', color: 'bg-cyan-500', action: 'made' },
-            { name: 'Riley J.', amount: '$2,150/month', color: 'bg-lime-500', action: 'earning' }
-        ];
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
 
-        let currentTestimonialIndex = 0;
-        let testimonialTimeout;
-
-        function createTestimonialPopup(testimonial) {
-            const popup = document.createElement('div');
-            popup.className = 'testimonial-popup bg-white rounded-lg p-3 shadow-lg border border-gray-100';
-            
-            popup.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 ${testimonial.color} rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2h4a1 1 0 0 1 0 2h-1v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6H3a1 1 0 1 1 0-2h4zM6 6v14h12V6H6zm3-2V3h6v1H9z"></path>
-                        </svg>
+    <!-- About Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <h3 class="text-4xl font-bold text-gray-900 mb-6">
+                        Your Trusted Partner in East Texas
+                    </h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        With over 15 years of experience serving East Texas, ETX Excavation & Dirt Work LLC has built an unmatched reputation for quality, reliability, and professional service. We specialize in all aspects of excavation and earthwork for residential, commercial, and industrial projects.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Our experienced team uses state-of-the-art equipment and proven techniques to deliver exceptional results on time and within budget. From small residential projects to large commercial developments, we have the expertise and equipment to get the job done right the first time.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-construction-orange rounded-full mr-3"></div>
+                            <span class="text-gray-700 font-medium">Licensed & Insured</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-construction-orange rounded-full mr-3"></div>
+                            <span class="text-gray-700 font-medium">15+ Years Experience</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-construction-orange rounded-full mr-3"></div>
+                            <span class="text-gray-700 font-medium">Modern Equipment Fleet</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-construction-orange rounded-full mr-3"></div>
+                            <span class="text-gray-700 font-medium">24/7 Emergency Service</span>
+                        </div>
                     </div>
-                    <div class="text-sm">
-                        <span class="font-semibold" style="color: ${getColorFromBg(testimonial.color)}">${testimonial.name}</span>
-                        <span class="text-gray-600"> is ${testimonial.action} </span>
-                        <span class="font-semibold text-gray-900">${testimonial.amount}</span>
-                        <span class="text-gray-600"> reviewing!</span>
+                    <button class="btn-primary text-white px-8 py-3 rounded-lg font-semibold">
+                        Learn More About Us
+                    </button>
+                </div>
+                <div class="relative fade-in">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Excavation work" 
+                             class="rounded-lg shadow-lg h-48 w-full object-cover">
+                        <img src="https://images.pexels.com/photos/5691601/pexels-photo-5691601.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Construction site" 
+                             class="rounded-lg shadow-lg h-48 w-full object-cover mt-8">
+                        <img src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Equipment" 
+                             class="rounded-lg shadow-lg h-48 w-full object-cover -mt-8">
+                        <img src="https://images.pexels.com/photos/273230/pexels-photo-273230.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Finished project" 
+                             class="rounded-lg shadow-lg h-48 w-full object-cover">
                     </div>
                 </div>
-            `;
+            </div>
+        </div>
+    </section>
 
-            document.body.appendChild(popup);
-
-            // Remove popup after 4 seconds
-            setTimeout(() => {
-                popup.classList.add('slide-out');
-                setTimeout(() => {
-                    if (popup.parentNode) {
-                        popup.parentNode.removeChild(popup);
-                    }
-                }, 500);
-            }, 4000);
-        }
-
-        function getColorFromBg(bgClass) {
-            const colorMap = {
-                'bg-red-500': '#ef4444',
-                'bg-blue-500': '#3b82f6',
-                'bg-purple-500': '#a855f7',
-                'bg-green-500': '#22c55e',
-                'bg-yellow-500': '#eab308',
-                'bg-indigo-500': '#6366f1',
-                'bg-pink-500': '#ec4899',
-                'bg-teal-500': '#14b8a6',
-                'bg-orange-500': '#f97316',
-                'bg-cyan-500': '#06b6d4',
-                'bg-lime-500': '#84cc16'
-            };
-            return colorMap[bgClass] || '#ef4444';
-        }
-
-        function showNextTestimonial() {
-            const testimonial = testimonials[currentTestimonialIndex];
-            createTestimonialPopup(testimonial);
+    <!-- Services Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive excavation and earthwork services to meet all your construction and development needs
+                </p>
+            </div>
             
-            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-            
-            // Schedule next testimonial (random interval between 3-7 seconds)
-            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
-            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
-        }
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Site Preparation" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-6 h-6 text-construction-orange mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                            <h4 class="text-xl font-semibold text-gray-900">Site Preparation</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Complete site clearing, grading, and preparation for construction projects of all sizes.</p>
+                        <button class="text-construction-orange hover:text-orange-700 font-semibold flex items-center group">
+                            Learn More
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
-        // Start showing testimonials after 2 seconds
-        setTimeout(showNextTestimonial, 2000);
-        
-        // Add click event listener to the button
-        document.getElementById('applyButton').addEventListener('click', function() {
-            trackButtonClick();
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/5691601/pexels-photo-5691601.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Excavation Services" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-6 h-6 text-construction-orange mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                            <h4 class="text-xl font-semibold text-gray-900">Excavation Services</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Professional excavation for foundations, basements, pools, and utility installations.</p>
+                        <button class="text-construction-orange hover:text-orange-700 font-semibold flex items-center group">
+                            Learn More
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Land Grading" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-6 h-6 text-construction-orange mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                            <h4 class="text-xl font-semibold text-gray-900">Land Grading</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Precise grading and leveling services to ensure proper drainage and foundation stability.</p>
+                        <button class="text-construction-orange hover:text-orange-700 font-semibold flex items-center group">
+                            Learn More
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/273230/pexels-photo-273230.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Drainage Solutions" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-6 h-6 text-construction-orange mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                            <h4 class="text-xl font-semibold text-gray-900">Drainage Solutions</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Expert drainage system installation and erosion control for all property types.</p>
+                        <button class="text-construction-orange hover:text-orange-700 font-semibold flex items-center group">
+                            Learn More
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Additional Specialized Services</h3>
+                <p class="text-xl text-gray-600">Comprehensive solutions for all your earthwork needs</p>
+            </div>
             
-            // Redirect after a short delay
-            setTimeout(function() {
-                window.location.href = OFFER_URL;
-            }, 100);
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Additional Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Demolition" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Demolition</h4>
+                        <p class="text-gray-600 mb-4">Safe and efficient demolition services for residential and commercial structures.</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg font-semibold w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/1427777/pexels-photo-1427777.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Utility Trenching" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Utility Trenching</h4>
+                        <p class="text-gray-600 mb-4">Precision trenching for water, sewer, gas, and electrical utility installations.</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg font-semibold w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Road Construction" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Road Construction</h4>
+                        <p class="text-gray-600 mb-4">Complete road building services including grading, base preparation, and paving support.</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg font-semibold w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional Service 4 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden fade-in">
+                    <img src="https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                         alt="Land Clearing" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Land Clearing</h4>
+                        <p class="text-gray-600 mb-4">Professional land clearing and brush removal for development and agricultural projects.</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg font-semibold w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h3>
+                <p class="text-xl text-gray-600">Trusted by homeowners and contractors throughout East Texas</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 relative fade-in">
+                    <svg class="w-10 h-10 text-construction-orange mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z"/>
+                    </svg>
+                    <p class="text-gray-700 text-lg mb-6 italic leading-relaxed">
+                        "ETX Excavation did an outstanding job preparing our construction site. Their team was professional, efficient, and delivered exactly what they promised. The pricing was fair and transparent. Highly recommended!"
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-gray-900">Mike Johnson</p>
+                            <p class="text-sm text-gray-600">Tyler, TX</p>
+                        </div>
+                        <div class="flex">
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-xl p-8 relative fade-in">
+                    <svg class="w-10 h-10 text-construction-orange mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z"/>
+                    </svg>
+                    <p class="text-gray-700 text-lg mb-6 italic leading-relaxed">
+                        "They transformed our property with expert grading and drainage work. The team was knowledgeable, completed everything on schedule, and left the site cleaner than when they started. Exceptional service!"
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-gray-900">Sarah Williams</p>
+                            <p class="text-sm text-gray-600">Longview, TX</p>
+                        </div>
+                        <div class="flex">
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-4xl font-bold mb-4">Ready to Start Your Project?</h3>
+                <p class="text-xl text-gray-300">Contact us today for a free consultation and detailed quote</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
+                <!-- Contact Method 1 -->
+                <div class="flex flex-col items-center fade-in">
+                    <div class="bg-construction-orange rounded-full p-4 mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Call Us</h4>
+                    <p class="text-gray-300 text-lg">(903) 555-DIRT</p>
+                    <p class="text-gray-300">(903) 555-3478</p>
+                </div>
+
+                <!-- Contact Method 2 -->
+                <div class="flex flex-col items-center fade-in">
+                    <div class="bg-construction-orange rounded-full p-4 mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Email Us</h4>
+                    <p class="text-gray-300 text-lg">info@etxexcavation.com</p>
+                    <p class="text-gray-300">quotes@etxexcavation.com</p>
+                </div>
+
+                <!-- Contact Method 3 -->
+                <div class="flex flex-col items-center fade-in">
+                    <div class="bg-construction-orange rounded-full p-4 mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Service Area</h4>
+                    <p class="text-gray-300 text-lg">Tyler, Longview, Marshall</p>
+                    <p class="text-gray-300">& Surrounding East Texas</p>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <button class="btn-primary text-white px-12 py-4 rounded-lg text-lg font-semibold">
+                    Request Free Quote Today
+                </button>
+                <p class="text-gray-400 mt-4">Available 24/7 for emergency services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-10 h-10 text-construction-orange mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20,8h-3V4H3C1.89,4 1,4.89 1,6v12c0,1.11 0.89,2 2,2h14l4-4V10C21,8.89 20.11,8 20,8z M19,17.5L15.5,21H3V6h12v4h4V17.5z"/>
+                        <path d="M10,7v4l3,2l3-2V7H10z M14,10.5l-1,0.67L12,10.5V9h2V10.5z"/>
+                    </svg>
+                    <div>
+                        <h2 class="text-2xl font-bold">ETX Excavation & Dirt Work LLC</h2>
+                        <p class="text-gray-400">Professional Excavation Services</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6 text-lg">Licensed & Insured • Serving East Texas Since 2008</p>
+                <div class="border-t border-gray-700 pt-6">
+                    <p class="text-sm text-gray-500">
+                        © 2024 ETX Excavation & Dirt Work LLC. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
 
-        // Optional: You can also add tracking or analytics here
-        function trackButtonClick() {
-            // Add your tracking code here (Google Analytics, Facebook Pixel, etc.)
-            console.log('Apply button clicked - redirecting to Netflix reviewer offer');
-        }
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
     </script>
 </body>
 </html>
